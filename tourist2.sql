@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `3W_city` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `id_2` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `3W_city_wether` (
   `hmidmin` int(3) unsigned NOT NULL default '0',
   `hmidmax` int(3) unsigned NOT NULL default '0',
   `wpi` int(3) unsigned NOT NULL default '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
