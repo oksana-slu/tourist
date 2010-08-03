@@ -180,19 +180,22 @@ cellpadding="0" cellspacing="0" height="41" width="100%">
           <div id="Layer1z" style="position: absolute; width: 95%; 
 height: 210px; z-index: 5; top: 35px; left: 5%; border: 1px none rgb(0, 
 0, 0); overflow: auto;"> 
-            <table style="font-size: 12px;" border="0" width="100%"><tbody><tr>
-	<td>
-		<b><a style="color: rgb(200, 25, 0);" 
-href="{{ SITE_URL }}xtclass/etnografia">Краеведение</a></b> 
-		<a href="{{ SITE_URL }}xtclass/castles" 
-title="Архитектурные памятники и сооружения">Архитектура</a> | <a 
-href="{{ SITE_URL }}xtclass/history" title="Городища и 
-другие места, связанные с историей">История</a> | <a 
-href="{{ SITE_URL }}xtclass/niceplaces" title="Живописные 
-места и замечательные маршруты">Живописные места</a> | <a 
-href="{{ SITE_URL }}xtclass/flora" title="Растения в походе">Флора</a>
-	</td>
-</tr><tr>
+            <table style="font-size: 12px;" border="0" width="100%"><tbody>
+                {% for class_item in napr_xt_classes %}
+                <tr>
+                    <td>
+                        <b><a style="color: rgb(200, 25, 0);" href="{{ SITE_URL }}xtclass/{{ class_item.vcode }}">{{ class_item.vname }}</a></b> 
+                        {% comment %}
+                        <a href="{{ SITE_URL }}xtclass/castles" title="Архитектурные памятники и сооружения">Архитектура</a> | 
+                        <a href="{{ SITE_URL }}xtclass/history" title="Городища и другие места, связанные с историей">История</a> | 
+                        <a href="{{ SITE_URL }}xtclass/niceplaces" title="Живописные места и замечательные маршруты">Живописные места</a> | 
+                        <a href="{{ SITE_URL }}xtclass/flora" title="Растения в походе">Флора</a>
+                        {% endcomment %}
+                    </td>
+                </tr>
+                {% endfor %}
+
+                <tr>
 	<td>
 		<b><a style="color: rgb(200, 25, 0);" 
 href="{{ SITE_URL }}xtclass/ground">Земля</a></b> 
