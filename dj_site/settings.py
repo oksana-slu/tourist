@@ -1,4 +1,4 @@
-from dj_site.local_settings import *
+from local_settings import *
 
 TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'en-us'
