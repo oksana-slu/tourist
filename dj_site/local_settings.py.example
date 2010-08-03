@@ -1,0 +1,27 @@
+# Django settings for tourist project.
+
+PROJECT_ROOT = "/path/to/project/root/"
+SITE_URL = "http://127.0.0.1:8000/" #for devserver only
+
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+ADMINS = (
+    # ('Your Name', 'your_email@domain.com'),
+)
+
+MANAGERS = ADMINS
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = 'change it!!'

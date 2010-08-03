@@ -1,0 +1,3 @@
+cd dj_site
+cp local_settings.py.example local_settings.py
+#edit local_settings.py with your local settings
