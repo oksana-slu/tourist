@@ -27,6 +27,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 DROP TABLE IF EXISTS `xt_c2c`;
 CREATE TABLE IF NOT EXISTS `xt_c2c` (
+  `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `c2c_parent` int(11) NOT NULL default '0',
   `c2c_child` int(11) NOT NULL default '0',
   KEY `c2c_parent` (`c2c_parent`,`c2c_child`),
