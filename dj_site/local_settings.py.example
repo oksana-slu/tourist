@@ -1,6 +1,5 @@
 # Django settings for tourist project.
 
-PROJECT_ROOT = "/path/to/project/root/"
 SITE_URL = "http://127.0.0.1:8000/" #for devserver only
 
 DEBUG = True

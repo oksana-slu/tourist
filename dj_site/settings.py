@@ -1,4 +1,9 @@
 from local_settings import *
+import os
+
+PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__) + '/', '../')) + '/'
+LIB_PATH = os.path.join(PROJECT_ROOT, 'libs')
+
 
 TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'en-us'
@@ -21,7 +26,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.debug",
     "django.core.context_processors.media",
     "django.contrib.messages.context_processors.messages",
-    "dj_site.context_processors.site_url"
+    "dj_site.context_processors.site_url",
     )
 
 MIDDLEWARE_CLASSES = (
@@ -35,7 +40,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'dj_site.urls'
 
 TEMPLATE_DIRS = (
-    PROJECT_ROOT + "dj_site/templates", 
+    PROJECT_ROOT + "dj_site/templates",
 )
 
 INSTALLED_APPS = (

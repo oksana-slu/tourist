@@ -1,3 +1,4 @@
+libs/*
 dj_site/local_settings.py
 *.pyc
 *~
