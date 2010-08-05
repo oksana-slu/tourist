@@ -1,17 +1,17 @@
 from django.db import models
-       
-             
-        
+
+
 class XtClasstype(models.Model):
     id = models.IntegerField(primary_key=True)
     nme = models.CharField(max_length=66)
     xtct_desc = models.CharField(max_length=300, blank=True)
+
     def __unicode__(self):
         return self.nme
+
     class Meta:
         db_table = u'xt_classtype'
-       
-       
+
 
 class XtClass(models.Model):
     nid = models.IntegerField(primary_key=True)
@@ -22,17 +22,21 @@ class XtClass(models.Model):
     nshablon = models.IntegerField()
     xtcconst = models.CharField(max_length=90)
     class_order = models.IntegerField()
-    def __unicode__(self):
-        return self.vcode
-    
+
     class Meta:
         db_table = u'xt_class'
-        
-        
+
+    def __unicode__(self):
+        return self.vcode
+
+    def get_childs(self):
+        return self.parent.select_related('child').all().order_by("-child__class_order")
+
+
 class XtC2C(models.Model):
     parent = models.ForeignKey(XtClass, db_column='c2c_parent', related_name='parent')
     child = models.ForeignKey(XtClass, db_column='c2c_child', related_name='child')
-    
+
     class Meta:
         db_table = u'xt_c2c'
-        unique_together = (("parent", "child"),)
+        unique_together = (("parent", "child"), )
