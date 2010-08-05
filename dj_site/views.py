@@ -6,8 +6,10 @@ from dj_site.xtclass.models import XtClass
 
 
 def index(request):
-    napr_xt_classes = XtClass.objects.filter(xtclasstype__pk=1)[:11]#XtClass.objects.filter(nclasstype=1)[:11]
-    return render_to_response('index.html', {"napr_xt_classes": napr_xt_classes}, 
+    geogr_xt_classes = XtClass.objects.filter(xtclasstype__pk=2)[:6]
+    napr_xt_classes = XtClass.objects.filter(xtclasstype__pk=1).order_by('-class_order')[:11]
+    return render_to_response('index.html', {"napr_xt_classes": napr_xt_classes,
+                                            "geogr_xt_classes": geogr_xt_classes}, 
                               context_instance=RequestContext(request))
                               
                               

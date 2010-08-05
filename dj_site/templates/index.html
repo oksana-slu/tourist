@@ -75,24 +75,31 @@ cellpadding="0" cellspacing="0" height="44" width="100%">
           <div id="Layer2z" style="position: absolute; width: 95%; 
 height: 210px; z-index: 5; top: 35px; left: 5%; border: 1px none rgb(0, 
 0, 0); overflow: auto;"> 
-            <table style="font-size: 12px;" border="0" width="100%"><tbody><tr>
-	<td>
-		<b><a style="color: rgb(200, 25, 0);" 
-href="{{ SITE_URL }}xtclass/america">Америка</a></b> 
-		<br><a href="{{ SITE_URL }}xtclass/kuba" title="Вива 
-Куба!">Куба</a>
-	</td>
-</tr><tr>
-	<td>
-		<b><a style="color: rgb(200, 25, 0);" 
-href="{{ SITE_URL }}xtclass/europe">Европа</a></b> 
-		<br><a href="{{ SITE_URL }}xtclass/gemany" 
-title="германия">Германия</a> | <a 
-href="{{ SITE_URL }}xtclass/hungary" title="Угорщина">Венгрия</a>
- | <a href="{{ SITE_URL }}xtclass/austria" title="австрия">Австрия</a>
- | <a href="{{ SITE_URL }}xtclass/poland" title="Польша">Польша</a>
-	</td>
-</tr><tr>
+
+
+            <table style="font-size: 12px;" border="0" width="100%"><tbody>
+            {% for class_item in geogr_xt_classes %}
+                <tr>
+                    <td>
+                    	<b><a style="color: rgb(200, 25, 0);"href="{{ SITE_URL }}xtclass/{{ class_item.vcode }}"> {{class_item.vname }}</a></b>
+            
+                        {% comment %}
+                        <br><a href="{{ SITE_URL }}xtclass/kuba" title="Вива Куба!">Куба</a>
+                        {% endcomment %}
+                    </td>
+                </tr>
+            {% endfor %}
+            {% comment %}    
+                <tr>
+                    <td>
+                        <b><a style="color: rgb(200, 25, 0);"href="{{ SITE_URL }}xtclass/europe">Европа</a></b> 
+                        <br><a href="{{ SITE_URL }}xtclass/gemany" title="германия">Германия</a> | 
+                        <a href="{{ SITE_URL }}xtclass/hungary" title="Угорщина">Венгрия</a> | 
+                        <a href="{{ SITE_URL }}xtclass/austria" title="австрия">Австрия</a> | 
+                        <a href="{{ SITE_URL }}xtclass/poland" title="Польша">Польша</a>
+	                </td>
+                </tr>
+                <tr>
 	<td>
 		<b><a style="color: rgb(200, 25, 0);" 
 href="{{ SITE_URL }}xtclass/africa">Африка</a></b> 
@@ -137,7 +144,9 @@ href="{{ SITE_URL }}xtclass/kiev" title="Киевская область">Кие
  | <a href="{{ SITE_URL }}xtclass/zaporogie" 
 title="Запорожье">Запорожье</a>
 	</td>
-</tr></tbody></table>
+</tr>
+{% endcomment %}
+</tbody></table>
  </div>
           <table background="{{ MEDIA_URL }}img/n_upback.jpg" border="0" 
 cellpadding="0" cellspacing="0" height="41" width="100%">
