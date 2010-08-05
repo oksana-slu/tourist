@@ -81,11 +81,11 @@ height: 210px; z-index: 5; top: 35px; left: 5%; border: 1px none rgb(0,
             {% for class_item in geogr_xt_classes %}
                 <tr>
                     <td>
-                    	<b><a style="color: rgb(200, 25, 0);"href="{{ SITE_URL }}xtclass/{{ class_item.vcode }}"> {{class_item.vname }}</a></b>
-            
-                        {% comment %}
-                        <br><a href="{{ SITE_URL }}xtclass/kuba" title="Вива Куба!">Куба</a>
-                        {% endcomment %}
+                    	<b><a style="color: rgb(200, 25, 0);"href="{{ SITE_URL }}xtclass/{{ class_item.vcode }}" title="{{ class_item.xtcdescription }}"> {{class_item.vname }}</a></b>
+                        <br>
+			{% for child_class_item in class_item.get_childs %}
+			<a href="{{ SITE_URL }}xtclass/{{ child_class_item.child.vcode }}" title="{{ child_class_item.child.xtcdescription }}">{{ child_class_item.child.vname }}</a>{% if not forloop.last %} | {% endif %}
+			{% endfor %}
                     </td>
                 </tr>
             {% endfor %}
@@ -193,13 +193,11 @@ height: 210px; z-index: 5; top: 35px; left: 5%; border: 1px none rgb(0,
                 {% for class_item in napr_xt_classes %}
                 <tr>
                     <td>
-                        <b><a style="color: rgb(200, 25, 0);" href="{{ SITE_URL }}xtclass/{{ class_item.vcode }}">{{ class_item.vname }}</a></b> 
-                        {% comment %}
-                        <a href="{{ SITE_URL }}xtclass/castles" title="Архитектурные памятники и сооружения">Архитектура</a> | 
-                        <a href="{{ SITE_URL }}xtclass/history" title="Городища и другие места, связанные с историей">История</a> | 
-                        <a href="{{ SITE_URL }}xtclass/niceplaces" title="Живописные места и замечательные маршруты">Живописные места</a> | 
-                        <a href="{{ SITE_URL }}xtclass/flora" title="Растения в походе">Флора</a>
-                        {% endcomment %}
+                        <b><a style="color: rgb(200, 25, 0);" href="{{ SITE_URL }}xtclass/{{ class_item.vcode }}" title="{{ class_item.xtcdescription }}">{{ class_item.vname }}</a></b> 
+
+			{% for child_class_item in class_item.get_childs %}
+			<a href="{{ SITE_URL }}xtclass/{{ child_class_item.child.vcode }}" title="{{ child_class_item.child.xtcdescription }}">{{ child_class_item.child.vname }}</a>{% if not forloop.last %} | {% endif %}
+			{% endfor %}
                     </td>
                 </tr>
                 {% endfor %}
