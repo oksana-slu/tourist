@@ -28,8 +28,8 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 DROP TABLE IF EXISTS `xt_class`;
 CREATE TABLE IF NOT EXISTS `xt_class` (
   `nid` int(11) NOT NULL auto_increment,
-  `vname` varchar(88) collate utf8_bin NOT NULL default '',
-  `vcode` varchar(88) collate utf8_bin NOT NULL default '',
+  `vname` varchar(88) collate utf8_bin NOT NULL,
+  `vcode` varchar(88) collate utf8_bin NOT NULL,
   `xtcdescription` varchar(80) collate utf8_bin NOT NULL default '',
   `nclasstype` int(11) NOT NULL default '0',
   `nshablon` int(11) NOT NULL default '0',

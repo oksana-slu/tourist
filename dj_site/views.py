@@ -7,10 +7,10 @@ from dj_site.xtclass.models import XtClass
 
 def index(request):
     geogr_xt_classes = XtClass.objects.filter(xtclasstype__pk=2,
-                                             child__parent=0).\
+                                             childs__parent=0).\
                                              order_by('-class_order')
     napr_xt_classes = XtClass.objects.filter(xtclasstype__pk=1,
-                                             child__parent=0).\
+                                             childs__parent=0).\
                                              order_by('-class_order')
 
     return render_to_response('index.html', {"napr_xt_classes": napr_xt_classes,
