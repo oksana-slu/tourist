@@ -29,5 +29,6 @@ def xtreport_item(request, part, slug):
 
 
 def xtclass(request, slug):
-    return render_to_response('class.html', {},
+    xtcdescription_xtclass = XtClass.objects.get(vcode=slug)
+    return render_to_response('class.html', {"xtcdescription_xtclass": xtcdescription_xtclass},
                               context_instance=RequestContext(request))

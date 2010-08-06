@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}ХАРЬКОВ Велосипеды байки велопоходы велоспорт{% endblock %}
+{% block title %}{{ xtcdescription_xtclass.xtcdescription }}{% endblock %}
 
 
 {% block head %}
@@ -80,7 +80,7 @@ url('{{ MEDIA_URL }}img/filtr.gif') no-repeat scroll 50% 50% transparent;"
 border="0" cellpadding="3" cellspacing="0" height="96px" width="100%">
   <tbody><tr>
   	<td align="center" valign="bottom"><span class="head1"><font 
-style="color: rgb(255, 22, 0);">Велосипеды байки велопоходы велоспорт</font></span>
+style="color: rgb(255, 22, 0);"> {{ xtcdescription_xtclass.xtcdescription }}</font></span>
  </td></tr>
   <tr>	
 	<td align="center" valign="top"><span><font style="color: rgb(169, 90, 
