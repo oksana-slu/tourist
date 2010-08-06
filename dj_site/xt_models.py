@@ -1,17 +1,12 @@
+
+# in xtclass app
 class XtC2C(models.Model):
     c2c_parent = models.IntegerField()
     c2c_child = models.IntegerField()
     class Meta:
         db_table = u'xt_c2c'
 
-class XtC2O(models.Model):
-    nclass = models.IntegerField()
-    nclassmain = models.IntegerField()
-    nobj = models.IntegerField()
-    class Meta:
-        db_table = u'xt_c2o'
-
-
+# in xtclass app
 class XtClass(models.Model):
     nid = models.IntegerField(primary_key=True)
     vname = models.CharField(max_length=264)
@@ -24,12 +19,21 @@ class XtClass(models.Model):
     class Meta:
         db_table = u'xt_class'
 
+# in xtclass app
 class XtClasstype(models.Model):
     id = models.IntegerField(primary_key=True)
     nme = models.CharField(max_length=66)
     xtct_desc = models.CharField(max_length=300, blank=True)
     class Meta:
         db_table = u'xt_classtype'
+
+
+class XtC2O(models.Model):
+    nclass = models.IntegerField()
+    nclassmain = models.IntegerField()
+    nobj = models.IntegerField()
+    class Meta:
+        db_table = u'xt_c2o'
 
 class XtLink(models.Model):
     link_id = models.IntegerField(primary_key=True)

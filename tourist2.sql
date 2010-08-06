@@ -1586,9 +1586,11 @@ CREATE TABLE IF NOT EXISTS `xt_c2c` (
 --
 
 CREATE TABLE IF NOT EXISTS `xt_c2o` (
+  `id` int(11) NOT NULL auto_increment,
   `nclass` int(11) NOT NULL default '0',
   `nclassmain` int(11) NOT NULL default '0',
   `nobj` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`id`),
   KEY `nclass` (`nclass`),
   KEY `nobj` (`nobj`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -1692,7 +1694,7 @@ CREATE TABLE IF NOT EXISTS `xt_object` (
 --
 
 CREATE TABLE IF NOT EXISTS `xt_objtype` (
-  `otid` int(11) NOT NULL default '0',
+  `otid` int(11) NOT NULL auto_increment,
   `otname` varchar(22) collate utf8_bin NOT NULL default '',
   `ot_table_name` varchar(20) collate utf8_bin NOT NULL,
   PRIMARY KEY  (`otid`),

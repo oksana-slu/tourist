@@ -51,4 +51,5 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'dj_site.xtclass',
-)
+    'dj_site.xtobject',
+    )
