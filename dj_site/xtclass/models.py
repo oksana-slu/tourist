@@ -40,3 +40,4 @@ class XtC2C(models.Model):
     class Meta:
         db_table = u'xt_c2c'
         unique_together = (("parent", "child"), )
+
