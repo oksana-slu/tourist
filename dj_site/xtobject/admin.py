@@ -2,6 +2,11 @@ from dj_site.xtobject.models import XtObject, XtObjecttype, XtC2O
 from django.contrib import admin
 
 
+class XtC2OInlineXtObject(admin.TabularInline):
+    model = XtC2O
+    fk_name = "xtobject"
+    extra = 1
+
 class XtObjectAdmin(admin.ModelAdmin):
     list_display = ('status', 'freeedit', 'xtobjecttype', 'objid', 'objurl')
     list_filter = ('status', 'freeedit', 'xtobjecttype')
@@ -10,6 +15,9 @@ class XtObjectAdmin(admin.ModelAdmin):
             'fields': ('status', 'freeedit', 'xtobjecttype', 'objid', 'objurl', 'susshabl', 'objfavour', 'view', 'comment')
         }),
         )
+    inlines = [
+        XtC2OInlineXtObject
+    ]
         
         
 class XtObjecttypeAdmin(admin.ModelAdmin):
@@ -20,10 +28,7 @@ class XtObjecttypeAdmin(admin.ModelAdmin):
         }),
         )
         
-class XtC2OAdmin(admin.ModelAdmin):
-    list_display = ('xtclass', 'nclassmain', 'xtobject')
 
 
 admin.site.register(XtObject, XtObjectAdmin)
 admin.site.register(XtObjecttype, XtObjecttypeAdmin)
-admin.site.register(XtC2O, XtC2OAdmin)

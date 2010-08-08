@@ -25,7 +25,7 @@ class XtClass(models.Model):
 
     class Meta:
         db_table = u'xt_class'
-
+        
     def __unicode__(self):
         return self.vcode
 

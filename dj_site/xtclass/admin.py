@@ -1,5 +1,12 @@
 from dj_site.xtclass.models import XtC2C, XtClass, XtClasstype
+from dj_site.xtobject.models import XtC2O
 from django.contrib import admin
+
+
+class XtC2OInlineXtClass(admin.TabularInline):
+    model = XtC2O
+    fk_name = "xtclass"
+    extra = 1
 
 
 class Xtc2cInlineParents(admin.TabularInline):
@@ -28,7 +35,7 @@ class XtClassAdmin(admin.ModelAdmin):
         }),
         )
     inlines = [
-        Xtc2cInlineParents, Xtc2cInlineChilds
+        Xtc2cInlineParents, Xtc2cInlineChilds, XtC2OInlineXtClass
     ]
       
 
