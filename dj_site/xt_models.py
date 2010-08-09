@@ -58,6 +58,7 @@ class XtObject(models.Model):
     class Meta:
         db_table = u'xt_object'
 
+# in xtlink app
 class XtLink(models.Model):
     link_id = models.IntegerField(primary_key=True)
     link = models.CharField(max_length=300)
@@ -69,6 +70,7 @@ class XtLink(models.Model):
     class Meta:
         db_table = u'xt_link'
 
+# in xttopic app 
 class XtNews(models.Model):
     id = models.IntegerField(primary_key=True)
     path = models.CharField(unique=True, max_length=264)
@@ -80,6 +82,7 @@ class XtNews(models.Model):
     class Meta:
         db_table = u'xt_news'
 
+# in xttopic app 
 class XtTopic(models.Model):
     id = models.IntegerField(primary_key=True)
     path = models.CharField(max_length=264, blank=True)
