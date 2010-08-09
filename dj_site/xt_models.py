@@ -27,13 +27,36 @@ class XtClasstype(models.Model):
     class Meta:
         db_table = u'xt_classtype'
 
+# in xtobject app
+class XtObjtype(models.Model):
+    otid = models.IntegerField(primary_key=True)
+    otname = models.CharField(max_length=66)
+    ot_table_name = models.CharField(max_length=60)
+    class Meta:
+        db_table = u'xt_objtype'
 
+# in xtobject app
 class XtC2O(models.Model):
     nclass = models.IntegerField()
     nclassmain = models.IntegerField()
     nobj = models.IntegerField()
     class Meta:
         db_table = u'xt_c2o'
+
+# in xtobject app
+class XtObject(models.Model):
+    susid = models.IntegerField()
+    status = models.IntegerField()
+    freeedit = models.IntegerField()
+    sustype = models.IntegerField()
+    objid = models.IntegerField()
+    objurl = models.CharField(max_length=240)
+    susshabl = models.IntegerField()
+    objfavour = models.BigIntegerField()
+    view = models.IntegerField(null=True, blank=True)
+    comment = models.IntegerField(null=True, blank=True)
+    class Meta:
+        db_table = u'xt_object'
 
 class XtLink(models.Model):
     link_id = models.IntegerField(primary_key=True)
@@ -56,34 +79,6 @@ class XtNews(models.Model):
     forum = models.IntegerField()
     class Meta:
         db_table = u'xt_news'
-
-class XtObject(models.Model):
-    susid = models.IntegerField()
-    status = models.IntegerField()
-    freeedit = models.IntegerField()
-    sustype = models.IntegerField()
-    objid = models.IntegerField()
-    objurl = models.CharField(max_length=240)
-    susshabl = models.IntegerField()
-    objfavour = models.BigIntegerField()
-    view = models.IntegerField(null=True, blank=True)
-    comment = models.IntegerField(null=True, blank=True)
-    class Meta:
-        db_table = u'xt_object'
-
-class XtObjtype(models.Model):
-    otid = models.IntegerField(primary_key=True)
-    otname = models.CharField(max_length=66)
-    ot_table_name = models.CharField(max_length=60)
-    class Meta:
-        db_table = u'xt_objtype'
-
-class XtTemplates(models.Model):
-    tmpid = models.IntegerField(primary_key=True)
-    tmppath = models.CharField(max_length=240)
-    tmptype = models.IntegerField()
-    class Meta:
-        db_table = u'xt_templates'
 
 class XtTopic(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -110,3 +105,9 @@ class Xtplacetype(models.Model):
     class Meta:
         db_table = u'xtplacetype'
 
+class XtTemplates(models.Model):
+    tmpid = models.IntegerField(primary_key=True)
+    tmppath = models.CharField(max_length=240)
+    tmptype = models.IntegerField()
+    class Meta:
+        db_table = u'xt_templates'
