@@ -52,4 +52,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'dj_site.xtclass',
     'dj_site.xtobject',
+    'dj_site.xtlink',
+    'dj_site.xttopic',
     )
