@@ -6,7 +6,7 @@ class XtObjecttype(models.Model):
     id = models.IntegerField(primary_key=True, db_column='otid')
     otname = models.CharField(max_length=66, blank=True)
     ot_table_name = models.CharField(max_length=60)
-    
+
     def __unicode__(self):
         return self.otname
 
@@ -25,7 +25,10 @@ class XtObject(models.Model):
     objfavour = models.BigIntegerField(default=0)
     view = models.IntegerField(null=True, blank=True)
     comment = models.IntegerField(null=True, blank=True)
-    
+
+    def __unicode__(self):
+        return u'%d - %d' % (self.id, self.objid)
+
     class Meta:
         db_table = u'xt_object'
 
