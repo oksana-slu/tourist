@@ -9,6 +9,9 @@ class XtTopicAbstract(models.Model):
     author_id = models.IntegerField()
     date =  models.IntegerField()
     forum = models.IntegerField()
+    
+    def __unicode__(self):
+        return self.title
 
     class Meta:
         abstract = True

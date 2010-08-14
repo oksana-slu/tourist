@@ -788,47 +788,50 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
       Свежие новости</font>&nbsp;<a href="/all_news/1" title="Просмотр всех новостей">Все новости</a> </td>
   </tr>
 </table-->
-<table border="0" cellpadding="0" cellspacing="0" height="25" 
-width="100%">
-							<tbody><tr>
-								<td>
-									<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a href="{{ SITE_URL }}xtnews/bendy-bycicle"><img
- src="{{ MEDIA_URL }}img/ico_031.jpg" alt="Невероятный “сгибающийся велосипед”"
- border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/bendy-bycicle">21-летний 
-британский дизайнер изобрел велосипед, который можно со...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      DragonFly(20.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
+<table border="0" cellpadding="0" cellspacing="0" height="25" width="100%"><tbody>
+<tr>
+    <td>
+    
+    
+        {% for news in latest_news %}
+        <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
+            <tr>
+                <td rowspan="2" align="center" height="43" width="13%">
+                    <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81"><tbody>
+                        <tr> 
+                            <td><a href="{{ SITE_URL }}xtnews/bendy-bycicle">
+                                <img src="{{ MEDIA_URL }}img/ico_031.jpg" alt="{{ news.title }}" border="0" height="59" width="79">
+                                </a>
+                            </td>
+                        </tr></tbody>
+                    </table>
+                </td>
+                <td class="litlm1" valign="middle" width="87%">
+                    <span class="linkonf2">
+                    <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtnews/bendy-bycicle">
+                    {{ news.description }}
+                    </a> 
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="litlm1" align="right" height="15" valign="middle">
+                    <font color="#a91e0a">{{ news.author_id }}  {{ news.date }}. Теги:</font><br>
+                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a> | 
+                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
+                </td>
+            </tr></tbody>
+        </table>
+        {% endfor %}
+        
+        
+{% comment %}       
+        <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
+            <tr> 
+                <td rowspan="2" align="center" height="43" width="13%"> 
+                    <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81"><tbody>
+                        <tr> 
+                            <td><a 
 href="{{ SITE_URL }}xtnews/v-harkove-projdet-festival-parkura"><img
  src="{{ MEDIA_URL }}img/ico_020.jpg" alt="В Харькове пройдет фестиваль 
 паркура" border="0" height="59" width="79"></a></td>
@@ -971,9 +974,11 @@ href="{{ SITE_URL }}xtclass/travels" title="Путешествия и
 href="{{ SITE_URL }}xtclass/others" title="Разное">Другое</a></td>
   </tr>
 </tbody></table>
+{% endcomment %}
 
-								</td>
-							</tr>
+
+	</td>
+</tr></tbody>
 							<!--tr>
 								<td valign="bottom" align="right">
 									<strong> &nbsp;
@@ -983,7 +988,7 @@ href="{{ SITE_URL }}xtclass/others" title="Разное">Другое</a></td>
 								</td>
 							</tr-->
 							
-						</tbody></table>
+</table>
  </div>
         </div>
         <div id="Layer100" style="position: absolute; width: 100%; 
