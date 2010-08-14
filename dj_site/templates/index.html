@@ -1069,43 +1069,44 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
       Последние отчеты <a href="/all_report/1" title="Просмотр всех отчетов">Больше</a></font>&nbsp; </td>
   </tr>
 </table-->
-<table border="0" cellpadding="0" cellspacing="0" height="25" 
-width="100%">
-							<tbody><tr>
-								<td>
-									<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/YEkskursiya_na_zavod_HVZ"><img 
-src="{{ MEDIA_URL }}img/ico_036.jpg" alt="Экскурсия на завод ХВЗ" border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/YEkskursiya_na_zavod_HVZ">Экскурсия
- на харьковский велозавод. Очень интересно.</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Миша(12.02.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская 
-область">Харьков</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-
+<table border="0" cellpadding="0" cellspacing="0" height="25" width="100%"><tbody>
+    <tr>
+        <td>
+        
+            {% for report in popular_report %}      
+            <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
+                <tr> 
+                    <td rowspan="2" align="center" height="43" width="13%"> 
+                        <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81"><tbody>
+                            <tr> 
+                                <td>
+                                    <a href="{{ SITE_URL }}xtreport/YEkskursiya_na_zavod_HVZ">
+                                    <img src="{{ MEDIA_URL }}img/ico_036.jpg" alt="{{ report.title }}" border="0" height="59" width="79">
+                                    </a>
+                                </td>
+                            </tr></tbody>
+                        </table>
+                    </td>
+                    <td class="litlm1" valign="middle" width="87%">
+                        <span class="linkonf2">
+                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtreport/YEkskursiya_na_zavod_HVZ">{{ report.description }}
+                        </a> 
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="litlm1" align="right" height="15" valign="middle">
+                        <font color="#a91e0a">{{ report.author_id }}({{ report.date }}). Теги:</font><br>
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская область">Харьков</a> | 
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a> | 
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
+                    </td>
+                </tr></tbody>
+            </table>
+            {% endfor %}
+            
+            
+{% comment %}
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
   <tbody><tr> 
@@ -1302,9 +1303,11 @@ title="Байдарки и каяки">Байдарки</a> | <a style="color: r
 препровождение">Активный отдых</a></td>
   </tr>
 </tbody></table>
-
-								</td>
-							</tr>
+{% endcomment %}
+		
+        
+        </td>
+    </tr>
 							<!--tr>
 								<td valign="bottom" align="right">
 									<strong> &nbsp;
@@ -1314,7 +1317,8 @@ title="Байдарки и каяки">Байдарки</a> | <a style="color: r
 								</td>
 							</tr-->
 							
-						</tbody></table> </div>
+</tbody></table> 
+</div>
         </div>
         <div id="Layer8" style="position: absolute; width: 100%; height:
  100%; z-index: 2;"> 
@@ -1356,37 +1360,43 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
       Последние отчеты <a href="/all_report/1" title="Просмотр всех отчетов">Больше</a></font>&nbsp; </td>
   </tr>
 </table-->
-<table border="0" cellpadding="0" cellspacing="0" height="25" 
-width="100%">
-							<tbody><tr>
-								<td>
-									<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/pvd-zhdp-eshar-zhdp-gineevka"><img
- src="{{ MEDIA_URL }}img/ico_030.jpg" alt="ПВД жд.п. Эсхар - жд.п. Гинеевка" 
-border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/pvd-zhdp-eshar-zhdp-gineevka">Пеший
- поход вдоль р.Уды и р.Северский Донец</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      chelovek.com(26.07.2010). Теги:</font><br>
-      </td>
-  </tr>
-</tbody></table>
-
+<table border="0" cellpadding="0" cellspacing="0" height="25" width="100%"><tbody>
+    <tr>
+        <td>
+        
+        
+            {% for report in recent_report %}        
+            <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
+                <tr> 
+                    <td rowspan="2" align="center" height="43" width="13%"> 
+                        <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81"><tbody>
+                            <tr> 
+                                <td>
+                                    <a href="{{ SITE_URL }}xtreport/pvd-zhdp-eshar-zhdp-gineevka">
+                                    <img src="{{ MEDIA_URL }}img/ico_030.jpg" alt="{{ report.title }}" border="0" height="59" width="79">
+                                    </a>
+                                </td>
+                            </tr></tbody>
+                        </table>
+                    </td>
+                    <td class="litlm1" valign="middle" width="87%">
+                        <span class="linkonf2">
+                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtreport/pvd-zhdp-eshar-zhdp-gineevka">{{ report.description }}
+                        </a> 
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="litlm1" align="right" height="15" valign="middle">
+                        <font color="#a91e0a">{{ report.author_id }}({{ report.date }}). Теги:</font><br>
+                    </td>
+                </tr></tbody>
+            </table>
+            {% endfor %}
+            
+            
+            
+{% comment %}
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
   <tbody><tr> 
@@ -1567,9 +1577,12 @@ href="{{ SITE_URL }}xtclass/active" title="Активное время
 препровождение">Активный отдых</a></td>
   </tr>
 </tbody></table>
+{% endcomment %}
 
-								</td>
-							</tr>
+
+
+        </td>
+    </tr>
 							<!--tr>
 								<td valign="bottom" align="right">
 									<strong> &nbsp;

@@ -4,7 +4,7 @@ from django.contrib import admin
 
 class XtNewsAdmin(admin.ModelAdmin):
     list_display = ('path', 'title', 'description', 'author_id', 'date', 'forum')
-    search_fields = ['path', 'title']
+    search_fields = ['path', 'title', 'description']
     fieldsets = (
         (None, {
             'fields': ('path', 'title', 'description', 'author_id', 'date', 'forum')
@@ -14,7 +14,7 @@ class XtNewsAdmin(admin.ModelAdmin):
         
 class XtTopicAdmin(admin.ModelAdmin):
     list_display = ('path', 'title', 'description', 'author_id', 'date', 'forum')
-    search_fields = ['path', 'title']
+    search_fields = ['path', 'title', 'description']
     fieldsets = (
         (None, {
             'fields': ('path', 'title', 'description', 'author_id', 'date', 'forum')
