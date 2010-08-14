@@ -20,7 +20,7 @@ class XtNews(XtTopicAbstract):
         db_table = u'xt_news'
 
 
-class XtReport(XtTopicAbstract):
+class XtTopic(XtTopicAbstract):
 
     class Meta:
         db_table = u'xt_topic'

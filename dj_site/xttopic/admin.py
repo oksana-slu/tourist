@@ -1,4 +1,4 @@
-from dj_site.xttopic.models import XtNews, XtReport
+from dj_site.xttopic.models import XtNews, XtTopic
 from django.contrib import admin
 
 
@@ -12,7 +12,7 @@ class XtNewsAdmin(admin.ModelAdmin):
         )
         
         
-class XtReportAdmin(admin.ModelAdmin):
+class XtTopicAdmin(admin.ModelAdmin):
     list_display = ('path', 'title', 'description', 'author_id', 'date', 'forum')
     search_fields = ['path', 'title']
     fieldsets = (
@@ -23,4 +23,4 @@ class XtReportAdmin(admin.ModelAdmin):
     
 
 admin.site.register(XtNews, XtNewsAdmin)
-admin.site.register(XtReport, XtReportAdmin)
+admin.site.register(XtTopic, XtTopicAdmin)
