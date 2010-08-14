@@ -1663,52 +1663,51 @@ src="{{ MEDIA_URL }}img/n_zakr.gif" height="41" width="12"></td>
       Последние статьи&nbsp; <a href="/all_article/1" title="Просмотр всех статей">Больше</a></font></td>
   </tr>
 </table-->
-<table border="0" cellpadding="0" cellspacing="0" height="25" 
-width="100%">
-  <tbody><tr> 
-    <td> <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtarticle/Zagranpasport_Oformlenie"><img
- src="{{ MEDIA_URL }}img/ico_002.jpg" alt="Загранпаспорт.Практическое 
-оформление.(Московский район)" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtarticle/Zagranpasport_Oformlenie">Процедура
- оформления загранпаспорта для жителей московского район...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Белый_Сокол(12.02.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/africa" title="Африка">Африка</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/america" title="Континент 
-Америка и все что близко">Америка</a> | <a style="color: rgb(169, 77, 
-10);" href="{{ SITE_URL }}xtclass/asia" title="Азия как 
-часть света и все что близко">Азия</a> | <a style="color: rgb(169, 77, 
-10);" href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/tours" title="Туры, путевки">Туры</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/travels" title="Путешествия и 
-путешественники">Путешествия</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/foot" title="Пешие походы">Пеший
- туризм</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-
+<table border="0" cellpadding="0" cellspacing="0" height="25" width="100%"><tbody>
+    <tr> 
+        <td> 
+        
+        
+            {% for article in best_article %}
+            <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
+                <tr> 
+                    <td rowspan="2" align="center" height="43" width="13%">
+                        <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81"><tbody>
+                            <tr> 
+                                <td>
+                                    <a href="{{ SITE_URL }}xtarticle/Zagranpasport_Oformlenie">
+                                    <img src="{{ MEDIA_URL }}img/ico_002.jpg" alt="{{ article.title }}" border="0" height="59" width="79">
+                                    </a>
+                                </td>
+                            </tr></tbody>
+                        </table>
+                    </td>
+                    <td class="litlm1" valign="middle" width="87%">
+                        <span class="linkonf2">
+                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtarticle/Zagranpasport_Oformlenie">{{ article.description }}
+                        </a> 
+                        </span>
+                    </td>
+                </tr>  
+                <tr>
+                    <td class="litlm1" align="right" height="15" valign="middle">
+                        <font color="#a91e0a">{{ article.author_id }}({{ article.date }}). Теги:</font><br>
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/africa" title="Африка">Африка</a> | 
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/america" title="Континент Америка и все что близко">Америка</a> | 
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/asia" title="Азия как часть света и все что близко">Азия</a> | 
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a> | 
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/tours" title="Туры, путевки">Туры</a> | 
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/travels" title="Путешествия и путешественники">Путешествия</a> | 
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/foot" title="Пешие походы">Пеший туризм</a> | 
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
+                    </td>
+                </tr></tbody>
+            </table>
+            {% endfor %}
+            
+            
+            
+{% comment %}
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
   <tbody><tr> 
@@ -1928,8 +1927,12 @@ href="{{ SITE_URL }}xtclass/etnografia"
 title="Достопримечательности Харькова">Краеведение</a></td>
   </tr>
 </tbody></table>
- </td>
-  </tr>
+{% endcomment %}
+
+
+
+        </td>
+    </tr>
   <!--tr> 
     <td> <strong> &nbsp; <img src="img/str2.gif" width="10" height="10"></strong> 
       <a href="/add_article/"> <span class="linkonf">Добавить 
@@ -1978,40 +1981,44 @@ src="{{ MEDIA_URL }}img/n_zag_lchs2.gif" height="16" vspace="13" width="120"></t
       Последние статьи&nbsp; <a href="/all_article/1" title="Просмотр всех статей">Больше</a></font></td>
   </tr>
 </table-->
-<table border="0" cellpadding="0" cellspacing="0" height="25" 
-width="100%">
-  <tbody><tr> 
-    <td> <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtarticle/httpuabikecomindexphpidocatcategorysuport_2"><img
- src="{{ MEDIA_URL }}img/ico_018.jpg" alt="Легендарный WD-40. Мифы и 
-реальность" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtarticle/httpuabikecomindexphpidocatcategorysuport_2">Благодаря
- воздействию рекламных текстов, огромное количество люде...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Mypka(27.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/automoto" title="Все у чего есть
- ДВС">Авто-мото</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-
+<table border="0" cellpadding="0" cellspacing="0" height="25" width="100%"><tbody>
+    <tr> 
+        <td>
+            
+            
+            {% for article in new_article %}
+            <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
+                <tr> 
+                    <td rowspan="2" align="center" height="43" width="13%"> 
+                        <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81"><tbody>
+                            <tr> 
+                                <td>
+                                    <a href="{{ SITE_URL }}xtarticle/httpuabikecomindexphpidocatcategorysuport_2">
+                                    <img src="{{ MEDIA_URL }}img/ico_018.jpg" alt="{{ article.title }}" border="0" height="59" width="79">
+                                    </a>
+                                </td>
+                            </tr></tbody>
+                        </table>
+                    </td>
+                    <td class="litlm1" valign="middle" width="87%">
+                        <span class="linkonf2">
+                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtarticle/httpuabikecomindexphpidocatcategorysuport_2">{{ article.description }}
+                        </a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="litlm1" align="right" height="15" valign="middle">
+                        <font color="#a91e0a">{{ article.author_id }}({{ article.date }}). Теги:</font><br>
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/automoto" title="Все у чего есть ДВС">Авто-мото</a> | 
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
+                    </td>
+                </tr></tbody>
+            </table>
+            {% endfor %}
+            
+            
+{% comment %}
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
   <tbody><tr> 
@@ -2184,8 +2191,12 @@ href="{{ SITE_URL }}xtclass/active" title="Активное время
 препровождение">Активный отдых</a></td>
   </tr>
 </tbody></table>
- </td>
-  </tr>
+{% endcomment %}
+
+
+
+        </td>
+    </tr>
   <!--tr> 
     <td> <strong> &nbsp; <img src="img/str2.gif" width="10" height="10"></strong> 
       <a href="/add_article/"> <span class="linkonf">Добавить 

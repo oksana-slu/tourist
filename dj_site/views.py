@@ -21,6 +21,11 @@ def index(request):
                                           order_by('-date')[0:6]
     popular_report = XtTopic.objects.filter(path__startswith='report').\
                                           order_by('-forum')[0:6]
+                                          
+    new_article = XtTopic.objects.filter(path__startswith='article').\
+                                          order_by('-date')[0:6]
+    best_article = XtTopic.objects.filter(path__startswith='article').\
+                                          order_by('-forum')[0:6]
 
 
     return render_to_response('index.html', {"napr_xt_classes": napr_xt_classes,
@@ -28,7 +33,9 @@ def index(request):
                                              "latest_news":latest_news,
                                              "top_news":top_news,
                                              "recent_report":recent_report,
-                                             "popular_report":popular_report},
+                                             "popular_report":popular_report,
+                                             "new_article":new_article,
+                                             "best_article":best_article},
                               context_instance=RequestContext(request))
 
 
