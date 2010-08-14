@@ -559,43 +559,49 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
       Свежие новости</font>&nbsp;<a href="/all_news/1" title="Просмотр всех новостей">Все новости</a> </td>
   </tr>
 </table-->
-<table border="0" cellpadding="0" cellspacing="0" height="25" 
-width="100%">
-							<tbody><tr>
-								<td>
-									<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/olimpijskij-chempion-izobrazil-tipovoj-velosiped-b"><img
- src="{{ MEDIA_URL }}img/ico_028.jpg" alt="Олимпийский чемпион изобразил 
-типовой велосипед б" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/olimpijskij-chempion-izobrazil-tipovoj-velosiped-b">Спортсмен
- с мировым именем представил публике свою мечту на тему ...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      Nicodim(03.01.2010). Теги:</font><br>
-      </td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
+<table border="0" cellpadding="0" cellspacing="0" height="25" width="100%"><tbody>
+    <tr>
+        <td>
+        
+        
+            {% for news in top_news %}        
+            <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
+                <tr> 
+                    <td rowspan="2" align="center" height="43" width="13%"> 
+                        <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81"><tbody>
+                            <tr> 
+                                <td>
+                                    <a href="{{ SITE_URL }}xtnews/olimpijskij-chempion-izobrazil-tipovoj-velosiped-b">
+                                    <img src="{{ MEDIA_URL }}img/ico_028.jpg" alt="{{ news.title }}" border="0" height="59" width="79">
+                                    </a>
+                                </td>
+                            </tr></tbody>
+                        </table>
+                    </td>
+                    <td class="litlm1" valign="middle" width="87%">
+                        <span class="linkonf2">
+                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtnews/olimpijskij-chempion-izobrazil-tipovoj-velosiped-b">{{ news.description }}
+                        </a> 
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="litlm1" align="right" height="15" valign="middle">
+                        <font color="#a91e0a">{{ news.author_id }}({{ news.date }}). Теги:</font><br>
+                    </td>
+                </tr></tbody>
+            </table>
+            {% endfor %}
+            
+            
+            
+            
+{% comment %}   
+            <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
+                <tr> 
+                    <td rowspan="2" align="center" height="43" width="13%"> 
+                        <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81"><tbody>
+                            <tr> 
           <td><a 
 href="{{ SITE_URL }}xtnews/prostitutki-dayut-skidki-velosipedistam"><img
  src="{{ MEDIA_URL }}img/ico_026.jpg" alt="Проститутки дают скидки 
@@ -733,9 +739,13 @@ href="{{ SITE_URL }}xtclass/america" title="Континент
 Америка и все что близко">Америка</a></td>
   </tr>
 </tbody></table>
+{% endcomment %}
 
-								</td>
-							</tr>
+
+
+
+		</td>
+    </tr>
 							<!--tr>
 								<td valign="bottom" align="right">
 									<strong> &nbsp;
@@ -745,7 +755,9 @@ href="{{ SITE_URL }}xtclass/america" title="Континент
 								</td>
 							</tr-->
 							
-						</tbody></table>
+</tbody></table>
+
+
  </div>
         </div>
         <div id="Layer6" style="position: absolute; width: 100%; height:
@@ -816,7 +828,7 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
             </tr>
             <tr>
                 <td class="litlm1" align="right" height="15" valign="middle">
-                    <font color="#a91e0a">{{ news.author_id }}  {{ news.date }}. Теги:</font><br>
+                    <font color="#a91e0a">{{ news.author_id }}({{ news.date }}). Теги:</font><br>
                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a> | 
                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
                 </td>

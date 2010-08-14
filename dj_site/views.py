@@ -15,10 +15,12 @@ def index(request):
                                              order_by('-class_order')
                                              
     latest_news = XtNews.objects.all().order_by('-date')[0:6]
+    top_news = XtNews.objects.all().order_by('-forum')[0:6]
 
     return render_to_response('index.html', {"napr_xt_classes": napr_xt_classes,
                                              "geogr_xt_classes": geogr_xt_classes,
-                                             "latest_news":latest_news},
+                                             "latest_news":latest_news,
+                                             "top_news":top_news},
                               context_instance=RequestContext(request))
 
 
