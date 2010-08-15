@@ -252,11 +252,12 @@ none;"><font face="arial,helvetica,sans-serif" size="2">Вольный пере�
 		 </p>
 		<p class="linkonf" align="right"><em>DragonFly 20.07.2010 12:05</em></p>
 		<br>
-		<a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a><br>
+		
+                                                                    {% for class in xtclass%}
+                                                                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a>{% if not forloop.last %} | {% endif %} 
+                                                                    {% endfor %}
+        
+        <br>
 		
 		</td>
 	</tr>
@@ -348,115 +349,217 @@ title="Сообщение" border="0">
 </tbody></table> 	</td>
                     </tr>
                   </tbody></table></td>
-              </tr>
-            </tbody></table></td>
-          <td class="contentBlock" style="" align="left" height="100%" 
-valign="top" width="25%">          				
-	          <table border="0" cellpadding="0" cellspacing="0" 
-height="100%" width="288px">	          
-	          	<tbody><tr><td align="center" valign="top"><table 
-class="contentBlock" align="center" border="0" cellpadding="0" 
-cellspacing="0" height="100%" width="288px"><tbody><tr><td valign="top">
-<table class="contentBlock" align="center" border="0" cellpadding="2" 
-cellspacing="1" width="288px"><tbody><tr><td style="padding: 0pt 0pt 
-20px;" valign="top"><table border="0" cellpadding="2" cellspacing="1">
-    <tbody><tr><td colspan="2" class="headerBlock">Последние новости</td></tr><tr><td
- valign="top"><table border="0" cellpadding="5" cellspacing="5" 
-width="280px"><tbody><tr>
-							  <td><a 
-href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus"><img
- src="{{ MEDIA_URL }}img/ico_009.jpg" alt="Концепты велосипедов от Volkswagen и 
-Lexus" border="0" height="59" width="79"></a></td>
-							  <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 
-10px 0pt 0pt;">08.07.2010<br><span class="linkonf2"><a 
-href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus">Концепты
- велосипедов от Volkswagen и Lexus...</a></span></td>
-							  </tr></tbody></table></td>	
-							</tr><tr><td valign="top"><table border="0" cellpadding="5" 
-cellspacing="5" width="280px"><tbody><tr>
-							  <td><a 
-href="{{ SITE_URL }}xtnews/zagranpasporta-starogo-obrazca"><img
- src="{{ MEDIA_URL }}img/ico_005.jpg" alt="Загранпаспорта старого образца" 
-border="0" height="59" width="79"></a></td>
-							  <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 
-10px 0pt 0pt;">19.06.2010<br><span class="linkonf2"><a 
-href="{{ SITE_URL }}xtnews/zagranpasporta-starogo-obrazca">Загранпаспорта
- старого образца будут выпускаться до 15 июля...</a></span></td>
-							  </tr></tbody></table></td>	
-							</tr><tr><td valign="top"><table border="0" cellpadding="5" 
-cellspacing="5" width="280px"><tbody><tr>
-							  <td><a 
-href="{{ SITE_URL }}xtnews/v-kieve-otkryli-protivougonnuyu-veloparkovku"><img
- src="{{ MEDIA_URL }}img/ico_008.jpg" alt="В Киеве открыли «противоугонную» 
-велопарковку" border="0" height="59" width="79"></a></td>
-							  <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 
-10px 0pt 0pt;">16.06.2010<br><span class="linkonf2"><a 
-href="{{ SITE_URL }}xtnews/v-kieve-otkryli-protivougonnuyu-veloparkovku">В
- столице открыли «противоугонную» парковку для велосипедов...</a></span></td>
-							  </tr></tbody></table></td>	
-							</tr><tr><td valign="top"><table border="0" cellpadding="5" 
-cellspacing="5" width="280px"><tbody><tr>
-							  <td><a 
-href="{{ SITE_URL }}xtnews/tehnodoping-v-velosporte_2"><img 
-src="{{ MEDIA_URL }}img/ico_011.jpg" alt="Технодопинг в велоспорте" border="0" 
-height="59" width="79"></a></td>
-							  <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 
-10px 0pt 0pt;">15.06.2010<br><span class="linkonf2"><a 
-href="{{ SITE_URL }}xtnews/tehnodoping-v-velosporte_2">В 
-шоссейных велогонках разразился скандал, который, о чудо, никак не 
-связан с запрещенной фармаколог...</a></span></td>
-							  </tr></tbody></table></td>	
-							</tr><tr><td valign="top"><table border="0" cellpadding="5" 
-cellspacing="5" width="280px"><tbody><tr>
-							  <td><a 
-href="{{ SITE_URL }}xtnews/treadmill-bike-begovoj-velosiped"><img
- src="{{ MEDIA_URL }}img/ico.jpg" alt="Treadmill Bike - беговой велосипед" 
-border="0" height="59" width="79"></a></td>
-							  <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 
-10px 0pt 0pt;">13.06.2010<br><span class="linkonf2"><a 
-href="{{ SITE_URL }}xtnews/treadmill-bike-begovoj-velosiped">Идти
- и ехать одновременно можно не только когда вы ходите между креслами в 
-едущем автобусе или идёте...</a></span></td>
-							  </tr></tbody></table></td>	
-							</tr><tr><td valign="top"><table border="0" cellpadding="5" 
-cellspacing="5" width="280px"><tbody><tr>
-							  <td><a 
-href="{{ SITE_URL }}xtnews/iz-angliii-v-kitaj-na-velosipede-pograncy-ne-spyat"><img
- src="{{ MEDIA_URL }}img/ico_002.jpg" alt="Из Англиии в Китай на велосипеде: 
-погранцы не спят" border="0" height="59" width="79"></a></td>
-							  <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 
-10px 0pt 0pt;">10.06.2010<br><span class="linkonf2"><a 
-href="{{ SITE_URL }}xtnews/iz-angliii-v-kitaj-na-velosipede-pograncy-ne-spyat">Украинские
- пограничники задержали в Закарпатской области бродягу из 
-Великобритании, незаконного пере...</a></span></td>
-							  </tr></tbody></table></td>	
-							</tr><tr><td valign="top"><table border="0" cellpadding="5" 
-cellspacing="5" width="280px"><tbody><tr>
-							  <td><a 
-href="{{ SITE_URL }}xtnews/na-velosipede-vokrug-zemli"><img 
-src="{{ MEDIA_URL }}img/ico_004.jpg" alt="На велосипеде вокруг земли!" 
-border="0" height="59" width="79"></a></td>
-							  <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 
-10px 0pt 0pt;">16.05.2010<br><span class="linkonf2"><a 
-href="{{ SITE_URL }}xtnews/na-velosipede-vokrug-zemli">На 
-велосипеде вокруг земли!...</a></span></td>
-							  </tr></tbody></table></td>	
-							</tr></tbody></table></td></tr><tr><td style="padding: 0pt 0pt 
-20px;"><table border="0" cellpadding="2" cellspacing="1">
+</tr></tbody>
+    </table>
+        </td>
+        <td class="contentBlock" style="" align="left" height="100%" valign="top" width="25%">          				
+	        <table border="0" cellpadding="0" cellspacing="0" height="100%" width="288px"><tbody>
+                <tr>
+                    <td align="center" valign="top">
+                        <table class="contentBlock" align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="288px"><tbody>
+                            <tr>
+                                <td valign="top">
+                                    <table class="contentBlock" align="center" border="0" cellpadding="2" cellspacing="1" width="288px"><tbody>
+                                        {% if part == "xtnews" %}
+                                        <tr>
+                                            <td style="padding: 0pt 0pt 20px;" valign="top">
+                                                <table border="0" cellpadding="2" cellspacing="1"><tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="headerBlock">
+                                                            Последние новости
+                                                        </td>
+                                                    </tr>
+                                                    {% for news in latest_news %}
+                                                    <tr>
+                                                        <td valign="top">
+                                                            <table border="0" cellpadding="5" cellspacing="5" width="280px"><tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus">
+                                                                        <img src="{{ MEDIA_URL }}img/ico_009.jpg" alt="{{ news.title }}" border="0" height="59" width="79">
+                                                                        </a>
+                                                                    </td>
+                                                                    <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 10px 0pt 0pt;">
+                                                                        {{ news.date }}<br>
+                                                                        <span class="linkonf2">
+                                                                        <a href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus">{{ news.description }}
+                                                                        </a>
+                                                                        </span>
+                                                                    </td>
+                                                                </tr></tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}                                          
+                                                   
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0pt 0pt 20px;"><table border="0" cellpadding="2" cellspacing="1"><tbody>
+                                                <tr>
+                                                    <td colspan="2" class="headerBlock">
+                                                        Популярные новости
+                                                    </td>
+                                                </tr>
+                                                {% for news in top_news %}
+                                                <tr>
+                                                    <td valign="top">
+                                                        <table border="0" cellpadding="5" cellspacing="5" width="280px"><tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">
+                                                                    <img src="{{ MEDIA_URL }}img/ico_012.jpg" alt="{{ news.title }}" border="0" height="59" width="79">
+                                                                    </a>
+                                                                </td>
+                                                                <td class="litlm1" style="color: rgb(207, 88, 0);">
+                                                                    {{ news.date }}<br>
+                                                                    <span class="linkonf2">
+                                                                    <a href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">{{ news.description }}
+                                                                    </a>
+                                                                    </span>
+                                                                </td>
+                                                            </tr></tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                                {% else %}
+                                                {% if part == "xtreport" %}
+                                        <tr>
+                                            <td style="padding: 0pt 0pt 20px;" valign="top">
+                                                <table border="0" cellpadding="2" cellspacing="1"><tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="headerBlock">
+                                                            Последние отчеты
+                                                        </td>
+                                                    </tr>
+                                                    {% for report in recent_report %}
+                                                    <tr>
+                                                        <td valign="top">
+                                                            <table border="0" cellpadding="5" cellspacing="5" width="280px"><tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus">
+                                                                        <img src="{{ MEDIA_URL }}img/ico_009.jpg" alt="{{ report.title }}" border="0" height="59" width="79">
+                                                                        </a>
+                                                                    </td>
+                                                                    <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 10px 0pt 0pt;">
+                                                                        {{ report.date }}<br>
+                                                                        <span class="linkonf2">
+                                                                        <a href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus">{{ report.description }}
+                                                                        </a>
+                                                                        </span>
+                                                                    </td>
+                                                                </tr></tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}                                          
+                                                   
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0pt 0pt 20px;"><table border="0" cellpadding="2" cellspacing="1"><tbody>
+                                                <tr>
+                                                    <td colspan="2" class="headerBlock">
+                                                        Популярные отчеты
+                                                    </td>
+                                                </tr>
+                                                {% for report in popular_report %}
+                                                <tr>
+                                                    <td valign="top">
+                                                        <table border="0" cellpadding="5" cellspacing="5" width="280px"><tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">
+                                                                    <img src="{{ MEDIA_URL }}img/ico_012.jpg" alt="{{ report.title }}" border="0" height="59" width="79">
+                                                                    </a>
+                                                                </td>
+                                                                <td class="litlm1" style="color: rgb(207, 88, 0);">
+                                                                    {{ report.date }}<br>
+                                                                    <span class="linkonf2">
+                                                                    <a href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">{{ report.description }}
+                                                                    </a>
+                                                                    </span>
+                                                                </td>
+                                                            </tr></tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                                {% else %}
+                                        <tr>
+                                            <td style="padding: 0pt 0pt 20px;" valign="top">
+                                                <table border="0" cellpadding="2" cellspacing="1"><tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="headerBlock">
+                                                            Последние статьи
+                                                        </td>
+                                                    </tr>
+                                                    {% for article in new_article %}
+                                                    <tr>
+                                                        <td valign="top">
+                                                            <table border="0" cellpadding="5" cellspacing="5" width="280px"><tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus">
+                                                                        <img src="{{ MEDIA_URL }}img/ico_009.jpg" alt="{{ article.title }}" border="0" height="59" width="79">
+                                                                        </a>
+                                                                    </td>
+                                                                    <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 10px 0pt 0pt;">
+                                                                        {{ article.date }}<br>
+                                                                        <span class="linkonf2">
+                                                                        <a href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus">{{ article.description }}
+                                                                        </a>
+                                                                        </span>
+                                                                    </td>
+                                                                </tr></tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}                                          
+                                                   
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0pt 0pt 20px;"><table border="0" cellpadding="2" cellspacing="1"><tbody>
+                                                <tr>
+                                                    <td colspan="2" class="headerBlock">
+                                                        Популярные статьи
+                                                    </td>
+                                                </tr>
+                                                {% for article in best_article %}
+                                                <tr>
+                                                    <td valign="top">
+                                                        <table border="0" cellpadding="5" cellspacing="5" width="280px"><tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">
+                                                                    <img src="{{ MEDIA_URL }}img/ico_012.jpg" alt="{{ article.title }}" border="0" height="59" width="79">
+                                                                    </a>
+                                                                </td>
+                                                                <td class="litlm1" style="color: rgb(207, 88, 0);">
+                                                                    {{ article.date }}<br>
+                                                                    <span class="linkonf2">
+                                                                    <a href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">{{ article.description }}
+                                                                    </a>
+                                                                    </span>
+                                                                </td>
+                                                            </tr></tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                                {% endif %}
+                                                {% endif %}
 
-    <tbody><tr><td colspan="2" class="headerBlock">Популярные новости</td></tr><tr><td
- valign="top"><table border="0" cellpadding="5" cellspacing="5" 
-width="280px"><tbody><tr>
-							  <td><a 
-href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2"><img 
-src="{{ MEDIA_URL }}img/ico_012.jpg" alt="Электровелосипед Gocycle" border="0" 
-height="59" width="79"></a></td>
-							  <td class="litlm1" style="color: rgb(207, 88, 0);">09.01.2010<br><span
- class="linkonf2"><a 
-href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">Электровелосипед
- Gocycle от Британской компании Karbon Kinetics Limited....</a></span></td>
-							  </tr></tbody></table></td>	
-							</tr><tr><td valign="top"><table border="0" cellpadding="5" 
+                                                
+                                                
+                                                {% comment %}
+                                                <tr><td valign="top"><table border="0" cellpadding="5" 
 cellspacing="5" width="280px"><tbody><tr>
 							  <td><a href="{{ SITE_URL }}xtnews/specialized-2010"><img
  src="{{ MEDIA_URL }}img/ico_013.jpg" alt="Specialized 2010" border="0" 
@@ -521,10 +624,15 @@ border="0" height="59" width="79"></a></td>
 href="{{ SITE_URL }}xtnews/zagranpasporta-starogo-obrazca">Загранпаспорта
  старого образца будут выпускаться до 15 июля...</a></span></td>
 							  </tr></tbody></table></td>	
-							</tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr>
-
-
-	          	<tr><td style="padding: 20px 0pt 0pt 0px;" align="center" 
+							</tr></tbody>
+                            {% endcomment %}
+                            
+                            
+                            </table></td></tr></tbody></table></td></tr></tbody></table>
+        </td>
+    </tr>
+    <tr>
+    <td style="padding: 20px 0pt 0pt 0px;" align="center" 
 valign="top">
 <form action="{{ SITE_URL }}login.php" method="post" 
 enctype="multipart/form-data">

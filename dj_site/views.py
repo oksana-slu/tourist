@@ -47,7 +47,28 @@ def xtreport_list(request, part):
 def xtreport_item(request, part, slug):
     xt_all = XtObject.objects.get(objurl='%s/%s' %(part, slug))
     xtclass = xt_all.xtc2o_set.all()
-    return render_to_response('repo.html', {"xtclass":xtclass},
+    
+    part = part
+    latest_news = XtNews.objects.all().order_by('-date')[0:6]
+    top_news = XtNews.objects.all().order_by('-forum')[0:6]
+    
+    recent_report = XtTopic.objects.filter(path__startswith='report').\
+                                          order_by('-date')[0:6]
+    popular_report = XtTopic.objects.filter(path__startswith='report').\
+                                          order_by('-forum')[0:6]
+                                          
+    new_article = XtTopic.objects.filter(path__startswith='article').\
+                                          order_by('-date')[0:6]
+    best_article = XtTopic.objects.filter(path__startswith='article').\
+                                          order_by('-forum')[0:6]
+    return render_to_response('repo.html', {"xtclass":xtclass,
+                                            "latest_news":latest_news,
+                                            "top_news":top_news,
+                                            "part":part,
+                                            "recent_report":recent_report,
+                                             "popular_report":popular_report,
+                                             "new_article":new_article,
+                                             "best_article":best_article},
                               context_instance=RequestContext(request))
 
 
