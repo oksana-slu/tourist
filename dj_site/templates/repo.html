@@ -37,65 +37,66 @@ background: transparent url({{ MEDIA_URL }}img/popup_bg_01.png) repeat 0 0;
 
 
 {% block content %}
-<table bgcolor1="#FFCC33" background="repo_files/f.htm" border="0" 
-cellpadding="0" cellspacing="0" width="100%">
-  <tbody><tr valign="top"> 
-    <td bgcolor1="#000000"> 
-	  <table background="repo_files/f.htm" border="0" cellpadding="0" 
-cellspacing="0" height="36" width="100%">
-        <tbody><tr> 
-          <td align="center" valign="top" width="15%">&nbsp;</td>
-          <td style="min-width: 600px;" align="center" height="36" 
-valign="top" width="59%"> <table bgcolor="#ffffff" border="0" 
-cellpadding="0" cellspacing="0" width="100%">
-              <tbody><tr> 
-                <td valign="top"> <table cellpadding="0" cellspacing="0"
- width="100%">
-                    <tbody><tr> 
-                      <td><table width="100%">
-<tbody><tr><td>
-	<table width="100%">
-	<tbody><tr>
-		<td>
-		<a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a><br>
-		
-		<h2 class="head1" align="center">Невероятный “сгибающийся велосипед”</h2>
-		<p align="right"><span class="linkonf"><em>DragonFly 20.07.2010 12:05</em></span><br></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p class="topic" align="justify">
-<span style="word-spacing: 0px; font: medium 'Times New Roman'; 
-text-transform: none; color: rgb(0, 0, 0); text-indent: 0px; 
-white-space: normal; letter-spacing: normal; border-collapse: separate; 
-orphans: 2; widows: 2;" class="Apple-style-span"><div 
-style="background-color: transparent; margin: 0px;"><div 
-style="text-align: justify;"><span style="font-family: Arial;" 
-class="Apple-style-span"><em>21-летний <span style="font-weight: normal;
- vertical-align: baseline; color: rgb(0, 0, 0); font-style: normal; 
-font-family: Arial; background-color: transparent; text-decoration: 
-none;">британский </span>дизайнер изобрел велосипед, который можно 
-согнуть вокруг фонарного столба.</em></span></div><font 
-face="arial,helvetica,sans-serif"><div style="text-align: justify;"><br></div><span
- style="font-weight: normal; vertical-align: baseline; color: rgb(0, 0, 
-0); font-style: normal; font-family: Arial; background-color: 
-transparent; text-decoration: none;"><div style="text-align: justify;">Молодой
- конструктор изобрел революционный складной велосипед, который способен 
-помешать ворам в их намерениях.</div></span><span style="font-weight: 
-normal; vertical-align: baseline; color: rgb(0, 0, 0); font-style: 
-normal; font-family: Arial; background-color: transparent; 
-text-decoration: none;"><div style="text-align: justify;"><span 
-style="font-family: 'Times New Roman';" class="Apple-style-span"><font 
-face="arial,helvetica,sans-serif"><span style="font-weight: normal; 
-vertical-align: baseline; color: rgb(0, 0, 0); font-style: normal; 
-font-family: Arial; background-color: transparent; text-decoration: 
-none;">Кевин Скот (21 год) разработал футуристи</span></font></span><span
- style="font-family: 'Times New Roman';" class="Apple-style-span"><span 
+<table bgcolor1="#FFCC33" background="repo_files/f.htm" border="0"cellpadding="0" cellspacing="0" width="100%"><tbody>
+    <tr valign="top"> 
+        <td bgcolor1="#000000"> 
+            <table background="repo_files/f.htm" border="0" cellpadding="0" cellspacing="0" height="36" width="100%"><tbody>
+                <tr> 
+                    <td align="center" valign="top" width="15%">
+                        &nbsp;
+                    </td>
+                    <td style="min-width: 600px;" align="center" height="36" valign="top" width="59%"> 
+                        <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%"><tbody>
+                            <tr> 
+                                <td valign="top"> <table cellpadding="0" cellspacing="0" width="100%"><tbody>
+                                    <tr> 
+                                        <td>
+                                            <table width="100%"><tbody>
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%"><tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    {% for class in xtclass%}
+                                                                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a>{% if not forloop.last %} | {% endif %} 
+                                                                    {% endfor %}
+                                                                    <br>
+                                                                    <h2 class="head1" align="center">Невероятный “сгибающийся велосипед”</h2>
+                                                                    <p align="right">
+                                                                    <span class="linkonf">
+                                                                    <em>DragonFly 20.07.2010 12:05</em>
+                                                                    </span><br>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <p class="topic" align="justify">
+                                                                    <span style="word-spacing: 0px; font: medium 'Times New Roman'; text-transform: none; color: rgb(0, 0, 0); text-indent: 0px; white-space: normal; letter-spacing: normal; border-collapse: separate; orphans: 2; widows: 2;" class="Apple-style-span">
+                                                                    <div style="background-color: transparent; margin: 0px;">
+                                                                    <div style="text-align: justify;">
+                                                                    <span style="font-family: Arial;" class="Apple-style-span">
+                                                                    <em>21-летний 
+                                                                    <span style="font-weight: normal; vertical-align: baseline; color: rgb(0, 0, 0); font-style: normal; font-family: Arial; background-color: transparent; text-decoration: none;">британский 
+                                                                    </span>дизайнер изобрел велосипед, который можно согнуть вокруг фонарного столба.
+                                                                    </em>
+                                                                    </span>
+                                                                    </div>
+                                                                    <font face="arial,helvetica,sans-serif">
+                                                                    <div style="text-align: justify;"><br></div>
+                                                                    <span style="font-weight: normal; vertical-align: baseline; color: rgb(0, 0, 0); font-style: normal; font-family: Arial; background-color: transparent; text-decoration: none;">
+                                                                    <div style="text-align: justify;">Молодой конструктор изобрел революционный складной велосипед, который способен помешать ворам в их намерениях.
+                                                                    </div>
+                                                                    </span>
+                                                                    <span style="font-weight: normal; vertical-align: baseline; color: rgb(0, 0, 0); font-style: normal; font-family: Arial; background-color: transparent; text-decoration: none;">
+                                                                    <div style="text-align: justify;">
+                                                                    <span style="font-family: 'Times New Roman';" class="Apple-style-span">
+                                                                    <font face="arial,helvetica,sans-serif">
+                                                                    <span style="font-weight: normal; vertical-align: baseline; color: rgb(0, 0, 0); font-style: normal; font-family: Arial; background-color: transparent; text-decoration: none;">Кевин Скот (21 год) разработал футуристи
+                                                                    </span>
+                                                                    </font>
+                                                                    </span>
+                                                                    <span style="font-family: 'Times New Roman';" class="Apple-style-span"><span 
 style="font-family: Arial;" class="Apple-style-span">ческий байк, 
 который оборачивается вокруг фонарного столба и таким образом может быть
  надежно пристегнут без помощи велозамка или цепи.</span></span></div></span></font></div><div

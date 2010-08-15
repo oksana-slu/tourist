@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from dj_site.xtclass.models import XtClass
 from dj_site.xttopic.models import XtNews, XtTopic
-
+from dj_site.xtobject.models import XtObject
 
 def index(request):
     geogr_xt_classes = XtClass.objects.filter(xtclasstype__pk=2,
@@ -45,7 +45,9 @@ def xtreport_list(request, part):
 
 
 def xtreport_item(request, part, slug):
-    return render_to_response('repo.html', {},
+    xt_all = XtObject.objects.get(objurl='%s/%s' %(part, slug))
+    xtclass = xt_all.xtc2o_set.all()
+    return render_to_response('repo.html', {"xtclass":xtclass},
                               context_instance=RequestContext(request))
 
 
