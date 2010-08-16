@@ -794,28 +794,23 @@ src="{{ MEDIA_URL }}img/n_zag_tpno.gif" height="22" vspace="9" width="115"></td>
           <div id="Layer1z" style="position: absolute; width: 95%; 
 height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0, 
 0, 0); overflow: auto;"> 
-             <!--table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr> 
-    <td width="50%" height="25" bgcolor="#000000" class="menu">&nbsp;<font size="+1"><img src="/img/str2.gif" width="10" height="10" hspace="2"> 
-      Свежие новости</font>&nbsp;<a href="/all_news/1" title="Просмотр всех новостей">Все новости</a> </td>
-  </tr>
-</table-->
+
 <table border="0" cellpadding="0" cellspacing="0" height="25" width="100%"><tbody>
-<tr>
-    <td>
     
     
         {% for news in latest_news %}
-        <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
+<tr>
+    <td>
+
+        <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%">
             <tr>
                 <td rowspan="2" align="center" height="43" width="13%">
-                    <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81"><tbody>
+                    <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
                         <tr> 
                             <td><a href="{{ SITE_URL }}xtnews/bendy-bycicle">
-                                <img src="{{ MEDIA_URL }}img/ico_031.jpg" alt="{{ news.title }}" border="0" height="59" width="79">
-                                </a>
+                                <img src="{{ MEDIA_URL }}img/ico_031.jpg" alt="{{ news.title }}" border="0" height="59" width="79" /></a>
                             </td>
-                        </tr></tbody>
+                        </tr>
                     </table>
                 </td>
                 <td class="litlm1" valign="middle" width="87%">
@@ -832,174 +827,13 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a> | 
                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
                 </td>
-            </tr></tbody>
+            </tr>
         </table>
+    </td>
+</tr>							
+
         {% endfor %}
         
-        
-{% comment %}       
-        <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
-            <tr> 
-                <td rowspan="2" align="center" height="43" width="13%"> 
-                    <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81"><tbody>
-                        <tr> 
-                            <td><a 
-href="{{ SITE_URL }}xtnews/v-harkove-projdet-festival-parkura"><img
- src="{{ MEDIA_URL }}img/ico_020.jpg" alt="В Харькове пройдет фестиваль 
-паркура" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/v-harkove-projdet-festival-parkura">В
- Харькове пройдет фестиваль уличной акробатики и паркура.</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      Миша(20.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/active" title="Активное время 
-препровождение">Активный отдых</a> | <a style="color: rgb(169, 77, 10);"
- href="{{ SITE_URL }}xtclass/extremes" title="Экстремальные 
-виды">Экстрим</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/parkour" title="Паркур">Паркур</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская 
-область">Харьков</a></td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/chempionat-ukrainy-po-deltaplanernomu-sportu"><img
- src="{{ MEDIA_URL }}img/ico_025.jpg" alt="Чемпионат Украины  по 
-дельтапланерному спорту" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/chempionat-ukrainy-po-deltaplanernomu-sportu">XXXI
- Открытый Чемпионат Украины (аэробуксировочный) по дельталане...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      supervisor(14.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/sky" title="Небо">Небо</a></td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/dorogi-budushegoi"><img 
-src="{{ MEDIA_URL }}img/ico_014.jpg" alt="Дороги будущего?" border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/dorogi-budushegoi">умные дороги 
-будущего, помечтаем?</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      Станислав(13.07.2010). Теги:</font><br>
-      </td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus"><img
- src="{{ MEDIA_URL }}img/ico_027.jpg" alt="Концепты велосипедов от Volkswagen и
- Lexus" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus">Концепты
- велосипедов от Volkswagen и Lexus</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      Nicodim(08.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/sobytijnyj-turizm-poezdki-na-festivali-v-iyule"><img
- src="{{ MEDIA_URL }}img/ico_010.jpg" alt="Событийный туризм - поездки на 
-фестивали в июле" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/sobytijnyj-turizm-poezdki-na-festivali-v-iyule">3
- июля - День Гончара в Опошне и 17 июля - рок-фестиваль МАЗЕПА-Ф...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      fanat(30.06.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/tours" title="Туры, путевки">Туры</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/travels" title="Путешествия и 
-путешественники">Путешествия</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/others" title="Разное">Другое</a></td>
-  </tr>
-</tbody></table>
-{% endcomment %}
-
-
-	</td>
-</tr></tbody>
-							<!--tr>
-								<td valign="bottom" align="right">
-									<strong> &nbsp;
-									<img src="/img/str2.gif" width="10" height="10"></strong>
-									<a href="/add_news/">
-									<span class="linkonf">Добавить новость</span></a>
-								</td>
-							</tr-->
-							
 </table>
  </div>
         </div>
