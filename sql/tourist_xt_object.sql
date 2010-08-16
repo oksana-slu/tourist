@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `xt_object` (
   `status` int(11) NOT NULL default '3',
   `freeedit` int(3) unsigned NOT NULL default '0',
   `sustype` int(11) NOT NULL default '0',
+  `content_type_id` integer NOT NULL,
   `objid` int(11) NOT NULL default '0',
   `objurl` varchar(80) collate utf8_bin NOT NULL default '',
   `susshabl` int(11) NOT NULL default '0',
@@ -42,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `xt_object` (
   KEY `susid` (`susid`),
   KEY `objid` (`objid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1592 ;
+
 
 --
 -- Дамп данных таблицы `xt_object`

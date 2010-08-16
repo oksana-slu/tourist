@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes import generic
+
 from dj_site.xtclass.models import XtClass
 
 
@@ -8,7 +11,7 @@ class XtObjecttype(models.Model):
     ot_table_name = models.CharField(max_length=60)
 
     def __unicode__(self):
-        return self.otname
+        return u'%s' % self.otname
 
     class Meta:
         db_table = u'xt_objtype'
@@ -18,8 +21,13 @@ class XtObject(models.Model):
     id = models.IntegerField(primary_key=True, db_column='susid')
     status = models.IntegerField(default=3)
     freeedit = models.IntegerField(default=0)
+
     xtobjecttype = models.ForeignKey(XtObjecttype, db_column='sustype')
-    objid = models.IntegerField()
+
+    content_type = models.ForeignKey(ContentType, limit_choices_to={'model__in': ('xtlink', 'xtnews', 'xttopic')})
+    object_id = models.PositiveIntegerField(db_column='objid')
+    content_object = generic.GenericForeignKey('content_type', 'object_id')
+
     objurl = models.CharField(max_length=240, blank=True)
     susshabl = models.IntegerField(default=0)
     objfavour = models.BigIntegerField(default=0)
@@ -27,7 +35,7 @@ class XtObject(models.Model):
     comment = models.IntegerField(null=True, blank=True)
 
     def __unicode__(self):
-        return u'%d - %d' % (self.id, self.objid)
+        return u'%d - %d' % (self.id, self.object_id)
 
     class Meta:
         db_table = u'xt_object'
