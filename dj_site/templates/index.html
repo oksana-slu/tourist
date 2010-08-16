@@ -553,29 +553,23 @@ src="{{ MEDIA_URL }}img/n_zakr.gif" height="41" width="12"></td>
           <div id="Layer1z" style="position: absolute; width: 95%; 
 height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0, 
 0, 0); overflow: auto;"> 
-             <!--table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr> 
-    <td width="50%" height="25" bgcolor="#000000" class="menu">&nbsp;<font size="+1"><img src="/img/str2.gif" width="10" height="10" hspace="2"> 
-      Свежие новости</font>&nbsp;<a href="/all_news/1" title="Просмотр всех новостей">Все новости</a> </td>
-  </tr>
-</table-->
-<table border="0" cellpadding="0" cellspacing="0" height="25" width="100%"><tbody>
+          
+<table border="0" cellpadding="0" cellspacing="0" height="25" width="100%">
+
+        {% for news in top_news %}  
     <tr>
-        <td>
-        
-        
-            {% for news in top_news %}        
-            <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
+        <td>                  
+            <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%">
                 <tr> 
                     <td rowspan="2" align="center" height="43" width="13%"> 
-                        <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81"><tbody>
+                        <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
                             <tr> 
                                 <td>
                                     <a href="{{ SITE_URL }}xtnews/olimpijskij-chempion-izobrazil-tipovoj-velosiped-b">
                                     <img src="{{ MEDIA_URL }}img/ico_028.jpg" alt="{{ news.title }}" border="0" height="59" width="79">
                                     </a>
                                 </td>
-                            </tr></tbody>
+                            </tr>
                         </table>
                     </td>
                     <td class="litlm1" valign="middle" width="87%">
@@ -589,175 +583,13 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
                     <td class="litlm1" align="right" height="15" valign="middle">
                         <font color="#a91e0a">{{ news.author_id }}({{ news.date }}). Теги:</font><br>
                     </td>
-                </tr></tbody>
+                </tr>
             </table>
-            {% endfor %}
-            
-            
-            
-            
-{% comment %}   
-            <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
-                <tr> 
-                    <td rowspan="2" align="center" height="43" width="13%"> 
-                        <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81"><tbody>
-                            <tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/prostitutki-dayut-skidki-velosipedistam"><img
- src="{{ MEDIA_URL }}img/ico_026.jpg" alt="Проститутки дают скидки 
-велосипедистам." border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/prostitutki-dayut-skidki-velosipedistam">Немецкие
- проститутки дают скидки велосипедистам.</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      Миша(18.12.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2"><img 
-src="{{ MEDIA_URL }}img/ico_004.jpg" alt="Электровелосипед Gocycle" border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">Электровелосипед
- Gocycle от Британской компании Karbon Kinetics L...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      Trafer(09.01.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/specialized-2010"><img 
-src="{{ MEDIA_URL }}img/ico_033.jpg" alt="Specialized 2010" border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/specialized-2010">Подоспели 
-первые фотографии серийных байков Specialized 2010го мо...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      ХАМИЛЬ(13.07.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/velosipedy-scott2010"><img 
-src="{{ MEDIA_URL }}img/ico_023.jpg" alt="Велосипеды Scott`2010" border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/velosipedy-scott2010">Что Scott 
-грядущий нам готовит?</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      Taras(26.06.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/ne-nado-shutit-s-bajkerami"><img 
-src="{{ MEDIA_URL }}img/ico.jpg" alt="Не надо шутить с байкерами!" border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/ne-nado-shutit-s-bajkerami">Трое 
-активистов борьбы за права животных пропали без вести после ...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      Миша(05.02.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/mans" title="Мужской отдых">Мужской
- отдых</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/automoto" title="Все у чего есть
- ДВС">Авто-мото</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/america" title="Континент 
-Америка и все что близко">Америка</a></td>
-  </tr>
-</tbody></table>
-{% endcomment %}
-
-
-
-
-		</td>
+        </td>
     </tr>
-							<!--tr>
-								<td valign="bottom" align="right">
-									<strong> &nbsp;
-									<img src="/img/str2.gif" width="10" height="10"></strong>
-									<a href="/add_news/">
-									<span class="linkonf">Добавить новость</span></a>
-								</td>
-							</tr-->
+        {% endfor %}
 							
-</tbody></table>
-
-
+</table>
  </div>
         </div>
         <div id="Layer6" style="position: absolute; width: 100%; height:
@@ -904,10 +736,9 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
   </tr>
 </table-->
 <table border="0" cellpadding="0" cellspacing="0" height="25" width="100%"><tbody>
+    {% for report in popular_report %}     
     <tr>
-        <td>
-        
-            {% for report in popular_report %}      
+        <td>             
             <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
                 <tr> 
                     <td rowspan="2" align="center" height="43" width="13%"> 
@@ -936,212 +767,10 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
                         <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
                     </td>
                 </tr></tbody>
-            </table>
-            {% endfor %}
-            
-            
-{% comment %}
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}review_castles/index.php?viewtopic=9"><img
- src="{{ MEDIA_URL }}img/ico_029.jpg" alt="Шаровский парк" border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}review_castles/index.php?viewtopic=9">Шаровский
- парково-замковый комплекс республиканского значения. Ин...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Миша(05.05.2005). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/castles" title="Архитектурные 
-памятники и сооружения">Архитектура</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}review_active/index.php?viewtopic=73"><img
- src="{{ MEDIA_URL }}img/ico_013.jpg" alt="Соляные шахты - Соледар." border="0"
- height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}review_active/index.php?viewtopic=73">Поездка
- с экскурсией в Соледар - соляные пещеры на глубине 300 ме...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Миша(19.02.2007). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/speleo" title="Пещеры">Спелео</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/underground" title="Под землей">Под
- землей</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/niceplaces" title="Живописные 
-места и замечательные маршруты">Живописные места</a> | <a style="color: 
-rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/tours" 
-title="Туры, путевки">Туры</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/davajte-sobirem-gruppu-karpatyiii"><img
- src="{{ MEDIA_URL }}img/ico_005.jpg" alt="" Давайте="" собирем="" группу="" 
-а="" Карпаты???!!!="" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/davajte-sobirem-gruppu-karpatyiii">Майский
- поход в Карпаты по Черногорью</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Полина28(19.06.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/carpathian" title="Карпаты в 
-широком смысле">Карпаты</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/foot" title="Пешие походы">Пеший
- туризм</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ground" title="Мать сыра земля">Земля</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/mount" title="Горы">Горы</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/splav-na-bajdarkah-po-sule-s-baidarkicomua_2"><img
- src="{{ MEDIA_URL }}img/ico_006.jpg" alt="Сплав на байдарках по Суле с 
-baidarki.com.ua" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/splav-na-bajdarkah-po-sule-s-baidarkicomua_2">3-х
- дневный байдарочный сплав по Суле Сенча-Лубны</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Les(19.09.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/poltava" title="Полтава">Полтава</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская 
-область">Харьков</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/travels" title="Путешествия и 
-путешественники">Путешествия</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/others" title="Разное">Другое</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/niceplaces" title="Живописные 
-места и замечательные маршруты">Живописные места</a> | <a style="color: 
-rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/castles" 
-title="Архитектурные памятники и сооружения">Архитектура</a> | <a 
-style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/etnografia" 
-title="Достопримечательности Харькова">Краеведение</a> | <a 
-style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/kayak" title="Байдарки и каяки">Байдарки</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/water" title="Байдарки, паруса, 
-акваланги, и пр.">Вода</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/active" title="Активное время 
-препровождение">Активный отдых</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/pohod-na-bajdarkah-po-vorskle-na-majskie-prazdniki"><img
- src="{{ MEDIA_URL }}img/ico_032.jpg" alt="Поход на байдарках по Ворскле на 
-майские праздники" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/pohod-na-bajdarkah-po-vorskle-na-majskie-prazdniki">Фотоотчет
- о сплаве на байдарках по Ворскле, майские праздники 200...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Les(15.03.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская 
-область">Харьков</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/tours" title="Туры, путевки">Туры</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/travels" title="Путешествия и 
-путешественники">Путешествия</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/others" title="Разное">Другое</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/niceplaces" title="Живописные 
-места и замечательные маршруты">Живописные места</a> | <a style="color: 
-rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/kayak" 
-title="Байдарки и каяки">Байдарки</a> | <a style="color: rgb(169, 77, 
-10);" href="{{ SITE_URL }}xtclass/water" title="Байдарки, 
-паруса, акваланги, и пр.">Вода</a> | <a style="color: rgb(169, 77, 10);"
- href="{{ SITE_URL }}xtclass/active" title="Активное время 
-препровождение">Активный отдых</a></td>
-  </tr>
-</tbody></table>
-{% endcomment %}
-		
-        
+            </table>      
         </td>
     </tr>
+    {% endfor %}
 							<!--tr>
 								<td valign="bottom" align="right">
 									<strong> &nbsp;
@@ -1195,11 +824,9 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
   </tr>
 </table-->
 <table border="0" cellpadding="0" cellspacing="0" height="25" width="100%"><tbody>
+    {% for report in recent_report %}        
     <tr>
-        <td>
-        
-        
-            {% for report in recent_report %}        
+        <td>            
             <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
                 <tr> 
                     <td rowspan="2" align="center" height="43" width="13%"> 
@@ -1225,198 +852,10 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
                         <font color="#a91e0a">{{ report.author_id }}({{ report.date }}). Теги:</font><br>
                     </td>
                 </tr></tbody>
-            </table>
-            {% endfor %}
-            
-            
-            
-{% comment %}
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/vesyolaya-lopan-usadba-muhanovyh"><img
- src="{{ MEDIA_URL }}img/ico_019.jpg" alt="Весёлая Лопань. Усадьба Мухановых" 
-border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/vesyolaya-lopan-usadba-muhanovyh">Усадьба
- дворянского рода Мухановых в Весёлой Лопани- памятник арх...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Stanley(25.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/russia" title="Россия">Россия</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/castles" title="Архитектурные 
-памятники и сооружения">Архитектура</a> | <a style="color: rgb(169, 77, 
-10);" href="{{ SITE_URL }}xtclass/etnografia" 
-title="Достопримечательности Харькова">Краеведение</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/morskoj-kayaking-na-fiolente-sevastopol"><img
- src="{{ MEDIA_URL }}img/ico_034.jpg" alt="Морской Каякинг на Фиоленте 
-(Севастополь)" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/morskoj-kayaking-na-fiolente-sevastopol">Фото-отчет
- о походе на Морских Каяках по маршруту Балаклава-Фиоле...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      korj(24.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/crimea" title="Благодатный Крым">Крым</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/tours" title="Туры, путевки">Туры</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/travels" title="Путешествия и 
-путешественники">Путешествия</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/kayak" title="Байдарки и каяки">Байдарки</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/water" title="Байдарки, паруса, 
-акваланги, и пр.">Вода</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/pyat-matrosov-i-barbos_3"><img 
-src="{{ MEDIA_URL }}img/ico_009.jpg" alt="Пять матросов и барбос" border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/pyat-matrosov-i-barbos_3">Ралли
- Черного моря - 2010</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      "Турист СССР"(22.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/crimea" title="Благодатный Крым">Крым</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/water" title="Байдарки, паруса, 
-акваланги, и пр.">Вода</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a href="{{ SITE_URL }}xtreport/rvsn"><img 
-src="{{ MEDIA_URL }}img/ico_008.jpg" alt="РВСН" border="0" height="59" 
-width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/rvsn">Музей Ракетных войск 
-стратегического назначения</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Freeman(13.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/diggers" title="Диггерство и 
-сталкер">Диггерство</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/history" title="Городища и 
-другие места, связанные с историей">История</a> | <a style="color: 
-rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/foot" 
-title="Пешие походы">Пеший туризм</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a href="{{ SITE_URL }}xtreport/po-piccot"><img
- src="{{ MEDIA_URL }}img/ico_016.jpg" alt="По пиццот или кантри-мото" 
-border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/po-piccot">Мотопутешествие к 
-центру Украины</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Serzh(07.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/travels" title="Путешествия и 
-путешественники">Путешествия</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/automoto" title="Все у чего есть
- ДВС">Авто-мото</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/niceplaces" title="Живописные 
-места и замечательные маршруты">Живописные места</a> | <a style="color: 
-rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/history" 
-title="Городища и другие места, связанные с историей">История</a> | <a 
-style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/etnografia" 
-title="Достопримечательности Харькова">Краеведение</a> | <a 
-style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ground" title="Мать сыра земля">Земля</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/active" title="Активное время 
-препровождение">Активный отдых</a></td>
-  </tr>
-</tbody></table>
-{% endcomment %}
-
-
-
+            </table>            
         </td>
     </tr>
+    {% endfor %}
 							<!--tr>
 								<td valign="bottom" align="right">
 									<strong> &nbsp;
@@ -1498,11 +937,10 @@ src="{{ MEDIA_URL }}img/n_zakr.gif" height="41" width="12"></td>
   </tr>
 </table-->
 <table border="0" cellpadding="0" cellspacing="0" height="25" width="100%"><tbody>
-    <tr> 
+         
+         {% for article in best_article %}
+   <tr> 
         <td> 
-        
-        
-            {% for article in best_article %}
             <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
                 <tr> 
                     <td rowspan="2" align="center" height="43" width="13%">
@@ -1537,236 +975,9 @@ src="{{ MEDIA_URL }}img/n_zakr.gif" height="41" width="12"></td>
                     </td>
                 </tr></tbody>
             </table>
-            {% endfor %}
-            
-            
-            
-{% comment %}
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtarticle/Velosipedue_HVZ_Katalog"><img 
-src="{{ MEDIA_URL }}img/ico_022.jpg" alt="Велосипеды ХВЗ. Каталог." border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtarticle/Velosipedue_HVZ_Katalog">Велосипеды
- харьковского велосипедного завода. Фотографии и описан...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Миша(11.02.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская 
-область">Харьков</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a> | <a style="color: rgb(169, 77, 
-10);" href="{{ SITE_URL }}xtclass/ground" title="Мать сыра 
-земля">Земля</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtarticle/kak_kupit_na_dealextreme_KD_chainreactioncycles"><img
- src="{{ MEDIA_URL }}img/ico_015.jpg" alt="Как купить на Dealextreme, 
-Kaidomain, Chainreactioncycles и т.д.? Регистрация на PayPal." 
-border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtarticle/kak_kupit_na_dealextreme_KD_chainreactioncycles">Как
- купить на Dealextreme,  Kaidomain, Chainreactioncycles и т.д....</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Белый_Сокол(12.12.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/asia" title="Азия как часть 
-света и все что близко">Азия</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/travels" title="Путешествия и 
-путешественники">Путешествия</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/others" title="Разное">Другое</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/diggers" title="Диггерство и 
-сталкер">Диггерство</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/speleo" title="Пещеры">Спелео</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/underground" title="Под землей">Под
- землей</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/multisport" 
-title="Приключенческие гонки (экстрим-марафоны)">Мультиспорт</a> | <a 
-style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/foot" title="Пешие походы">Пеший
- туризм</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a> | <a style="color: rgb(169, 77, 
-10);" href="{{ SITE_URL }}xtclass/ground" title="Мать сыра 
-земля">Земля</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/footmount" title="Пешком до 
-3000">Горный туризм</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/mount" title="Горы">Горы</a> | <a
- style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/winter" title="Лыжные походы, 
-горные лыжи, сноуборд...">Зима</a> | <a style="color: rgb(169, 77, 10);"
- href="{{ SITE_URL }}xtclass/quests" title="квесты">Квесты</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/active" title="Активное время 
-препровождение">Активный отдых</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtarticle/FAQ_Osveshenie_Fonari_Svetodiodi_Accumulatori"><img
- src="{{ MEDIA_URL }}img/ico_007.jpg" alt="FAQ. Ночное освещение." border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtarticle/FAQ_Osveshenie_Fonari_Svetodiodi_Accumulatori">FAQ
- о выборе фонарика, светодиодах, драйверах, элементах питания ...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Белый_Сокол(09.11.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/travels" title="Путешествия и 
-путешественники">Путешествия</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/others" title="Разное">Другое</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/diggers" title="Диггерство и 
-сталкер">Диггерство</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/speleo" title="Пещеры">Спелео</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/underground" title="Под землей">Под
- землей</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/multisport" 
-title="Приключенческие гонки (экстрим-марафоны)">Мультиспорт</a> | <a 
-style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/foot" title="Пешие походы">Пеший
- туризм</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a> | <a style="color: rgb(169, 77, 
-10);" href="{{ SITE_URL }}xtclass/ground" title="Мать сыра 
-земля">Земля</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/footmount" title="Пешком до 
-3000">Горный туризм</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/alpinism" title="восхождения на 
-труднодоступные вершины">Альпинизм</a> | <a style="color: rgb(169, 77, 
-10);" href="{{ SITE_URL }}xtclass/mount" title="Горы">Горы</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/paintball" title="Пейнтбол в 
-Харькове">Пейнтбол</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/quests" title="квесты">Квесты</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/active" title="Активное время 
-препровождение">Активный отдых</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtarticle/zvyozdy-na-velosipedah-prisoedinyajsya"><img
- src="{{ MEDIA_URL }}img/ico_003.jpg" alt="Звёзды на велосипедах. 
-Присоединяйся." border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtarticle/zvyozdy-na-velosipedah-prisoedinyajsya">Звезды
- Голливуда предпочитают велосипед. Фото.</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Миша(16.04.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a> | <a style="color: rgb(169, 77, 
-10);" href="{{ SITE_URL }}xtclass/ground" title="Мать сыра 
-земля">Земля</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a href="{{ SITE_URL }}xtarticle/sharovka"><img
- src="{{ MEDIA_URL }}img/ico_024.jpg" alt="Шаровка" border="0" height="59" 
-width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtarticle/sharovka">Есть такое дивное 
-место в Харьковской области – Шаровка. Наверное...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Koda(02.11.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская 
-область">Харьков</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/niceplaces" title="Живописные 
-места и замечательные маршруты">Живописные места</a> | <a style="color: 
-rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/castles" 
-title="Архитектурные памятники и сооружения">Архитектура</a> | <a 
-style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/etnografia" 
-title="Достопримечательности Харькова">Краеведение</a></td>
-  </tr>
-</tbody></table>
-{% endcomment %}
-
-
-
         </td>
     </tr>
+    {% endfor %}
   <!--tr> 
     <td> <strong> &nbsp; <img src="img/str2.gif" width="10" height="10"></strong> 
       <a href="/add_article/"> <span class="linkonf">Добавить 
@@ -1816,11 +1027,9 @@ src="{{ MEDIA_URL }}img/n_zag_lchs2.gif" height="16" vspace="13" width="120"></t
   </tr>
 </table-->
 <table border="0" cellpadding="0" cellspacing="0" height="25" width="100%"><tbody>
+    {% for article in new_article %}
     <tr> 
-        <td>
-            
-            
-            {% for article in new_article %}
+        <td>           
             <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%"><tbody>
                 <tr> 
                     <td rowspan="2" align="center" height="43" width="13%"> 
@@ -1849,188 +1058,9 @@ src="{{ MEDIA_URL }}img/n_zag_lchs2.gif" height="16" vspace="13" width="120"></t
                     </td>
                 </tr></tbody>
             </table>
-            {% endfor %}
-            
-            
-{% comment %}
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtarticle/kak-pravilno-pit"><img 
-src="{{ MEDIA_URL }}img/ico_021.jpg" alt="Как правильно пить" border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtarticle/kak-pravilno-pit">Несмотря на 
-жару, календарь мероприятий сейчас весьма плотно запо...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Buba(24.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/multisport" 
-title="Приключенческие гонки (экстрим-марафоны)">Мультиспорт</a> | <a 
-style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a> | <a style="color: rgb(169, 77, 
-10);" href="{{ SITE_URL }}xtclass/active" title="Активное 
-время препровождение">Активный отдых</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtarticle/meksika-gigantskie-kristally-peshery-naica"><img
- src="{{ MEDIA_URL }}img/ico_012.jpg" alt="Мексика. Гигантские кристаллы пещеры
- Naica" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtarticle/meksika-gigantskie-kristally-peshery-naica">Пещера
- Naica из Чихуахуа, Мексика, это рабочая шахта, которая изв...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Люда(20.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/america" title="Континент 
-Америка и все что близко">Америка</a> | <a style="color: rgb(169, 77, 
-10);" href="{{ SITE_URL }}xtclass/speleo" title="Пещеры">Спелео</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/underground" title="Под землей">Под
- землей</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtarticle/neobychnye-pamyatniki-harkova"><img
- src="{{ MEDIA_URL }}img/ico_035.jpg" alt="Необычные памятники Харькова" 
-border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtarticle/neobychnye-pamyatniki-harkova">Веселые,
- прикольные памятники Харькова, скрытые от глаз горожан</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      fanat(11.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская 
-область">Харьков</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/travels" title="Путешествия и 
-путешественники">Путешествия</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/others" title="Разное">Другое</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtarticle/barotravma-beregite-ushi"><img
- src="{{ MEDIA_URL }}img/ico_017.jpg" alt="Баротравма - берегите уши!" 
-border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtarticle/barotravma-beregite-ushi">При 
-нырянии глубже двух метров сильная боль в ушах! Что это такое...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      John_Silver(11.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/diving" title="Дайвинг">Дайвинг</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/water" title="Байдарки, паруса, 
-акваланги, и пр.">Вода</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/active" title="Активное время 
-препровождение">Активный отдых</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a href="{{ SITE_URL }}xtarticle/migeya"><img 
-src="{{ MEDIA_URL }}img/ico_011.jpg" alt="Мигея" border="0" height="59" 
-width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtarticle/migeya">фооочерк для журнала 
-"Рыболов-Профи"
-опубликовано в 2009.
-
-фот...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Si(17.06.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/fishing" title="Рыбалка">Рыбалка</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/kayak" title="Байдарки и каяки">Байдарки</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/water" title="Байдарки, паруса, 
-акваланги, и пр.">Вода</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/active" title="Активное время 
-препровождение">Активный отдых</a></td>
-  </tr>
-</tbody></table>
-{% endcomment %}
-
-
-
         </td>
     </tr>
+    {% endfor %}
   <!--tr> 
     <td> <strong> &nbsp; <img src="img/str2.gif" width="10" height="10"></strong> 
       <a href="/add_article/"> <span class="linkonf">Добавить 
