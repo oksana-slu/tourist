@@ -46,14 +46,14 @@ def xttopic_item(request, part, slug):
     topic_item = object_item.content_object
     
     part = part
-    latest_news = XtObject.objects.filter(xtobjecttype__otname='news', status=1).order_by('-pk')[0:6]
-    top_news = XtObject.objects.filter(xtobjecttype__otname='news', status=1).order_by('-comment')[0:6]
+    latest_news = XtObject.objects.filter(xtobjecttype__otname='news', status=1).exclude(id=object_item.id).order_by('-pk')[0:6]
+    top_news = XtObject.objects.filter(xtobjecttype__otname='news', status=1).exclude(id=object_item.id).order_by('-comment')[0:6]
     
-    recent_report =XtObject.objects.filter(xtobjecttype__otname='report', status=1).order_by('-pk')[0:6] 
-    popular_report = XtObject.objects.filter(xtobjecttype__otname='report', status=1).order_by('-comment')[0:6]
+    recent_report =XtObject.objects.filter(xtobjecttype__otname='report', status=1).exclude(id=object_item.id).order_by('-pk')[0:6] 
+    popular_report = XtObject.objects.filter(xtobjecttype__otname='report', status=1).exclude(id=object_item.id).order_by('-comment')[0:6]
                                           
-    new_article = XtObject.objects.filter(xtobjecttype__otname='article', status=1).order_by('-pk')[0:6]
-    best_article = XtObject.objects.filter(xtobjecttype__otname='article', status=1).order_by('-comment')[0:6]
+    new_article = XtObject.objects.filter(xtobjecttype__otname='article', status=1).exclude(id=object_item.id).order_by('-pk')[0:6]
+    best_article = XtObject.objects.filter(xtobjecttype__otname='article', status=1).exclude(id=object_item.id).order_by('-comment')[0:6]
     
     return render_to_response('repo.html', {"xtclass":xtclass,
                                             "topic_item":topic_item,

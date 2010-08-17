@@ -661,11 +661,13 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
             <tr>
                 <td class="litlm1" align="right" height="15" valign="middle">
                     <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                    
                     {% comment %}
                     {% for class in object_item.xtc2o_set.all() %}
                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
-                    {% endfor %}                    
+                    {% endfor %} 
                     {% endcomment %}
+                   
                 </td>
             </tr>
         </table>
