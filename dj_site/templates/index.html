@@ -559,7 +559,7 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
 <table border="0" cellpadding="0" cellspacing="0" height="25" width="100%">
     
     
-        {% for news in top_news %}
+        {% for object_item in top_news %}
 <tr>
     <td>
 
@@ -569,22 +569,22 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
                     <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
                         <tr> 
                             <td>
-                                <a href="{{ SITE_URL }}xtnews/olimpijskij-chempion-izobrazil-tipovoj-velosiped-b">
-                                <img src="{{ MEDIA_URL }}img/ico_028.jpg" alt="{{ news.title }}" border="0" height="59" width="79" /></a>
+                                <a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                <img src="{{ MEDIA_URL }}img/ico_028.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79" /></a>
                             </td>
                         </tr>
                     </table>
                 </td>
                 <td class="litlm1" valign="middle" width="87%">
                     <span class="linkonf2">
-                    <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtnews/olimpijskij-chempion-izobrazil-tipovoj-velosiped-b">{{ news.description }}
+                    <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                     </a> 
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="litlm1" align="right" height="15" valign="middle">
-                     <font color="#a91e0a">{{ news.author_id }}({{ news.date }}). Теги:</font><br>
+                     <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
                 </td>
             </tr>
         </table>
@@ -741,7 +741,7 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
 <table border="0" cellpadding="0" cellspacing="0" height="25" width="100%">
     
     
-        {% for report in popular_report %}
+        {% for object_item in popular_report %}
 <tr>
     <td>
 
@@ -750,23 +750,23 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
                 <td rowspan="2" align="center" height="43" width="13%">
                     <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
                         <tr> 
-                            <td><a href="{{ SITE_URL }}xtreport/YEkskursiya_na_zavod_HVZ">
-                                <img src="{{ MEDIA_URL }}img/ico_036.jpg" alt="{{ report.title }}" border="0" height="59" width="79" /></a>
+                            <td><a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                <img src="{{ MEDIA_URL }}img/ico_036.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79" /></a>
                             </td>
                         </tr>
                     </table>
                 </td>
                 <td class="litlm1" valign="middle" width="87%">
                     <span class="linkonf2">
-                    <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtreport/YEkskursiya_na_zavod_HVZ">
-                    {{ report.description }}
+                    <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}{{ object_item.objurl }}">
+                    {{ object_item.content_object.description }}
                     </a> 
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="litlm1" align="right" height="15" valign="middle">
-                    <font color="#a91e0a">{{ report.author_id }}({{ report.date }}). Теги:</font><br>
+                    <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская область">Харьков</a> | 
                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a> | 
                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
@@ -925,7 +925,7 @@ src="{{ MEDIA_URL }}img/n_zakr.gif" height="41" width="12"></td>
            
 <table border="0" cellpadding="0" cellspacing="0" height="25" width="100%">
          
-         {% for article in best_article %}
+         {% for object_item in best_article %}
    <tr> 
         <td> 
             <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%">
@@ -934,22 +934,22 @@ src="{{ MEDIA_URL }}img/n_zakr.gif" height="41" width="12"></td>
                         <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
                             <tr> 
                                 <td>
-                                    <a href="{{ SITE_URL }}xtarticle/Zagranpasport_Oformlenie">
-                                    <img src="{{ MEDIA_URL }}img/ico_002.jpg" alt="{{ article.title }}" border="0" height="59" width="79" /></a>
+                                    <a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                    <img src="{{ MEDIA_URL }}img/ico_002.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79" /></a>
                                 </td>
                             </tr>
                         </table>
                     </td>
                     <td class="litlm1" valign="middle" width="87%">
                         <span class="linkonf2">
-                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtarticle/Zagranpasport_Oformlenie">{{ article.description }}
+                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                         </a> 
                         </span>
                     </td>
                 </tr>  
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">{{ article.author_id }}({{ article.date }}). Теги:</font><br>
+                        <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
                         <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/africa" title="Африка">Африка</a> | 
                         <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/america" title="Континент Америка и все что близко">Америка</a> | 
                         <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/asia" title="Азия как часть света и все что близко">Азия</a> | 

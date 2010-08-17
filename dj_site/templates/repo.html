@@ -407,20 +407,20 @@ title="Сообщение" border="0">
                                                         Популярные новости
                                                     </td>
                                                 </tr>
-                                                {% for news in top_news %}
+                                                {% for object_item in top_news %}
                                                 <tr>
                                                     <td valign="top">
                                                         <table border="0" cellpadding="5" cellspacing="5" width="280px"><tbody>
                                                             <tr>
                                                                 <td>
-                                                                    <a href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">
-                                                                    <img src="{{ MEDIA_URL }}img/ico_012.jpg" alt="{{ news.title }}" border="0" height="59" width="79">
+                                                                    <a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                                                    <img src="{{ MEDIA_URL }}img/ico_012.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79">
                                                                     </a>
                                                                 </td>
                                                                 <td class="litlm1" style="color: rgb(207, 88, 0);">
-                                                                    {{ news.date }}<br>
+                                                                    {{ object_item.content_object.date }}<br>
                                                                     <span class="linkonf2">
-                                                                    <a href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">{{ news.description }}
+                                                                    <a href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                                                                     </a>
                                                                     </span>
                                                                 </td>
@@ -446,7 +446,7 @@ title="Сообщение" border="0">
                                                                 <tr>
                                                                     <td>
                                                                         <a href="{{ SITE_URL }}{{ object_item.objurl }}">
-                                                                        <img src="{{ MEDIA_URL }}img/ico_009.jpg" alt="{{ report.title }}" border="0" height="59" width="79">
+                                                                        <img src="{{ MEDIA_URL }}img/ico_009.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79">
                                                                         </a>
                                                                     </td>
                                                                     <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 10px 0pt 0pt;">
@@ -472,20 +472,20 @@ title="Сообщение" border="0">
                                                         Популярные отчеты
                                                     </td>
                                                 </tr>
-                                                {% for report in popular_report %}
+                                                {% for object_item in popular_report %}
                                                 <tr>
                                                     <td valign="top">
                                                         <table border="0" cellpadding="5" cellspacing="5" width="280px"><tbody>
                                                             <tr>
                                                                 <td>
-                                                                    <a href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">
-                                                                    <img src="{{ MEDIA_URL }}img/ico_012.jpg" alt="{{ report.title }}" border="0" height="59" width="79">
+                                                                    <a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                                                    <img src="{{ MEDIA_URL }}img/ico_012.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79">
                                                                     </a>
                                                                 </td>
                                                                 <td class="litlm1" style="color: rgb(207, 88, 0);">
-                                                                    {{ report.date }}<br>
+                                                                    {{ object_item.content_object.date }}<br>
                                                                     <span class="linkonf2">
-                                                                    <a href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">{{ report.description }}
+                                                                    <a href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                                                                     </a>
                                                                     </span>
                                                                 </td>
@@ -510,7 +510,7 @@ title="Сообщение" border="0">
                                                                 <tr>
                                                                     <td>
                                                                         <a href="{{ SITE_URL }}{{ object_item.objurl }}">
-                                                                        <img src="{{ MEDIA_URL }}img/ico_009.jpg" alt="{{ article.title }}" border="0" height="59" width="79">
+                                                                        <img src="{{ MEDIA_URL }}img/ico_009.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79">
                                                                         </a>
                                                                     </td>
                                                                     <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 10px 0pt 0pt;">
@@ -536,20 +536,20 @@ title="Сообщение" border="0">
                                                         Популярные статьи
                                                     </td>
                                                 </tr>
-                                                {% for article in best_article %}
+                                                {% for object_item in best_article %}
                                                 <tr>
                                                     <td valign="top">
                                                         <table border="0" cellpadding="5" cellspacing="5" width="280px"><tbody>
                                                             <tr>
                                                                 <td>
-                                                                    <a href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">
-                                                                    <img src="{{ MEDIA_URL }}img/ico_012.jpg" alt="{{ article.title }}" border="0" height="59" width="79">
+                                                                    <a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                                                    <img src="{{ MEDIA_URL }}img/ico_012.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79">
                                                                     </a>
                                                                 </td>
                                                                 <td class="litlm1" style="color: rgb(207, 88, 0);">
-                                                                    {{ article.date }}<br>
+                                                                    {{ object_item.content_object.date }}<br>
                                                                     <span class="linkonf2">
-                                                                    <a href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">{{ article.description }}
+                                                                    <a href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                                                                     </a>
                                                                     </span>
                                                                 </td>
