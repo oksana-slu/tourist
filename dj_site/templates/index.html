@@ -397,8 +397,10 @@ src="{{ MEDIA_URL }}img/n_zag_ppl.gif" height="23" vspace="9" width="116"></td>
                 </table></td>
             </tr>
           </table>
-          <!--div id="Layer4z" style="position:absolute; width:95%; height:210px; z-index:2; top: 35px; left:5%;
-		   scrollbar-base-color: #FFDB76; scrollbar-darkshadow-color: #DC831D; scrollbar-shadow-color: #DC831D;  scrollbar-arrow-color: #DC831D; layer-background-color: #FFFFCC; border: 1px none #000000; overflow: auto;">
+          <!--div id="Layer4z" style="position:absolute; width:95%; height:210px; z-index:2; top: 35px; left:5%;
+
+		   scrollbar-base-color: #FFDB76; scrollbar-darkshadow-color: #DC831D; scrollbar-shadow-color: #DC831D;  scrollbar-arrow-color: #DC831D; layer-background-color: #FFFFCC; border: 1px none #000000; overflow: auto;">
+
 		  </div-->
           <div id="Layer4z" style="position: absolute; width: 95%; 
 height: 210px; z-index: 3; top: 35px; left: 5%; border: 1px none rgb(0, 
@@ -633,7 +635,7 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
 <table border="0" cellpadding="0" cellspacing="0" height="25" width="100%">
     
     
-        {% for news in latest_news %}
+        {% for object_item in latest_news %}
 <tr>
     <td>
 
@@ -642,25 +644,28 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
                 <td rowspan="2" align="center" height="43" width="13%">
                     <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
                         <tr> 
-                            <td><a href="{{ SITE_URL }}xtnews/bendy-bycicle">
-                                <img src="{{ MEDIA_URL }}img/ico_031.jpg" alt="{{ news.title }}" border="0" height="59" width="79" /></a>
+                            <td><a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                <img src="{{ MEDIA_URL }}img/ico_031.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79" /></a>
                             </td>
                         </tr>
                     </table>
                 </td>
                 <td class="litlm1" valign="middle" width="87%">
                     <span class="linkonf2">
-                    <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtnews/bendy-bycicle">
-                    {{ news.description }}
+                    <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}{{ object_item.objurl }}">
+                    {{ object_item.content_object.description }}
                     </a> 
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="litlm1" align="right" height="15" valign="middle">
-                    <font color="#a91e0a">{{ news.author_id }}({{ news.date }}). Теги:</font><br>
-                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a> | 
-                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
+                    <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                    {% comment %}
+                    {% for class in object_item.xtc2o_set.all() %}
+                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
+                    {% endfor %}                    
+                    {% endcomment %}
                 </td>
             </tr>
         </table>
@@ -816,7 +821,7 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
 <table border="0" cellpadding="0" cellspacing="0" height="25" width="100%">
     
     
-        {% for report in recent_report %}
+        {% for object_item in recent_report %}
 <tr>
     <td>
 
@@ -825,23 +830,23 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
                 <td rowspan="2" align="center" height="43" width="13%">
                     <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
                         <tr> 
-                            <td><a href="{{ SITE_URL }}xtreport/pvd-zhdp-eshar-zhdp-gineevka">
-                                <img src="{{ MEDIA_URL }}img/ico_030.jpg" alt="{{ report.title }}" border="0" height="59" width="79" /></a>
+                            <td><a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                <img src="{{ MEDIA_URL }}img/ico_030.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79" /></a>
                             </td>
                         </tr>
                     </table>
                 </td>
                 <td class="litlm1" valign="middle" width="87%">
                     <span class="linkonf2">
-                    <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtreport/pvd-zhdp-eshar-zhdp-gineevka">
-                    {{ report.description }}
+                    <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}{{ object_item.objurl }}">
+                    {{ object_item.content_object.description }}
                     </a> 
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="litlm1" align="right" height="15" valign="middle">
-                    <font color="#a91e0a">{{ report.author_id }}({{ report.date }}). Теги:</font><br>                    
+                    <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>                    
                 </td>
             </tr>
         </table>
@@ -999,7 +1004,7 @@ src="{{ MEDIA_URL }}img/n_zag_lchs2.gif" height="16" vspace="13" width="120"></t
  none rgb(0, 0, 0);"> 
            
 <table border="0" cellpadding="0" cellspacing="0" height="25" width="100%">
-    {% for article in new_article %}
+    {% for object_item in new_article %}
     <tr> 
         <td>           
             <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%">
@@ -1008,22 +1013,22 @@ src="{{ MEDIA_URL }}img/n_zag_lchs2.gif" height="16" vspace="13" width="120"></t
                         <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
                             <tr> 
                                 <td>
-                                    <a href="{{ SITE_URL }}xtarticle/httpuabikecomindexphpidocatcategorysuport_2">
-                                    <img src="{{ MEDIA_URL }}img/ico_018.jpg" alt="{{ article.title }}" border="0" height="59" width="79" /></a>
+                                    <a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                    <img src="{{ MEDIA_URL }}img/ico_018.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79" /></a>
                                 </td>
                             </tr>
                         </table>
                     </td>
                     <td class="litlm1" valign="middle" width="87%">
                         <span class="linkonf2">
-                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtarticle/httpuabikecomindexphpidocatcategorysuport_2">{{ article.description }}
+                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                         </a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">{{ article.author_id }}({{ article.date }}). Теги:</font><br>
+                        <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
                         <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/automoto" title="Все у чего есть ДВС">Авто-мото</a> | 
                         <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
                     </td>

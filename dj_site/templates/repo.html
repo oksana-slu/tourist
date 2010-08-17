@@ -57,21 +57,25 @@ background: transparent url({{ MEDIA_URL }}img/popup_bg_01.png) repeat 0 0;
                                                         <table width="100%"><tbody>
                                                             <tr>
                                                                 <td>
-                                                                    {% for class in xtclass%}
+                                                                    {% for class in xtclass %}
                                                                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a>{% if not forloop.last %} | {% endif %} 
                                                                     {% endfor %}
                                                                     <br>
-                                                                    <h2 class="head1" align="center">Невероятный “сгибающийся велосипед”</h2>
+                                                                    <h2 class="head1" align="center">{{ topic_item.title }}</h2>
                                                                     <p align="right">
                                                                     <span class="linkonf">
-                                                                    <em>DragonFly 20.07.2010 12:05</em>
+                                                                    <em>{{ topic_item.author_id }} {{ topic_item.date }}</em>
                                                                     </span><br>
                                                                     </p>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
+                                                                {{ topic_item.description }}
+                                                                
+                                                                
                                                                     <p class="topic" align="justify">
+                                                                    {% comment %}
                                                                     <span style="word-spacing: 0px; font: medium 'Times New Roman'; text-transform: none; color: rgb(0, 0, 0); text-indent: 0px; white-space: normal; letter-spacing: normal; border-collapse: separate; orphans: 2; widows: 2;" class="Apple-style-span">
                                                                     <div style="background-color: transparent; margin: 0px;">
                                                                     <div style="text-align: justify;">
@@ -248,14 +252,15 @@ vertical-align: baseline; color: rgb(0, 0, 0); font-style: normal;
 font-family: Arial; background-color: transparent; text-decoration: 
 none;"><font face="arial,helvetica,sans-serif" size="2">Вольный перевод:
  DragonFly</font></span></div></span></div></span></div></span></div></span>
- 		 		 		
+ 		 {% endcomment %}		 		
 		 </p>
-		<p class="linkonf" align="right"><em>DragonFly 20.07.2010 12:05</em></p>
+         
+		<p class="linkonf" align="right"><em>{{ topic_item.author_id }} {{ topic_item.date }}</em></p>
 		<br>
 		
-                                                                    {% for class in xtclass%}
-                                                                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a>{% if not forloop.last %} | {% endif %} 
-                                                                    {% endfor %}
+      {% for class in xtclass%}
+ <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a>{% if not forloop.last %} | {% endif %} 
+       {% endfor %}
         
         <br>
 		
@@ -369,20 +374,20 @@ title="Сообщение" border="0">
                                                             Последние новости
                                                         </td>
                                                     </tr>
-                                                    {% for news in latest_news %}
+                                                    {% for object_item in latest_news %}
                                                     <tr>
                                                         <td valign="top">
                                                             <table border="0" cellpadding="5" cellspacing="5" width="280px"><tbody>
                                                                 <tr>
                                                                     <td>
-                                                                        <a href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus">
-                                                                        <img src="{{ MEDIA_URL }}img/ico_009.jpg" alt="{{ news.title }}" border="0" height="59" width="79">
+                                                                        <a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                                                        <img src="{{ MEDIA_URL }}img/ico_009.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79">
                                                                         </a>
                                                                     </td>
                                                                     <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 10px 0pt 0pt;">
-                                                                        {{ news.date }}<br>
+                                                                        {{ object_item.content_object.date }}<br>
                                                                         <span class="linkonf2">
-                                                                        <a href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus">{{ news.description }}
+                                                                        <a href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                                                                         </a>
                                                                         </span>
                                                                     </td>
@@ -434,20 +439,20 @@ title="Сообщение" border="0">
                                                             Последние отчеты
                                                         </td>
                                                     </tr>
-                                                    {% for report in recent_report %}
+                                                    {% for object_item in recent_report %}
                                                     <tr>
                                                         <td valign="top">
                                                             <table border="0" cellpadding="5" cellspacing="5" width="280px"><tbody>
                                                                 <tr>
                                                                     <td>
-                                                                        <a href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus">
+                                                                        <a href="{{ SITE_URL }}{{ object_item.objurl }}">
                                                                         <img src="{{ MEDIA_URL }}img/ico_009.jpg" alt="{{ report.title }}" border="0" height="59" width="79">
                                                                         </a>
                                                                     </td>
                                                                     <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 10px 0pt 0pt;">
-                                                                        {{ report.date }}<br>
+                                                                        {{ object_item.content_object.date }}<br>
                                                                         <span class="linkonf2">
-                                                                        <a href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus">{{ report.description }}
+                                                                        <a href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                                                                         </a>
                                                                         </span>
                                                                     </td>
@@ -498,20 +503,20 @@ title="Сообщение" border="0">
                                                             Последние статьи
                                                         </td>
                                                     </tr>
-                                                    {% for article in new_article %}
+                                                    {% for object_item in new_article %}
                                                     <tr>
                                                         <td valign="top">
                                                             <table border="0" cellpadding="5" cellspacing="5" width="280px"><tbody>
                                                                 <tr>
                                                                     <td>
-                                                                        <a href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus">
+                                                                        <a href="{{ SITE_URL }}{{ object_item.objurl }}">
                                                                         <img src="{{ MEDIA_URL }}img/ico_009.jpg" alt="{{ article.title }}" border="0" height="59" width="79">
                                                                         </a>
                                                                     </td>
                                                                     <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 10px 0pt 0pt;">
-                                                                        {{ article.date }}<br>
+                                                                        {{ object_item.content_object.date }}<br>
                                                                         <span class="linkonf2">
-                                                                        <a href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus">{{ article.description }}
+                                                                        <a href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                                                                         </a>
                                                                         </span>
                                                                     </td>
@@ -558,75 +563,7 @@ title="Сообщение" border="0">
 
                                                 
                                                 
-                                                {% comment %}
-                                                <tr><td valign="top"><table border="0" cellpadding="5" 
-cellspacing="5" width="280px"><tbody><tr>
-							  <td><a href="{{ SITE_URL }}xtnews/specialized-2010"><img
- src="{{ MEDIA_URL }}img/ico_013.jpg" alt="Specialized 2010" border="0" 
-height="59" width="79"></a></td>
-							  <td class="litlm1" style="color: rgb(207, 88, 0);">13.07.2009<br><span
- class="linkonf2"><a 
-href="{{ SITE_URL }}xtnews/specialized-2010">Подоспели 
-первые фотографии серийных байков Specialized 2010го модельного года. 
-Фотографий пока очен...</a></span></td>
-							  </tr></tbody></table></td>	
-							</tr><tr><td valign="top"><table border="0" cellpadding="5" 
-cellspacing="5" width="280px"><tbody><tr>
-							  <td><a 
-href="{{ SITE_URL }}xtnews/velosipedy-scott2010"><img 
-src="{{ MEDIA_URL }}img/ico_007.jpg" alt="Велосипеды Scott`2010" border="0" 
-height="59" width="79"></a></td>
-							  <td class="litlm1" style="color: rgb(207, 88, 0);">26.06.2009<br><span
- class="linkonf2"><a 
-href="{{ SITE_URL }}xtnews/velosipedy-scott2010">Что Scott 
-грядущий нам готовит?...</a></span></td>
-							  </tr></tbody></table></td>	
-							</tr><tr><td valign="top"><table border="0" cellpadding="5" 
-cellspacing="5" width="280px"><tbody><tr>
-							  <td><a 
-href="{{ SITE_URL }}xtnews/elektro-koleso-dlya-velosipeda-kers"><img
- src="{{ MEDIA_URL }}img/ico_003.jpg" alt="Электро колесо для велосипеда KERS" 
-border="0" height="59" width="79"></a></td>
-							  <td class="litlm1" style="color: rgb(207, 88, 0);">17.12.2009<br><span
- class="linkonf2"><a 
-href="{{ SITE_URL }}xtnews/elektro-koleso-dlya-velosipeda-kers">Электро-колесо
- с рекуперацией. Для любого велосипеда....</a></span></td>
-							  </tr></tbody></table></td>	
-							</tr><tr><td valign="top"><table border="0" cellpadding="5" 
-cellspacing="5" width="280px"><tbody><tr>
-							  <td><a 
-href="{{ SITE_URL }}xtnews/nemnogo-issledovanij-o-kolenyah"><img
- src="{{ MEDIA_URL }}img/ico_010.jpg" alt="немного исследований о коленях" 
-border="0" height="59" width="79"></a></td>
-							  <td class="litlm1" style="color: rgb(207, 88, 0);">02.06.2009<br><span
- class="linkonf2"><a 
-href="{{ SITE_URL }}xtnews/nemnogo-issledovanij-o-kolenyah">немного
- исследований о коленях...</a></span></td>
-							  </tr></tbody></table></td>	
-							</tr><tr><td valign="top"><table border="0" cellpadding="5" 
-cellspacing="5" width="280px"><tbody><tr>
-							  <td><a href="{{ SITE_URL }}xtnews/i-snova-kofe"><img
- src="{{ MEDIA_URL }}img/ico_006.jpg" alt="И снова о кофе!!!!" border="0" 
-height="59" width="79"></a></td>
-							  <td class="litlm1" style="color: rgb(207, 88, 0);">10.04.2009<br><span
- class="linkonf2"><a 
-href="{{ SITE_URL }}xtnews/i-snova-kofe">Кофе способен 
-избавить спортсменов от болей в мышцах...</a></span></td>
-							  </tr></tbody></table></td>	
-							</tr><tr><td valign="top"><table border="0" cellpadding="5" 
-cellspacing="5" width="280px"><tbody><tr>
-							  <td><a 
-href="{{ SITE_URL }}xtnews/zagranpasporta-starogo-obrazca"><img
- src="{{ MEDIA_URL }}img/ico_005.jpg" alt="Загранпаспорта старого образца" 
-border="0" height="59" width="79"></a></td>
-							  <td class="litlm1" style="color: rgb(207, 88, 0);">19.06.2010<br><span
- class="linkonf2"><a 
-href="{{ SITE_URL }}xtnews/zagranpasporta-starogo-obrazca">Загранпаспорта
- старого образца будут выпускаться до 15 июля...</a></span></td>
-							  </tr></tbody></table></td>	
-							</tr></tbody>
-                            {% endcomment %}
-                            
+                                                                           
                             
                             </table></td></tr></tbody></table></td></tr></tbody></table>
         </td>

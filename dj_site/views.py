@@ -14,16 +14,14 @@ def index(request):
                                              childs__parent=0).\
                                              order_by('-class_order')
                                              
-    latest_news = XtNews.objects.all().order_by('-date')[0:6]
+    latest_news = XtObject.objects.filter(xtobjecttype__otname='news', status=1).order_by('-pk')[0:6]
     top_news = XtNews.objects.all().order_by('-forum')[0:6]
     
-    recent_report = XtTopic.objects.filter(path__startswith='report').\
-                                          order_by('-date')[0:6]
+    recent_report = XtObject.objects.filter(xtobjecttype__otname='report', status=1).order_by('-pk')[0:6]
     popular_report = XtTopic.objects.filter(path__startswith='report').\
                                           order_by('-forum')[0:6]
                                           
-    new_article = XtTopic.objects.filter(path__startswith='article').\
-                                          order_by('-date')[0:6]
+    new_article =  XtObject.objects.filter(xtobjecttype__otname='article', status=1).order_by('-pk')[0:6]
     best_article = XtTopic.objects.filter(path__startswith='article').\
                                           order_by('-forum')[0:6]
 
@@ -44,24 +42,24 @@ def xtreport_list(request, part):
                               context_instance=RequestContext(request))
 
 
-def xtreport_item(request, part, slug):
-    xt_all = XtObject.objects.get(objurl='%s/%s' %(part, slug))
-    xtclass = xt_all.xtc2o_set.all()
+def xttopic_item(request, part, slug):
+    object_item = XtObject.objects.get(objurl='%s/%s' %(part, slug))
+    xtclass = object_item.xtc2o_set.all()
+    topic_item = object_item.content_object
     
     part = part
-    latest_news = XtNews.objects.all().order_by('-date')[0:6]
+    latest_news = XtObject.objects.filter(xtobjecttype__otname='news', status=1).order_by('-pk')[0:6]
     top_news = XtNews.objects.all().order_by('-forum')[0:6]
     
-    recent_report = XtTopic.objects.filter(path__startswith='report').\
-                                          order_by('-date')[0:6]
+    recent_report =XtObject.objects.filter(xtobjecttype__otname='report', status=1).order_by('-pk')[0:6] 
     popular_report = XtTopic.objects.filter(path__startswith='report').\
                                           order_by('-forum')[0:6]
                                           
-    new_article = XtTopic.objects.filter(path__startswith='article').\
-                                          order_by('-date')[0:6]
+    new_article = XtObject.objects.filter(xtobjecttype__otname='article', status=1).order_by('-pk')[0:6]
     best_article = XtTopic.objects.filter(path__startswith='article').\
                                           order_by('-forum')[0:6]
     return render_to_response('repo.html', {"xtclass":xtclass,
+                                            "topic_item":topic_item,
                                             "latest_news":latest_news,
                                             "top_news":top_news,
                                             "part":part,

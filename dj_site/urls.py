@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^$', "dj_site.views.index"),
-    (r'^(?P<part>xtreport|xtarticle|xtnews)/(?P<slug>[-\w]+)$', "dj_site.views.xtreport_item"),
+    (r'^(?P<part>xtreport|xtarticle|xtnews)/(?P<slug>[-\w]+)$', "dj_site.views.xttopic_item"),
     (r'^(?P<part>xtreport|xtarticle|xtnews)/$', "dj_site.views.xtreport_list"),
     (r'^xtclass/(?P<slug>[-\w]+)$', "dj_site.views.xtclass"),
     (r'^admin/', include(admin.site.urls)),
