@@ -30,14 +30,14 @@ href="{{ SITE_URL }}rss.php?objects=xtreport+xtarticle+xtnews&amp;classes=water"
 background-repeat: no-repeat; background-position: 50% 130px;">
 
 <div style="position: absolute; overflow: hidden; height: 125px; z-index: 1; width: 170px; top: 143px; left: 80%;">
-<table width="170px"><tbody><tr><td style="padding: 0pt 40px 0pt 0pt;">
+<table width="170px"><tr><td style="padding: 0pt 40px 0pt 0pt;">
 <form action="{{ SITE_URL }}login.php" method="post" 
 enctype="multipart/form-data">
 <table style="padding: 0pt 0pt 20px;" border="0" cellpadding="0" 
 cellspacing="0" width="165">
-	<tbody><tr><td>
+	<tr><td>
 	  <table border="0" cellpadding="0" cellspacing="0">
-	   <tbody><tr>
+	   <tr>
 	      <td style="color: rgb(214, 179, 38); font-size: 12px;" 
 align="right" width="62"><b>Логин:</b></td>
 	      <td align="right" width="103"> 
@@ -70,15 +70,15 @@ onmousedown="{if(username.value=='')alert('Необходимо
 авторизироваться');}" type="submit" align="middle">
 	      </td>
 	  </tr>
-	  </tbody></table></td>
+	  </table></td>
 	</tr>
-</tbody></table>
-</form></td></tr></tbody></table></div>
+</table>
+</form></td></tr></table></div>
 
 <table style="padding: 15px 0pt; background: 
 url('{{ MEDIA_URL }}img/filtr.gif') no-repeat scroll 50% 50% transparent;" 
 border="0" cellpadding="3" cellspacing="0" height="96px" width="100%">
-  <tbody><tr>
+  <tr>
   	<td align="center" valign="bottom"><span class="head1"><font 
 style="color: rgb(255, 22, 0);"> {{ xtcdescription_xtclass.xtcdescription }}</font></span>
  </td></tr>
@@ -209,11 +209,11 @@ title="Категорийные выше третьей">Спортивные о
 value="{{ SITE_URL }}xtclass/matrac/velo" title="Совсем 
 матрасные бухаловки">Матрасные отчеты</option></select>&nbsp;</span></td>
   </tr>		
-</tbody></table>
+</table>
 
 <table class="backgroundtable" border="0" cellpadding="0" 
 cellspacing="0" height="530px" width="100%">
-  <tbody><tr style="background: url('{{ MEDIA_URL }}img/n_nizfon.jpg') 
+  <tr style="background: url('{{ MEDIA_URL }}img/n_nizfon.jpg') 
 repeat-x scroll left bottom transparent;">
     <td bgcolor1="#E8AE3D" height="100%" valign="top" width="34%">
     <div id="Layer0" style="position: relative; width: 100%; height: 
@@ -222,22 +222,22 @@ repeat-x scroll left bottom transparent;">
  100%; z-index: 1; display: none;"> 
           <table background="{{ MEDIA_URL }}img/n_upback.gif" border="0" 
 cellpadding="0" cellspacing="0" height="41" width="100%">
-            <tbody><tr> 
+            <tr> 
               <td style="cursor: pointer;" align="left" valign="bottom" 
 width="50%"> <table onmousedown="MenuHa('Layer6','Layer5');" border="0" 
 cellpadding="0" cellspacing="0" height="45" width="100%">
 
-                  <tbody><tr> 
+                  <tr> 
                     <td valign="top" width="4%"><img 
 src="{{ MEDIA_URL }}img/n_pipt.gif" border="0" height="38" width="5"></td>
                     <td align="center" valign="middle" width="94%"><img 
 src="{{ MEDIA_URL }}img/n_zag_svno2.gif" height="23" vspace="9" width="136"></td>
                     <td align="right" width="2%">&nbsp;</td>
                   </tr>
-                </tbody></table></td>
+                </table></td>
               <td align="left" height="45" valign="bottom" width="50%"> <table
  border="0" cellpadding="0" cellspacing="0" height="41" width="100%">
-                  <tbody><tr> 
+                  <tr> 
                     <td width="1%"><img src="{{ MEDIA_URL }}img/n_zakl.gif" 
 height="41" width="20"></td>
                     <td align="center" 
@@ -246,9 +246,9 @@ src="{{ MEDIA_URL }}img/n_zag_tpno2.gif" height="23" vspace="5" width="137"></td
                     <td align="right" width="1%"><img 
 src="{{ MEDIA_URL }}img/n_zakr.gif" height="41" width="12"></td>
                   </tr>
-                </tbody></table></td>
+                </table></td>
             </tr>
-          </tbody></table>
+          </table>
 		  <div id="Layer1z" style="background: 
 url('{{ MEDIA_URL }}img/n_back.jpg') repeat scroll 0% 0% transparent; 
 position: absolute; width: 100%; height: 450px; z-index: 5; border: 1px 
@@ -264,223 +264,49 @@ none rgb(0, 0, 0); overflow: auto;">
   </tr>
 
 </table-->
-<table style="padding: 0pt 10px;" border="0" cellpadding="0" 
-cellspacing="0" height="25" width="100%">
-							<!--tr>
+<table style="padding: 0pt 10px;" border="0" cellpadding="0" cellspacing="0" height="25" width="100%">
 
-								<td>
+    {% for object_item in top_news %}
+        {% for class in object_item.xtclass %}
+            {% if class.xtclass.vcode == slug %}
+    <tr>
+        <td>
+            <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%">
+                <tr> 
+                    <td rowspan="2" align="center" height="43" width="13%"> 
+                        <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
+                            <tr> 
+                                <td>
+                                    <a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                    <img src="{{ MEDIA_URL }}img/ico_025.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="litlm1" valign="middle" width="87%">
+                        <span class="linkonf2">
+                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}</a> 
+                        </span>
+                    </td>
+                </tr> 
+                <tr>
+                    <td class="litlm1" align="right" height="15" valign="middle">
+                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                        {% for class in object_item.xtclass %}
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
+                        {% endfor %} 
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+                        
+            {% endif %}
+        {% endfor %}
+     {% endfor %}
+</table>
 
-									
 
-								</td>
-
-							</tr-->
-							<tbody><tr>
-								<td>
-									<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/prostitutki-dayut-skidki-velosipedistam"><img
- src="{{ MEDIA_URL }}img/ico_025.jpg" alt="Проститутки дают скидки 
-велосипедистам." border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/prostitutki-dayut-skidki-velosipedistam">Немецкие
- проститутки дают скидки велосипедистам.</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      Миша(18.12.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2"><img 
-src="{{ MEDIA_URL }}img/ico_003.jpg" alt="Электровелосипед Gocycle" border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/elektrovelosiped-gocycle_2">Электровелосипед
- Gocycle от Британской компании Karbon Kinetics L...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      Trafer(09.01.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/specialized-2010"><img 
-src="{{ MEDIA_URL }}img/ico_031.jpg" alt="Specialized 2010" border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/specialized-2010">Подоспели 
-первые фотографии серийных байков Specialized 2010го мо...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      ХАМИЛЬ(13.07.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/velosipedy-scott2010"><img 
-src="{{ MEDIA_URL }}img/ico_023.jpg" alt="Велосипеды Scott`2010" border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/velosipedy-scott2010">Что Scott 
-грядущий нам готовит?</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      Taras(26.06.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/elektro-koleso-dlya-velosipeda-kers"><img
- src="{{ MEDIA_URL }}img/ico_014.jpg" alt="Электро колесо для велосипеда KERS" 
-border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/elektro-koleso-dlya-velosipeda-kers">Электро-колесо
- с рекуперацией. Для любого велосипеда.</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      Миша(17.12.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtnews/nemnogo-issledovanij-o-kolenyah"><img
- src="{{ MEDIA_URL }}img/ico_030.jpg" alt="немного исследований о коленях" 
-border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtnews/nemnogo-issledovanij-o-kolenyah">немного
- исследований о коленях</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор
-      Станислав(02.06.2009). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/multisport" 
-title="Приключенческие гонки (экстрим-марафоны)">Мультиспорт</a> | <a 
-style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/foot" title="Пешие походы">Пеший
- туризм</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a> | <a style="color: rgb(169, 77, 
-10);" href="{{ SITE_URL }}xtclass/ground" title="Мать сыра 
-земля">Земля</a></td>
-  </tr>
-</tbody></table>
-
-								</td>
-							</tr>
-							<!--tr>
-
-								<td>
-
-									
-
-								</td>
-
-							</tr-->
-							<!--tr>
-
-								<td>
-
-									<strong> &nbsp;
-
-									<img src="img/str2.gif" width="10" height="10"></strong>
-
-									<a href="/add_news/">
-
-									<span class="linkonf">Добавить новость</span></a>
-
-								</td>
-
-							</tr-->
-							
-						</tbody></table>
 
         </div> 
           </div>
@@ -489,10 +315,10 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
  100%; z-index: 2;"> 
           <table background="{{ MEDIA_URL }}img/n_upback.gif" border="0" 
 cellpadding="0" cellspacing="0" height="41" width="100%">
-            <tbody><tr> 
+            <tr> 
               <td align="left" valign="bottom" width="50%"> <table 
 border="0" cellpadding="0" cellspacing="0" height="41" width="100%">
-                  <tbody><tr> 
+                  <tr> 
                     <td width="1%"><img src="{{ MEDIA_URL }}img/n_zakl.gif" 
 height="41" width="20"></td>
                     <td align="center" 
@@ -501,22 +327,22 @@ src="{{ MEDIA_URL }}img/n_zag_svno.gif" height="18" vspace="5" width="131"></td>
                     <td align="right" width="1%"><img 
 src="{{ MEDIA_URL }}img/n_zakr.gif" height="41" width="12"></td>
                   </tr>
-                </tbody></table></td>
+                </table></td>
 
               <td style="cursor: pointer;" align="left" height="45" 
 valign="bottom" width="50%"> <table 
 onmousedown="MenuHa('Layer5','Layer6');" border="0" cellpadding="0" 
 cellspacing="0" height="45" width="100%">
-                  <tbody><tr> 
+                  <tr> 
                     <td valign="top" width="6%"><img 
 src="{{ MEDIA_URL }}img/n_pipt.gif" border="0" height="38" width="5"></td>
                     <td align="center" valign="top" width="93%"><img 
 src="{{ MEDIA_URL }}img/n_zag_tpno.gif" height="22" vspace="9" width="115"></td>
                     <td align="right" width="1%">&nbsp;</td>
                   </tr>
-                </tbody></table></td>
+                </table></td>
             </tr>
-          </tbody></table>
+          </table>
 		  <div id="Layer1z" style="background: 
 url('{{ MEDIA_URL }}img/n_back.jpg') repeat scroll 0% 0% transparent; 
 position: absolute; width: 100%; height: 450px; z-index: 5; border: 1px 
@@ -543,20 +369,20 @@ cellspacing="0" height="25" width="100%">
 								</td>
 
 							</tr-->
-							<tbody><tr>
+							<tr>
 								<td>
 									<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a href="{{ SITE_URL }}xtnews/bendy-bycicle"><img
  src="{{ MEDIA_URL }}img/ico_029.jpg" alt="Невероятный “сгибающийся велосипед”" 
 border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -573,20 +399,20 @@ href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a>
 href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
 велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtnews/koncepty-velosipedov-ot-volkswagen-i-lexus"><img
  src="{{ MEDIA_URL }}img/ico_024.jpg" alt="Концепты велосипедов от Volkswagen и 
 Lexus" border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -601,20 +427,20 @@ color="#a91e0a">Автор
 href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
 велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtnews/v-kieve-otkryli-protivougonnuyu-veloparkovku"><img
  src="{{ MEDIA_URL }}img/ico_013.jpg" alt="В Киеве открыли «противоугонную» 
 велопарковку" border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -631,20 +457,20 @@ href="{{ SITE_URL }}xtclass/kiev" title="Киевская область">Кие
 href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
 велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtnews/tehnodoping-v-velosporte_2"><img 
 src="{{ MEDIA_URL }}img/ico_027.jpg" alt="Технодопинг в велоспорте" border="0" 
 height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -659,20 +485,20 @@ color="#a91e0a">Автор
 href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
 велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtnews/treadmill-bike-begovoj-velosiped"><img
  src="{{ MEDIA_URL }}img/ico_017.jpg" alt="Treadmill Bike - беговой велосипед" 
 border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -689,20 +515,20 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
 10);" href="{{ SITE_URL }}xtclass/ground" title="Мать сыра 
 земля">Земля</a></td>
   </tr>
-</tbody></table>
+</table>
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtnews/iz-angliii-v-kitaj-na-velosipede-pograncy-ne-spyat"><img
  src="{{ MEDIA_URL }}img/ico_007.jpg" alt="Из Англиии в Китай на велосипеде: 
 погранцы не спят" border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -717,7 +543,7 @@ color="#a91e0a">Автор
 href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
 велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
 
 								</td>
 							</tr>
@@ -746,7 +572,7 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
 
 							</tr-->
 							
-						</tbody></table>
+						</table>
 
           </div>
            </div>           
@@ -754,7 +580,7 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
 height: 102%; z-index: 0;"> 
           <table border="0" cellpadding="0" cellspacing="0" 
 height="100%" width="100%">
-            <tbody><tr>
+            <tr>
               <td align="left" valign="bottom"> <a 
 href="{{ SITE_URL }}all_news/1"> <img 
 src="{{ MEDIA_URL }}img/all_news.gif" border="0px" height="18px" width="109px"></a>
@@ -765,7 +591,7 @@ src="{{ MEDIA_URL }}img/add_news.gif" border="0px" height="18px" width="171px"><
               </td>
             </tr>
 
-          </tbody></table>
+          </table>
         </div>
       </div>          	  	 
      </td>
@@ -785,11 +611,11 @@ transparent;" valign="top" width="0%">
 scroll 0% 0% transparent; position: absolute; width: 100%; height: 
 100px; top: 450px; z-index: 1; overflow: auto; color: rgb(255, 221, 
 133);"></div>	
-	<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td 
+	<table border="0" cellpadding="0" cellspacing="0"><tr><td 
 style="padding: 0pt 0pt 15px;" valign="top">		
 	   <img src="{{ MEDIA_URL }}img/n_dv.png" alt="" border="0" vspace="0">
 	  </td>
-	  </tr></tbody></table> 	
+	  </tr></table> 	
  	</td>
     <td bgcolor1="#E8AE3D" height="100%" valign="top" width="34%">
       <div id="Layer0" style="position: relative; width: 100%; height: 
@@ -799,22 +625,22 @@ style="padding: 0pt 0pt 15px;" valign="top">
           <table background="{{ MEDIA_URL }}img/n_upback.gif" border="0" 
 cellpadding="0" cellspacing="0" height="41" width="100%">
 
-            <tbody><tr> 
+            <tr> 
               <td style="cursor: pointer;" align="left" valign="bottom" 
 width="50%"> <table onmousedown="MenuHa('Layer8','Layer7');" border="0" 
 cellpadding="0" cellspacing="0" height="45" width="100%">
-                  <tbody><tr> 
+                  <tr> 
                     <td valign="top" width="4%"><img 
 src="{{ MEDIA_URL }}img/n_pipt.gif" border="0" height="38" width="5"></td>
                     <td align="center" valign="middle" width="94%"><img 
 src="{{ MEDIA_URL }}img/n_zag_pso2.gif" height="23" vspace="9" width="86"></td>
                     <td align="right" width="2%">&nbsp;</td>
                   </tr>
-                </tbody></table></td>
+                </table></td>
               <td align="left" height="45" valign="bottom" width="50%"> <table
  border="0" cellpadding="0" cellspacing="0" height="41" width="100%">
 
-                  <tbody><tr> 
+                  <tr> 
                     <td width="1%"><img src="{{ MEDIA_URL }}img/n_zakl.gif" 
 height="41" width="20"></td>
                     <td align="center" 
@@ -823,9 +649,9 @@ src="{{ MEDIA_URL }}img/n_zag_ppo.gif" height="20" vspace="5" width="177"></td>
                     <td align="right" width="1%"><img 
 src="{{ MEDIA_URL }}img/n_zakr.gif" height="41" width="12"></td>
                   </tr>
-                </tbody></table></td>
+                </table></td>
             </tr>
-          </tbody></table>
+          </table>
 		  <div id="Layer1z" style="background: 
 url('{{ MEDIA_URL }}img/n_back.jpg') repeat scroll 0% 0% transparent; 
 position: absolute; width: 100%; height: 450px; z-index: 5; border: 1px 
@@ -853,21 +679,21 @@ cellpadding="0" cellspacing="0" width="100%">
 								</td>
 
 							</tr-->
-							<tbody><tr>
+							<tr>
 								<td valign="top">
 									<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtreport/YEkskursiya_na_zavod_HVZ"><img 
 src="{{ MEDIA_URL }}img/ico_036.jpg" alt="Экскурсия на завод ХВЗ" border="0" 
 height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -886,21 +712,21 @@ href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
 href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
 велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtreport/kremenchug-arabatskaya-strelka-feodosiya-tranzit"><img
  src="{{ MEDIA_URL }}img/ico_010.jpg" alt="Кременчуг - Арабатская Стрелка - 
 Феодосия" border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -921,21 +747,21 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
 10);" href="{{ SITE_URL }}xtclass/ground" title="Мать сыра 
 земля">Земля</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtreport/velokrym-tarhankut-bez-carya-vo-glave"><img
  src="{{ MEDIA_URL }}img/ico_018.jpg" alt="ВелоКрым 2009 Тарханкут+:  " Без="" 
 царя="" во="" главе="" border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -956,20 +782,20 @@ href="{{ SITE_URL }}xtclass/niceplaces" title="Живописные
 rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" 
 title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a href="{{ SITE_URL }}xtreport/jnxtn"><img 
 src="{{ MEDIA_URL }}img/ico_011.jpg" alt="Голубое 
 озеро-Славянск-Славяногорск-Изюм" border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -989,21 +815,21 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
 10);" href="{{ SITE_URL }}xtclass/ground" title="Мать сыра 
 земля">Земля</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtreport/pvd-radialki-s-turstoyanki-mangu"><img
  src="{{ MEDIA_URL }}img/ico_015.jpg" alt="ПВД " Радиалки="" с="" турстоянки="" 
 Мангуп="" border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1020,21 +846,21 @@ href="{{ SITE_URL }}xtclass/crimea" title="Благодатный Крым">Кр
 href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
 велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}review_velo/index.php?viewtopic=79"><img
  src="{{ MEDIA_URL }}img/ico.jpg" alt="Крым август 2007" border="0" height="59" 
 width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1054,7 +880,7 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
  | <a style="color: rgb(169, 77, 10);" 
 href="{{ SITE_URL }}xtclass/crimea" title="Благодатный Крым">Крым</a></td>
   </tr>
-</tbody></table>
+</table>
 
 								</td>
 							</tr>
@@ -1083,15 +909,15 @@ href="{{ SITE_URL }}xtclass/crimea" title="Благодатный Крым">Кр
 
 							</tr-->
 							
-						</tbody></table> </div></div>
+						</table> </div></div>
         <div id="Layer8" style="position: absolute; width: 100%; height:
  100%; z-index: 2;"> 
           <table background="{{ MEDIA_URL }}img/n_upback.gif" border="0" 
 cellpadding="0" cellspacing="0" height="41" width="100%">
-            <tbody><tr> 
+            <tr> 
               <td align="left" valign="bottom" width="50%"> <table 
 border="0" cellpadding="0" cellspacing="0" height="41" width="100%">
-                  <tbody><tr> 
+                  <tr> 
                     <td width="1%"><img src="{{ MEDIA_URL }}img/n_zakl.gif" 
 height="41" width="20"></td>
                     <td align="center" 
@@ -1101,22 +927,22 @@ src="{{ MEDIA_URL }}img/n_zag_pso.gif" height="18" vspace="5" width="158"></td>
 src="{{ MEDIA_URL }}img/n_zakr.gif" height="41" width="12"></td>
 
                   </tr>
-                </tbody></table></td>
+                </table></td>
               <td style="cursor: pointer;" align="left" height="45" 
 valign="bottom" width="50%"> <table 
 onmousedown="MenuHa('Layer7','Layer8');" border="0" cellpadding="0" 
 cellspacing="0" height="45" width="100%">
-                  <tbody><tr> 
+                  <tr> 
                     <td valign="top" width="6%"><img 
 src="{{ MEDIA_URL }}img/n_pipt.gif" border="0" height="38" width="5"></td>
                     <td align="center" valign="top" width="93%"><img 
 src="{{ MEDIA_URL }}img/n_zag_ppo2.gif" height="23" vspace="9" width="109"></td>
                     <td align="right" width="1%">&nbsp;</td>
                   </tr>
-                </tbody></table></td>
+                </table></td>
 
             </tr>
-          </tbody></table>	          
+          </table>	          
 		  <div id="Layer1z" style="background: 
 url('{{ MEDIA_URL }}img/n_back.jpg') repeat scroll 0% 0% transparent; 
 position: absolute; width: 100%; height: 450px; z-index: 5; border: 1px 
@@ -1143,20 +969,20 @@ cellpadding="0" cellspacing="0" width="100%">
 								</td>
 
 							</tr-->
-							<tbody><tr>
+							<tr>
 								<td valign="top">
 									<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a href="{{ SITE_URL }}xtreport/ispytaj-sebya"><img
  src="{{ MEDIA_URL }}img/ico_032.jpg" alt="Испытай себя" border="0" height="59" 
 width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1175,21 +1001,21 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
 10);" href="{{ SITE_URL }}xtclass/active" title="Активное 
 время препровождение">Активный отдых</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtreport/yubk-za-3-dnya"><img 
 src="{{ MEDIA_URL }}img/ico_006.jpg" alt="ЮБК за 3 дня" border="0" height="59" 
 width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1208,21 +1034,21 @@ href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
 href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
 велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtreport/gonka-so-stihiej"><img 
 src="{{ MEDIA_URL }}img/ico_020.jpg" alt="Гонка со стихией" border="0" 
 height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1243,21 +1069,21 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
 10);" href="{{ SITE_URL }}xtclass/ground" title="Мать сыра 
 земля">Земля</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtreport/solenoe-ozero_6"><img 
 src="{{ MEDIA_URL }}img/ico_004.jpg" alt="Соленое озеро" border="0" height="59" 
 width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1278,21 +1104,21 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
 href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская 
 область">Харьков</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtreport/girskij-velo-krim"><img 
 src="{{ MEDIA_URL }}img/ico_009.jpg" alt="Гірський Вело Крим 2010" border="0" 
 height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1311,21 +1137,21 @@ href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
 href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
 велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtreport/slobozhanshina-vorskla-ta-krasnij-kut"><img
  src="{{ MEDIA_URL }}img/ico_026.jpg" alt="Слобожанщина - Ворскла та Красний 
 Кут. 2009" border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1346,7 +1172,7 @@ href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
 href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
 велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
 
 								</td>
 							</tr>
@@ -1375,12 +1201,12 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
 
 							</tr-->
 							
-						</tbody></table> </div></div>
+						</table> </div></div>
         <div id="Layer100" style="position: absolute; width: 100%; 
 height: 102%; z-index: 0;"> 
           <table border="0" cellpadding="0" cellspacing="0" 
 height="100%" width="100%">
-            <tbody><tr>
+            <tr>
               <td align="left" valign="bottom"> <a 
 href="{{ SITE_URL }}xtreport"> <img 
 src="{{ MEDIA_URL }}img/all_report.gif" border="0px"></a>
@@ -1390,7 +1216,7 @@ src="{{ MEDIA_URL }}img/add_report.gif" border="0px"></a>
               </td>
 
             </tr>
-          </tbody></table>
+          </table>
         </div>
       </div></td>
 	<!--td valign="top" width="0%" style="padding: 0 0 15 0; background:url('/img/n_dn.jpg') no-repeat center bottom  #ffdd85;">
@@ -1409,11 +1235,11 @@ transparent;" valign="top" width="0%">
 scroll 0% 0% transparent; position: absolute; width: 100%; height: 
 100px; top: 450px; z-index: 1; overflow: auto; color: rgb(255, 221, 
 133);"></div>	
-	<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td 
+	<table border="0" cellpadding="0" cellspacing="0"><tr><td 
 style="padding: 0pt 0pt 15px;" valign="top">		
 	   <img src="{{ MEDIA_URL }}img/n_dv.png" alt="" border="0" vspace="0">
 	  </td>
-	  </tr></tbody></table> 	
+	  </tr></table> 	
  	</td>
     <td height="100%" valign="top" width="34%">
 	<div id="Layer0" style="position: relative; width: 100%; height: 100%; 
@@ -1423,22 +1249,22 @@ height: 100%; z-index: 1; display: none;">
           <table background="{{ MEDIA_URL }}img/n_upback.gif" border="0" 
 cellpadding="0" cellspacing="0" height="41" width="100%">
 
-            <tbody><tr> 
+            <tr> 
               <td style="cursor: pointer;" align="left" valign="bottom" 
 width="50%"> <table onmousedown="MenuHa('Layer12','Layer11');" 
 border="0" cellpadding="0" cellspacing="0" height="45" width="100%">
-                  <tbody><tr> 
+                  <tr> 
                     <td valign="top" width="4%"><img 
 src="{{ MEDIA_URL }}img/n_pipt.gif" border="0" height="38" width="5"></td>
                     <td align="center" valign="top" width="94%"><img 
 src="{{ MEDIA_URL }}img/n_zag_nvs2.gif" height="16" vspace="13" width="60"></td>
                     <td align="right" width="2%">&nbsp;</td>
                   </tr>
-                </tbody></table></td>
+                </table></td>
               <td align="left" height="45" valign="bottom" width="50%"> <table
  border="0" cellpadding="0" cellspacing="0" height="41" width="100%">
 
-                  <tbody><tr> 
+                  <tr> 
                     <td width="1%"><img src="{{ MEDIA_URL }}img/n_zakl.gif" 
 height="41" width="20"></td>
                     <td align="center" 
@@ -1447,9 +1273,9 @@ src="{{ MEDIA_URL }}img/n_zag_lchs.gif" height="20" vspace="5" width="139"></td>
                     <td align="right" width="1%"><img 
 src="{{ MEDIA_URL }}img/n_zakr.gif" height="41" width="12"></td>
                   </tr>
-                </tbody></table></td>
+                </table></td>
             </tr>
-          </tbody></table>
+          </table>
 		  <div id="Layer1z" style="background: 
 url('{{ MEDIA_URL }}img/n_back.jpg') repeat scroll 0% 0% transparent; 
 position: absolute; width: 100%; height: 450px; z-index: 5; border: 1px 
@@ -1472,20 +1298,20 @@ cellpadding="0" cellspacing="0" width="100%">
     <td width="96%" class="navbar" align="center"> <a href={{ SITE_URL }}xtclass/velo/1/1>1</a> | <a href={{ SITE_URL }}xtclass/velo/1/7>2</a> | <a href={{ SITE_URL }}xtclass/velo/1/13>3</a> | <a href={{ SITE_URL }}xtclass/velo/1/19>4</a> | <a href={{ SITE_URL }}xtclass/velo/1/25>5</a> | <a href={{ SITE_URL }}xtclass/velo/1/31>6</a> | <a href={{ SITE_URL }}xtclass/velo/1/37>7</a> </td>
 
   </tr-->
-  <tbody><tr> 
+  <tr> 
     <td valign="top"> <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" 
 cellpadding="3" cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtarticle/Zagranpasport_Oformlenie"><img
  src="{{ MEDIA_URL }}img/ico_002.jpg" alt="Загранпаспорт.Практическое 
 оформление.(Московский район)" border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1514,21 +1340,21 @@ href="{{ SITE_URL }}xtclass/foot" title="Пешие походы">Пеший
 href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
 велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtarticle/Velosipedue_HVZ_Katalog"><img 
 src="{{ MEDIA_URL }}img/ico_019.jpg" alt="Велосипеды ХВЗ. Каталог." border="0" 
 height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1549,22 +1375,22 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
 10);" href="{{ SITE_URL }}xtclass/ground" title="Мать сыра 
 земля">Земля</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtarticle/kak_kupit_na_dealextreme_KD_chainreactioncycles"><img
  src="{{ MEDIA_URL }}img/ico_016.jpg" alt="Как купить на Dealextreme, Kaidomain,
  Chainreactioncycles и т.д.? Регистрация на PayPal." border="0" 
 height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1608,21 +1434,21 @@ href="{{ SITE_URL }}xtclass/winter" title="Лыжные походы,
 href="{{ SITE_URL }}xtclass/active" title="Активное время 
 препровождение">Активный отдых</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtarticle/FAQ_Osveshenie_Fonari_Svetodiodi_Accumulatori"><img
  src="{{ MEDIA_URL }}img/ico_028.jpg" alt="FAQ. Ночное освещение." border="0" 
 height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1666,21 +1492,21 @@ href="{{ SITE_URL }}xtclass/quests" title="квесты">Квесты</a>
 href="{{ SITE_URL }}xtclass/active" title="Активное время 
 препровождение">Активный отдых</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtarticle/zvyozdy-na-velosipedah-prisoedinyajsya"><img
  src="{{ MEDIA_URL }}img/ico_021.jpg" alt="Звёзды на велосипедах. 
 Присоединяйся." border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1697,21 +1523,21 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
 10);" href="{{ SITE_URL }}xtclass/ground" title="Мать сыра 
 земля">Земля</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtarticle/pravila-dorojnogo-dvijeniya-dlya-velosipedistov"><img
  src="{{ MEDIA_URL }}img/ico_034.jpg" alt="Правила Дорожного Движения для 
 велосипедистов" border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1726,7 +1552,7 @@ color="#a91e0a">Автор
 href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
 велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
  </td>
   </tr>
   <!--tr> 
@@ -1743,17 +1569,17 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
       новую статью</span></a> </td>
 
   </tr-->
-</tbody></table>
+</table>
  </div></div>
 
         <div id="Layer12" style="position: absolute; width: 100%; 
 height: 100%; z-index: 2;"> 
           <table background="{{ MEDIA_URL }}img/n_upback.gif" border="0" 
 cellpadding="0" cellspacing="0" height="41" width="100%">
-            <tbody><tr> 
+            <tr> 
               <td align="left" valign="bottom" width="50%"> <table 
 border="0" cellpadding="0" cellspacing="0" height="41" width="100%">
-                  <tbody><tr> 
+                  <tr> 
                     <td width="1%"><img src="{{ MEDIA_URL }}img/n_zakl.gif" 
 height="41" width="20"></td>
                     <td align="center" 
@@ -1762,22 +1588,22 @@ src="{{ MEDIA_URL }}img/n_zag_nvs.gif" height="17" vspace="5" width="123"></td>
                     <td align="right" width="1%"><img 
 src="{{ MEDIA_URL }}img/n_zakr.gif" height="41" width="12"></td>
                   </tr>
-                </tbody></table></td>
+                </table></td>
 
               <td style="cursor: pointer;" align="left" height="45" 
 valign="bottom" width="50%"> <table 
 onmousedown="MenuHa('Layer11','Layer12');" border="0" cellpadding="0" 
 cellspacing="0" height="45" width="100%">
-                  <tbody><tr> 
+                  <tr> 
                     <td valign="top" width="6%"><img 
 src="{{ MEDIA_URL }}img/n_pipt.gif" border="0" height="38" width="5"></td>
                     <td align="center" valign="top" width="93%"><img 
 src="{{ MEDIA_URL }}img/n_zag_lchs2.gif" height="16" vspace="13" width="120"></td>
                     <td align="right" width="1%">&nbsp;</td>
                   </tr>
-                </tbody></table></td>
+                </table></td>
             </tr>
-          </tbody></table>
+          </table>
 
 		  <div id="Layer1z" style="background: 
 url('{{ MEDIA_URL }}img/n_back.jpg') repeat scroll 0% 0% transparent; 
@@ -1801,20 +1627,20 @@ cellpadding="0" cellspacing="0" width="100%">
     <td width="96%" class="navbar" align="center"> <a href={{ SITE_URL }}xtclass/velo/1/1>1</a> | <a href={{ SITE_URL }}xtclass/velo/1/7>2</a> | <a href={{ SITE_URL }}xtclass/velo/1/13>3</a> | <a href={{ SITE_URL }}xtclass/velo/1/19>4</a> | <a href={{ SITE_URL }}xtclass/velo/1/25>5</a> | <a href={{ SITE_URL }}xtclass/velo/1/31>6</a> | <a href={{ SITE_URL }}xtclass/velo/1/37>7</a> </td>
 
   </tr-->
-  <tbody><tr> 
+  <tr> 
     <td valign="top"> <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" 
 cellpadding="3" cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtarticle/httpuabikecomindexphpidocatcategorysuport_2"><img
  src="{{ MEDIA_URL }}img/ico_008.jpg" alt="Легендарный WD-40. Мифы и реальность"
  border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1831,21 +1657,21 @@ href="{{ SITE_URL }}xtclass/automoto" title="Все у чего есть
 href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
 велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtarticle/kak-pravilno-pit"><img 
 src="{{ MEDIA_URL }}img/ico_022.jpg" alt="Как правильно пить" border="0" 
 height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1865,21 +1691,21 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
 10);" href="{{ SITE_URL }}xtclass/active" title="Активное 
 время препровождение">Активный отдых</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtarticle/intervyu-s-patriarhom-mauntinbajka-gari-fisherom"><img
  src="{{ MEDIA_URL }}img/ico_035.jpg" alt="Интервью с патриархом маунтинбайка - 
 Гари Фишером" border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1896,22 +1722,22 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
 10);" href="{{ SITE_URL }}xtclass/active" title="Активное 
 время препровождение">Активный отдых</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtarticle/nekotorye-botanicheskie-problemy-svyazannye-so-str"><img
  src="{{ MEDIA_URL }}img/ico_005.jpg" alt="Некоторые ботанические проблемы, 
 связанные со строительством участка №2 гольф-клуба на территории 27,74 
 га лесных насаждений Лесопарка" border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1950,21 +1776,21 @@ href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
 href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская 
 область">Харьков</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtarticle/ceny-grammy-i-ponty"><img 
 src="{{ MEDIA_URL }}img/ico_033.jpg" alt="Баксы, граммы и понты" border="0" 
 height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -1979,21 +1805,21 @@ color="#a91e0a">Автор
 href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
 велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
   </tr>
-</tbody></table>
+</table>
 
 <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
 cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
+  <tr> 
     <td rowspan="2" align="center" height="43" width="13%"> 
       <table bgcolor="#000000" border="0" cellpadding="1" 
 cellspacing="0" width="81">
-        <tbody><tr> 
+        <tr> 
           <td><a 
 href="{{ SITE_URL }}xtarticle/pro-hrupkost-kostej-u-velosipedistov"><img
  src="{{ MEDIA_URL }}img/ico_012.jpg" alt="Про хрупкость костей у 
 велосипедистов" border="0" height="59" width="79"></a></td>
         </tr>
-      </tbody></table>
+      </table>
     </td>
     <td class="litlm1" valign="middle" width="87%"><span 
 class="linkonf2"><a style="color: rgb(126, 65, 0);" 
@@ -2012,7 +1838,7 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
 10);" href="{{ SITE_URL }}xtclass/active" title="Активное 
 время препровождение">Активный отдых</a></td>
   </tr>
-</tbody></table>
+</table>
  </td>
   </tr>
   <!--tr> 
@@ -2029,13 +1855,13 @@ href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки
       новую статью</span></a> </td>
 
   </tr-->
-</tbody></table>
+</table>
  </div></div>
         <div id="Layer100" style="position: absolute; width: 100%; 
 height: 102%; z-index: 0;"> 
           <table border="0" cellpadding="0" cellspacing="0" 
 height="100%" width="100%">
-            <tbody><tr>
+            <tr>
               <td align="left" valign="bottom"> <a 
 href="{{ SITE_URL }}all_article/1"> <img 
 src="{{ MEDIA_URL }}img/all_article.gif" border="0px" height="18" width="107"></a>
@@ -2045,29 +1871,29 @@ src="{{ MEDIA_URL }}img/add_article.gif" border="0px" height="18" width="172"></
  
               </td>
             </tr>
-          </tbody></table>
+          </table>
 
         </div>
       </div>          	  	 
      </td>
   </tr>
-</tbody></table>
+</table>
 
 
 <table border="0" cellpadding="0" cellspacing="0" height="36" 
 width="100%">
-	<tbody><tr> 
+	<tr> 
   	 <td bgcolor="#301001" height="33">&nbsp;</td>
     </tr>	
-</tbody></table>
+</table>
 
 
             <table border="0" cellpadding="0" cellspacing="0" 
 height="36" width="100%">
-              <tbody><tr> 
+              <tr> 
                 <td align="center" height="36" valign="top" width="49%">
  <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tbody><tr> 
+                    <tr> 
                       <td style="padding: 0pt 0pt 20px;" align="center" 
 valign="top" bgcolor="#301001">                      	 
                         <table cellpadding="0" cellspacing="0" 
@@ -2077,14 +1903,14 @@ width="100%">
                           	<td align="center" height="26px" style="color:white; margin: 0 15 0 15; background: url(/img/n_dosf.gif) repeat-x;" class="head1">Велосипеды байки велопоходы велоспорт</td>
 
                           </tr-->
-                          <tbody><tr> 
+                          <tr> 
           					<td class="menu" bgcolor="#301001" height="13">&nbsp;</td>
         				  </tr>
                           <tr>
                           <td class="menu" bgcolor="#301001" width="35%">
                           <table class="menu" bgcolor="#301001" 
 border="0" cellpadding="5" cellspacing="5" width="100%">
-                          <tbody><tr><td>
+                          <tr><td>
                             						<p class="head1">Велотуризм и 
 Велоспорт </p>
  
@@ -2181,15 +2007,15 @@ class="xtlinkdesc"> - велосипедные
  линк</a> 
                             
 							</td></tr>
-                            </tbody></table>                            
+                            </table>                            
   
                            </td>                              
                           </tr>
-                        </tbody></table></td>
+                        </table></td>
                     </tr>
-                  </tbody></table></td>
+                  </table></td>
               </tr>
-            </tbody></table>
+            </table>
 {% endblock %}
         
       

@@ -44,7 +44,6 @@ def xttopic_item(request, part, slug):
     object_item = XtObject.objects.get(objurl='%s/%s' %(part, slug))
     topic_item = object_item.content_object
     
-    part = part
     latest_news = XtObject.objects.filter(xtobjecttype__otname='news', status=1).exclude(id=object_item.id).order_by('-pk')[0:6]
     top_news = XtObject.objects.filter(xtobjecttype__otname='news', status=1).exclude(id=object_item.id).order_by('-comment')[0:6]
     
@@ -60,13 +59,17 @@ def xttopic_item(request, part, slug):
                                             "top_news":top_news,
                                             "part":part,
                                             "recent_report":recent_report,
-                                             "popular_report":popular_report,
-                                             "new_article":new_article,
-                                             "best_article":best_article},
+                                            "popular_report":popular_report,
+                                            "new_article":new_article,
+                                            "best_article":best_article},
                               context_instance=RequestContext(request))
 
 
 def xtclass(request, slug):
     xtcdescription_xtclass = XtClass.objects.get(vcode=slug)
-    return render_to_response('class.html', {"xtcdescription_xtclass": xtcdescription_xtclass},
+        
+    top_news = XtObject.objects.filter(xtobjecttype__otname='news', status=1).order_by('-comment')
+    return render_to_response('class.html', {"xtcdescription_xtclass": xtcdescription_xtclass,
+                                             "top_news":top_news,
+                                             "slug":slug},
                               context_instance=RequestContext(request))
