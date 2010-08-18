@@ -42,7 +42,6 @@ def xtreport_list(request, part):
 
 def xttopic_item(request, part, slug):
     object_item = XtObject.objects.get(objurl='%s/%s' %(part, slug))
-    xtclass = object_item.xtc2o_set.all()
     topic_item = object_item.content_object
     
     part = part
@@ -55,7 +54,7 @@ def xttopic_item(request, part, slug):
     new_article = XtObject.objects.filter(xtobjecttype__otname='article', status=1).exclude(id=object_item.id).order_by('-pk')[0:6]
     best_article = XtObject.objects.filter(xtobjecttype__otname='article', status=1).exclude(id=object_item.id).order_by('-comment')[0:6]
     
-    return render_to_response('repo.html', {"xtclass":xtclass,
+    return render_to_response('repo.html', {"object_item":object_item,
                                             "topic_item":topic_item,
                                             "latest_news":latest_news,
                                             "top_news":top_news,

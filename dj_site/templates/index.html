@@ -585,6 +585,9 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
             <tr>
                 <td class="litlm1" align="right" height="15" valign="middle">
                      <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                     {% for class in object_item.xtclass %}
+                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
+                    {% endfor %} 
                 </td>
             </tr>
         </table>
@@ -662,11 +665,11 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
                 <td class="litlm1" align="right" height="15" valign="middle">
                     <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
                     
-                    {% comment %}
-                    {% for class in object_item.xtc2o_set.all() %}
+                   
+                    {% for class in object_item.xtclass %}
                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
                     {% endfor %} 
-                    {% endcomment %}
+                    
                    
                 </td>
             </tr>
@@ -769,9 +772,9 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
             <tr>
                 <td class="litlm1" align="right" height="15" valign="middle">
                     <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
-                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская область">Харьков</a> | 
-                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a> | 
-                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
+                    {% for class in object_item.xtclass %}
+                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
+                    {% endfor %} 
                 </td>
             </tr>
         </table>
@@ -848,7 +851,10 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
             </tr>
             <tr>
                 <td class="litlm1" align="right" height="15" valign="middle">
-                    <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>                    
+                    <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                    {% for class in object_item.xtclass %}
+                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
+                    {% endfor %} 
                 </td>
             </tr>
         </table>
@@ -952,14 +958,9 @@ src="{{ MEDIA_URL }}img/n_zakr.gif" height="41" width="12"></td>
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
                         <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/africa" title="Африка">Африка</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/america" title="Континент Америка и все что близко">Америка</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/asia" title="Азия как часть света и все что близко">Азия</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/tours" title="Туры, путевки">Туры</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/travels" title="Путешествия и путешественники">Путешествия</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/foot" title="Пешие походы">Пеший туризм</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
+                        {% for class in object_item.xtclass %}
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
+                        {% endfor %} 
                     </td>
                 </tr>
             </table>
@@ -1031,8 +1032,9 @@ src="{{ MEDIA_URL }}img/n_zag_lchs2.gif" height="16" vspace="13" width="120"></t
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
                         <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/automoto" title="Все у чего есть ДВС">Авто-мото</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
+                        {% for class in object_item.xtclass %}
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
+                        {% endfor %} 
                     </td>
                 </tr>
             </table>

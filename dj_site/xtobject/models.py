@@ -36,6 +36,9 @@ class XtObject(models.Model):
 
     def __unicode__(self):
         return u'%d - %d' % (self.id, self.object_id)
+        
+    def xtclass(self):
+        return self.xtc2o_set.all()
 
     class Meta:
         db_table = u'xt_object'

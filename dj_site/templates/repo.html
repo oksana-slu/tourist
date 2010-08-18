@@ -57,7 +57,7 @@ background: transparent url({{ MEDIA_URL }}img/popup_bg_01.png) repeat 0 0;
                                                         <table width="100%"><tbody>
                                                             <tr>
                                                                 <td>
-                                                                    {% for class in xtclass %}
+                                                                    {% for class in object_item.xtclass %}
                                                                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a>{% if not forloop.last %} | {% endif %} 
                                                                     {% endfor %}
                                                                     <br>
@@ -258,7 +258,7 @@ none;"><font face="arial,helvetica,sans-serif" size="2">Вольный пере�
 		<p class="linkonf" align="right"><em>{{ topic_item.author_id }} {{ topic_item.date }}</em></p>
 		<br>
 		
-      {% for class in xtclass%}
+      {% for class in object_item.xtclass %}
  <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a>{% if not forloop.last %} | {% endif %} 
        {% endfor %}
         
