@@ -40,44 +40,40 @@ background: transparent url({{ MEDIA_URL }}img/popup_bg_01.png) repeat 0 0;
 
 
 {% block content %}
-<table bgcolor1="#FFCC33" background="{{ MEDIA_URL }}f.htm" border="0" 
-cellpadding="0" cellspacing="0" width="100%">
-  <tbody><tr valign="top"> 
-    <td bgcolor1="#000000"> 
-	  <table background="{{ MEDIA_URL }}f.htm" border="0" cellpadding="0" 
-cellspacing="0" height="36" width="100%">
-        <tbody><tr> 
-          <td align="center" valign="top" width="15%">&nbsp;</td>
-          <td style="min-width: 600px;" align="center" height="36" 
-valign="top" width="59%"> <table bgcolor="#ffffff" border="0" 
-cellpadding="0" cellspacing="0" width="100%">
-              <tbody><tr> 
-                <td valign="top"> <table cellpadding="0" cellspacing="0"
- width="100%">
-                    <tbody><tr> 
-                      <td><table border="0" cellpadding="0" 
-cellspacing="0" width="100%">
-  <tbody><tr style="background: url('{{ MEDIA_URL }}img/n_back.jpg') repeat 
-scroll 0% 0% transparent;">
-    <td align="right" valign="top">
-	<table style="padding: 25px 0pt; background: 
-url('{{ MEDIA_URL }}img/filtr.gif') no-repeat scroll 50% 50% transparent;" 
-border="0" cellpadding="3" cellspacing="5" height="126px" width="100%">
-      <tbody><tr>
-  	    <td align="center" valign="bottom"><span class="head1"><font 
-style="color: rgb(255, 22, 0);"><a 
-href="{{ SITE_URL }}xtreport">Список новостей:</a></font></span>
-  	
-      </td></tr>
-	  <tr>
-	    <td align="center" valign="top"><font style="color: rgb(169, 90, 
-49);"><b>Фильтровать:</b> </font><select style="width: 130px; 
-background: none repeat scroll 0% 0% rgb(242, 225, 149);" 
-onchange="document.location=this[this.selectedIndex].value"><option 
-selected="selected" value="filter">--Направление--</option><option 
-value="/all_news/velo/1/1" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</option><option
- value="/all_news/active/1/1" title="Активное время препровождение">Активный
- отдых</option><option value="/all_news/automoto/1/1" title="Все у чего 
+<table bgcolor1="#FFCC33" background="{{ MEDIA_URL }}f.htm" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr valign="top"> 
+        <td bgcolor1="#000000"> 
+            <table background="{{ MEDIA_URL }}f.htm" border="0" cellpadding="0" cellspacing="0" height="36" width="100%">
+                <tr> 
+                    <td align="center" valign="top" width="15%">&nbsp;</td>
+                    <td style="min-width: 600px;" align="center" height="36" valign="top" width="59%"> 
+                        <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr> 
+                                <td valign="top"> 
+                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                        <tr> 
+                                            <td>
+                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr style="background: url('{{ MEDIA_URL }}img/n_back.jpg') repeat scroll 0% 0% transparent;">
+                                                        <td align="right" valign="top">
+                                                            <table style="padding: 25px 0pt; background: url('{{ MEDIA_URL }}img/filtr.gif') no-repeat scroll 50% 50% transparent;" border="0" cellpadding="3" cellspacing="5" height="126px" width="100%">
+                                                                <tr>
+                                                                    <td align="center" valign="bottom">
+                                                                        <span class="head1">
+                                                                        <font style="color: rgb(255, 22, 0);">
+                                                                        <a href="{{ SITE_URL }}xtreport">Список новостей:</a>
+                                                                        </font>
+                                                                        </span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" valign="top">
+                                                                        <font style="color: rgb(169, 90, 49);"><b>Фильтровать:</b></font>
+                                                                        <select style="width: 130px; background: none repeat scroll 0% 0% rgb(242, 225, 149);" onchange="document.location=this[this.selectedIndex].value">
+                                                                        <option selected="selected" value="filter">--Направление--</option>
+                                                                        <option value="/all_news/velo/1/1" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</option>
+                                                                        <option value="/all_news/active/1/1" title="Активное время препровождение">Активный отдых</option>
+                                                                        <option value="/all_news/automoto/1/1" title="Все у чего 
 есть ДВС">Авто-мото</option><option value="/all_news/castles/1/1" 
 title="Архитектурные памятники и сооружения">Архитектура</option><option
  value="/all_news/extremes/1/1" title="Экстремальные виды">Экстрим</option><option
@@ -117,13 +113,14 @@ value="/all_news/tours/1/1" title="Туры, путевки">Туры</option><o
 value="/all_news/snowbord/1/1" title="Сноуборд">Сноуборд</option><option
  value="/all_news/windserfing/1/1" title="Виндсерфинг">Виндсерфинг</option><option
  value="/all_news/climbing/1/1" title="Скалолазание">Скалолазание</option><option
- value="/all_news/paintball/1/1" title="Пейнтбол в Харькове">Пейнтбол</option></select><select
- style="width: 130px; background: none repeat scroll 0% 0% rgb(242, 225,
- 149);" onchange="document.location=this[this.selectedIndex].value"><option
- selected="selected" value="filter">--География--</option><option 
-value="/all_news/america/1/1" title="Континент Америка и все что близко">Америка</option><option
- value="/all_news/europe/1/1" title="Европа">Европа</option><option 
-value="/all_news/asia/1/1" title="Азия как часть света и все что близко">Азия</option><option
+ value="/all_news/paintball/1/1" title="Пейнтбол в Харькове">Пейнтбол</option>
+                                                                        </select>
+                                                                        <select style="width: 130px; background: none repeat scroll 0% 0% rgb(242, 225, 149);" onchange="document.location=this[this.selectedIndex].value">
+                                                                        <option selected="selected" value="filter">--География--</option>
+                                                                        <option value="/all_news/america/1/1" title="Континент Америка и все что близко">Америка</option>
+                                                                        <option value="/all_news/europe/1/1" title="Европа">Европа</option>
+                                                                        <option value="/all_news/asia/1/1" title="Азия как часть света и все что близко">Азия</option>
+                                                                        <option
  value="/all_news/sng/1/1" title="Страны СНГ кроме Украины">СНГ</option><option
  value="/all_news/ukraine/1/1" title="Украина">Украина</option><option 
 value="/all_news/kharkov/1/1" title="Харьковская область">Харьков</option><option
@@ -138,455 +135,158 @@ value="/all_news/austria/1/1" title="австрия">Австрия</option><opt
 value="/all_news/caucasus/1/1" title="Российская часть Кавказа">Кавказ</option><option
  value="/all_news/ivanofrankovsk/1/1" title="Ивано-франковск">Ивано-франковск</option><option
  value="/all_news/fareast/1/1" title="Дальний восток">Дальний Восток</option><option
- value="/all_news/israel/1/1" title="Израиль">Израиль</option></select><select
- style="width: 130px; background: none repeat scroll 0% 0% rgb(242, 225,
- 149);" onchange="document.location=this[this.selectedIndex].value"><option
- selected="selected" value="filter">--Сложность--</option><option 
-value="/all_news/sportrep/1/1" title="Категорийные выше третьей">Спортивные
- отчеты</option><option value="/all_news/matrac/1/1" title="Совсем 
-матрасные бухаловки">Матрасные отчеты</option><option 
-value="/all_news/normaltr/1/1" title="Обычные походы 0-2 сложностей">Обычные
- походы</option></select></td>
-	  </tr>   
-	</tbody></table>
-  	</td>
-  </tr>
-  <tr> 
-    <td style="padding: 0pt 20px;"><table style="padding: 20px 0pt;" 
-border="0" cellpadding="0" cellspacing="0" height="25" width="100%">
-  <!--tr>
-
-    <td width="96%" height="25" bgcolor="#000000" class="menu">&nbsp;<font size="+1"><img src="/img/str2.gif" width="10" height="10" hspace="2"> 
-
-      <a href="/all_news/1">Список новостей:</a> </font></td>
-
-  </tr-->
-  <tbody><tr> 
-    <td class="navbar2" align="center" width="96%"><b>1 | <a 
-href="{{ SITE_URL }}all_news/2/1">2</a> | <a 
-href="{{ SITE_URL }}all_news/3/1">3</a> | <a 
-href="{{ SITE_URL }}all_news/4/1">4</a> | <a 
-href="{{ SITE_URL }}all_news/5/1">5</a> | <a 
-href="{{ SITE_URL }}all_news/6/1">6</a> | <a 
-href="{{ SITE_URL }}all_news/7/1">7</a> | <a 
-href="{{ SITE_URL }}all_news/8/1">8</a> | <a 
-href="{{ SITE_URL }}all_news/9/1">9</a> | <a 
-href="{{ SITE_URL }}all_news/10/1">10</a> | <a 
-href="{{ SITE_URL }}all_news/11/1">Следующая</a></b></td>
-  </tr>
-  <tr>
-  </tr><tr> 
-    <td class="navbar2" style="padding: 20px 0pt;" align="right" 
-width="96%"><b>Сортировать по: <a style="text-decoration: underline;" 
-href="{{ SITE_URL }}all_news/1/1">По дате</a>&nbsp;|&nbsp;<a
- href="{{ SITE_URL }}all_news/1/2">По количеству просмотров</a>&nbsp;|&nbsp;<a
- href="{{ SITE_URL }}all_news/1/3">По популярности</a></b></td>
-  </tr>  
-    <tr><td> <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" 
-cellpadding="3" cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a href="{{ SITE_URL }}xtreport/bendy-bycicle"><img
- src="{{ MEDIA_URL }}img/ico_010.jpg" alt="Невероятный “сгибающийся 
-велосипед”" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/bendy-bycicle">21-летний 
-британский дизайнер изобрел велосипед, который можно со...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      DragonFly(20.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/v-harkove-projdet-festival-parkura"><img
- src="{{ MEDIA_URL }}img/ico_005.jpg" alt="В Харькове пройдет фестиваль 
-паркура" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/v-harkove-projdet-festival-parkura">В
- Харькове пройдет фестиваль уличной акробатики и паркура.</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Миша(20.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/active" title="Активное время 
-препровождение">Активный отдых</a> | <a style="color: rgb(169, 77, 10);"
- href="{{ SITE_URL }}xtclass/extremes" title="Экстремальные 
-виды">Экстрим</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/parkour" title="Паркур">Паркур</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская 
-область">Харьков</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/chempionat-ukrainy-po-deltaplanernomu-sportu"><img
- src="{{ MEDIA_URL }}img/ico_009.jpg" alt="Чемпионат Украины  по 
-дельтапланерному спорту" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/chempionat-ukrainy-po-deltaplanernomu-sportu">XXXI
- Открытый Чемпионат Украины (аэробуксировочный) по дельталане...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      supervisor(14.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/sky" title="Небо">Небо</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/dorogi-budushegoi"><img 
-src="{{ MEDIA_URL }}img/ico_004.jpg" alt="Дороги будущего?" border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/dorogi-budushegoi">умные дороги 
-будущего, помечтаем?</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Станислав(13.07.2010). Теги:</font><br>
-      </td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/koncepty-velosipedov-ot-volkswagen-i-lexus"><img
- src="{{ MEDIA_URL }}img/ico_007.jpg" alt="Концепты велосипедов от 
-Volkswagen и Lexus" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/koncepty-velosipedov-ot-volkswagen-i-lexus">Концепты
- велосипедов от Volkswagen и Lexus</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Nicodim(08.07.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/sobytijnyj-turizm-poezdki-na-festivali-v-iyule"><img
- src="{{ MEDIA_URL }}img/ico_003.jpg" alt="Событийный туризм - поездки на 
-фестивали в июле" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/sobytijnyj-turizm-poezdki-na-festivali-v-iyule">3
- июля - День Гончара в Опошне и 17 июля - рок-фестиваль МАЗЕПА-Ф...</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      fanat(30.06.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/tours" title="Туры, путевки">Туры</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/travels" title="Путешествия и 
-путешественники">Путешествия</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/others" title="Разное">Другое</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/festival-vozdushnyh-sharov-v-sevastopole-mongolf"><img
- src="{{ MEDIA_URL }}img/ico.jpg" alt="Фестиваль воздушных шаров в 
-Севастополе «Монгольфьерия»" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/festival-vozdushnyh-sharov-v-sevastopole-mongolf">Фестиваль
- воздушных шаров в Севастополе «Монгольфьерия»</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Люда(29.06.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/crimea" title="Благодатный Крым">Крым</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/sky" title="Небо">Небо</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/zagranpasporta-starogo-obrazca"><img
- src="{{ MEDIA_URL }}img/ico_006.jpg" alt="Загранпаспорта старого образца" 
-border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/zagranpasporta-starogo-obrazca">Загранпаспорта
- старого образца будут выпускаться до 15 июля</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Белый_Сокол(19.06.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/asia" title="Азия как часть 
-света и все что близко">Азия</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/america" title="Континент 
-Америка и все что близко">Америка</a> | <a style="color: rgb(169, 77, 
-10);" href="{{ SITE_URL }}xtclass/sng" title="Страны СНГ 
-кроме Украины">СНГ</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/africa" title="Африка">Африка</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a 
-href="{{ SITE_URL }}xtreport/v-kieve-otkryli-protivougonnuyu-veloparkovku"><img
- src="{{ MEDIA_URL }}img/ico_008.jpg" alt="В Киеве открыли «противоугонную»
- велопарковку" border="0" height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/v-kieve-otkryli-protivougonnuyu-veloparkovku">В
- столице открыли «противоугонную» парковку для велосипедов</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Люда(16.06.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/kiev" title="Киевская область">Киев</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки 
-велопоходы велоспорт">ВЕЛОСИПЕДЫ</a></td>
-  </tr>
-</tbody></table>
-
-<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" 
-cellspacing="0" height="70" width="100%">
-  <tbody><tr> 
-    <td rowspan="2" align="center" height="43" width="13%"> 
-      <table bgcolor="#000000" border="0" cellpadding="1" 
-cellspacing="0" width="81">
-        <tbody><tr> 
-          <td><a href="{{ SITE_URL }}xtreport/lighthouse"><img
- src="{{ MEDIA_URL }}img/ico_002.jpg" alt="Береговые огни" border="0" 
-height="59" width="79"></a></td>
-        </tr>
-      </tbody></table>
-    </td>
-    <td class="litlm1" valign="middle" width="87%"><span 
-class="linkonf2"><a style="color: rgb(126, 65, 0);" 
-href="{{ SITE_URL }}xtreport/lighthouse">В России решили 
-отказаться от пережитка прошлого — маяков</a> </span></td>
-  </tr>
-  <tr>
-    <td class="litlm1" align="right" height="15" valign="middle"><font 
-color="#a91e0a">Автор 
-      Kostya58(15.06.2010). Теги:</font><br>
-      <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/russia" title="Россия">Россия</a>
- | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/travels" title="Путешествия и 
-путешественники">Путешествия</a> | <a style="color: rgb(169, 77, 10);" 
-href="{{ SITE_URL }}xtclass/water" title="Байдарки, паруса, 
-акваланги, и пр.">Вода</a></td>
-  </tr>
-</tbody></table>
- </td>
-  </tr>
-  <tr><td class="navbar2" align="center" width="96%"><b>1 | <a 
-href="{{ SITE_URL }}all_news/2/1">2</a> | <a 
-href="{{ SITE_URL }}all_news/3/1">3</a> | <a 
-href="{{ SITE_URL }}all_news/4/1">4</a> | <a 
-href="{{ SITE_URL }}all_news/5/1">5</a> | <a 
-href="{{ SITE_URL }}all_news/6/1">6</a> | <a 
-href="{{ SITE_URL }}all_news/7/1">7</a> | <a 
-href="{{ SITE_URL }}all_news/8/1">8</a> | <a 
-href="{{ SITE_URL }}all_news/9/1">9</a> | <a 
-href="{{ SITE_URL }}all_news/10/1">10</a> | <a 
-href="{{ SITE_URL }}all_news/11/1">Следующая</a><b></b></b></td></tr>
-  <!--tr> 
-
-    <td> <strong> &nbsp; <img src="/img/str2.gif" width="10" height="10"></strong> 
-
-      <a href="/add_news/"> <span class="linkonf">Добавить новую новость</span></a> </td>
-
-  </tr-->
-</tbody></table>
-</td>
-  </tr>
-</tbody></table>
-</td>
-                    </tr>
-                  </tbody></table></td>
-              </tr>
-            </tbody></table></td>
-          <td class="contentBlock" style="" align="left" height="100%" 
-valign="top" width="25%">          				
-	          <table border="0" cellpadding="0" cellspacing="0" 
-height="100%" width="288px">	          
-	          	<tbody><tr><td align="center" valign="top"></td></tr>
+ value="/all_news/israel/1/1" title="Израиль">Израиль</option>
+                                                                        </select>
+                                                                        <select style="width: 130px; background: none repeat scroll 0% 0% rgb(242, 225, 149);" onchange="document.location=this[this.selectedIndex].value">
+                                                                        <option selected="selected" value="filter">--Сложность--</option>
+                                                                        <option value="/all_news/sportrep/1/1" title="Категорийные выше третьей">Спортивные отчеты</option>
+                                                                        <option value="/all_news/matrac/1/1" title="Совсем матрасные бухаловки">Матрасные отчеты</option>
+                                                                        <option value="/all_news/normaltr/1/1" title="Обычные походы 0-2 сложностей">Обычные походы</option>
+                                                                        </select>
+                                                                    </td>
+                                                                </tr>   
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr> 
+                                                        <td style="padding: 0pt 20px;">
+                                                            <table style="padding: 20px 0pt;" border="0" cellpadding="0" cellspacing="0" height="25" width="100%">
+                                                                <tr> 
+                                                                    <td class="navbar2" align="center" width="96%">
+                                                                        <b>1 | <a href="{{ SITE_URL }}all_news/2/1">2</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/3/1">3</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/4/1">4</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/5/1">5</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/6/1">6</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/7/1">7</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/8/1">8</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/9/1">9</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/10/1">10</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/11/1">Следующая</a>
+                                                                        </b>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                </tr>
+                                                                <tr> 
+                                                                    <td class="navbar2" style="padding: 20px 0pt;" align="right" width="96%">
+                                                                        <b>Сортировать по: <a style="text-decoration: underline;" href="{{ SITE_URL }}all_news/1/1">По дате</a>&nbsp;|&nbsp;
+                                                                                           <a href="{{ SITE_URL }}all_news/1/2">По количеству просмотров</a>&nbsp;|&nbsp;
+                                                                                           <a href="{{ SITE_URL }}all_news/1/3">По популярности</a>
+                                                                        </b>
+                                                                    </td>
+                                                                </tr>  
+                                                                <tr>
+                                                                    <td> 
+    
+                                                                        <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%">
+                                                                            <tr> 
+                                                                                <td rowspan="2" align="center" height="43" width="13%"> 
+                                                                                    <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
+                                                                                        <tr> 
+                                                                                            <td>
+                                                                                                <a href="{{ SITE_URL }}xtreport/bendy-bycicle">
+                                                                                                <img src="{{ MEDIA_URL }}img/ico_010.jpg" alt="Невероятный “сгибающийся велосипед”" border="0" height="59" width="79"></a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </table>
+                                                                                </td>
+                                                                                <td class="litlm1" valign="middle" width="87%">
+                                                                                    <span class="linkonf2">
+                                                                                    <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtreport/bendy-bycicle">21-летний британский дизайнер изобрел велосипед, который можно со...</a> 
+                                                                                    </span>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="litlm1" align="right" height="15" valign="middle">
+                                                                                    <font color="#a91e0a">Автор  DragonFly(20.07.2010). Теги:</font><br>
+                                                                                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a> | 
+                                                                                    <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
 
 
-	          	<tr><td style="padding: 20px 0pt 0pt 0px;" align="center" 
-valign="top">
-<form action="{{ SITE_URL }}login.php" method="post" 
-enctype="multipart/form-data">
-<table style="padding: 0pt 0pt 20px;" border="0" cellpadding="0" 
-cellspacing="0" width="165">
-	<tbody><tr><td>
-	  <table border="0" cellpadding="0" cellspacing="0">
-	   <tbody><tr>
-	      <td style="color: rgb(214, 179, 38); font-size: 12px;" 
-align="right" width="62"><b>Логин:</b></td>
-	      <td align="right" width="103"> 
-	        <input name="username" style="margin-top: 3px; width: 100px; 
-height: 20px; border: 2px solid rgb(60, 50, 7); background: none repeat 
-scroll 0% 0% transparent; color: rgb(255, 255, 255);" type="text">
-	      </td>
-	   </tr>
-		<tr>
-		  <td style="color: rgb(214, 179, 38); font-size: 12px;" align="right"><b>Пароль:</b></td>
-		
-	      <td align="right">
-	        <input name="password" style="margin-top: 3px; margin-left: 
-3px; width: 100px; height: 20px; border: 2px solid rgb(60, 50, 7); 
-background: none repeat scroll 0% 0% transparent; color: rgb(255, 255, 
-255);" type="password">
-	      </td>
-	   </tr>
-	   <tr> 
-	      <td colspan="2" align="right"> 
-	        <input style="background: none repeat scroll 0% 0% rgb(230, 
-190, 26); border: 0px solid rgb(230, 190, 26);" name="redirect" 
-value="/all_news/1" type="hidden">
-		<input style="" name="autologin" type="checkbox">
-		<input value="Войти" name="login" style="text-align: center; 
-font-weight: bold; margin-top: 3px; width: 100px; height: 20px; border: 
-2px solid rgb(60, 50, 7); background: none repeat scroll 0% 0% rgb(60, 
-50, 7); color: rgb(160, 132, 18);" 
-onmousedown="{if(username.value=='')alert('Необходимо 
-авторизироваться');}" type="submit" align="middle">
-	      </td>
-	  </tr>
-	  </tbody></table></td>
-	</tr>
-</tbody></table>
-</form></td></tr>
-
-
-
-	          	<tr><td align="center" height="100%" valign="top">&nbsp;</td></tr>
-	          </tbody></table> 
-          </td>
-        </tr>
-      </tbody></table>
-    </td>
-  </tr>
-</tbody></table>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="navbar2" align="center" width="96%">
+                                                                        <b>1 | <a href="{{ SITE_URL }}all_news/2/1">2</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/3/1">3</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/4/1">4</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/5/1">5</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/6/1">6</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/7/1">7</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/8/1">8</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/9/1">9</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/10/1">10</a> | 
+                                                                               <a href="{{ SITE_URL }}all_news/11/1">Следующая</a>
+                                                                        <b></b>
+                                                                        </b>
+                                                                    </td>
+                                                                </tr> 
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="contentBlock" style="" align="left" height="100%" valign="top" width="25%">          				
+                        <table border="0" cellpadding="0" cellspacing="0" height="100%" width="288px">	          
+                            <tr>
+                                <td align="center" valign="top">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 20px 0pt 0pt 0px;" align="center" valign="top">
+                                    <form action="{{ SITE_URL }}login.php" method="post" enctype="multipart/form-data">
+                                    <table style="padding: 0pt 0pt 20px;" border="0" cellpadding="0" cellspacing="0" width="165">
+                                        <tr>
+                                            <td>
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td style="color: rgb(214, 179, 38); font-size: 12px;" align="right" width="62">
+                                                            <b>Логин:</b>
+                                                        </td>
+                                                        <td align="right" width="103"> 
+                                                            <input name="username" style="margin-top: 3px; width: 100px; height: 20px; border: 2px solid rgb(60, 50, 7); background: none repeat scroll 0% 0% transparent; color: rgb(255, 255, 255);" type="text">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="color: rgb(214, 179, 38); font-size: 12px;" align="right">
+                                                            <b>Пароль:</b>
+                                                        </td>
+                                                        <td align="right">
+                                                            <input name="password" style="margin-top: 3px; margin-left: 3px; width: 100px; height: 20px; border: 2px solid rgb(60, 50, 7); background: none repeat scroll 0% 0% transparent; color: rgb(255, 255, 255);" type="password">
+                                                        </td>
+                                                    </tr>
+                                                    <tr> 
+                                                        <td colspan="2" align="right"> 
+                                                            <input style="background: none repeat scroll 0% 0% rgb(230, 190, 26); border: 0px solid rgb(230, 190, 26);" name="redirect" value="/all_news/1" type="hidden">
+                                                            <input style="" name="autologin" type="checkbox">
+                                                            <input value="Войти" name="login" style="text-align: center; font-weight: bold; margin-top: 3px; width: 100px; height: 20px; border: 2px solid rgb(60, 50, 7); background: none repeat scroll 0% 0% rgb(60, 50, 7); color: rgb(160, 132, 18);" onmousedown="{if(username.value=='')alert('Необходимо авторизироваться');}" type="submit" align="middle">
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" height="100%" valign="top">&nbsp;</td>
+                            </tr>
+                        </table> 
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 {% endblock %}
