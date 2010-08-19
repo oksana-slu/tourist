@@ -246,8 +246,7 @@ value="{{ SITE_URL }}xtclass/africa/velo" title="Африка">Африка</opt
 <table style="padding: 0pt 10px;" border="0" cellpadding="0" cellspacing="0" height="25" width="100%">
 
     {% for object_item in top_news %}
-        {% for class in object_item.xtclass %}
-            {% if class.xtclass.vcode == slug %}
+       
     <tr>
         <td>
             <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%">
@@ -280,8 +279,7 @@ value="{{ SITE_URL }}xtclass/africa/velo" title="Африка">Африка</opt
         </td>
     </tr>
                         
-            {% endif %}
-        {% endfor %}
+           
      {% endfor %}
 </table>
 
@@ -329,6 +327,9 @@ none rgb(0, 0, 0); overflow: auto;">
            
            
 <table style="padding: 0pt 10px;" border="0" cellpadding="0" cellspacing="0" height="25" width="100%">
+    
+     {% for object_item in latest_news %}
+       
     <tr>
         <td>
             <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%">
@@ -337,28 +338,33 @@ none rgb(0, 0, 0); overflow: auto;">
                         <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
                             <tr> 
                                 <td>
-                                    <a href="{{ SITE_URL }}xtnews/bendy-bycicle">
-                                    <img src="{{ MEDIA_URL }}img/ico_029.jpg" alt="Невероятный “сгибающийся велосипед”" border="0" height="59" width="79"></a>
+                                    <a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                    <img src="{{ MEDIA_URL }}img/ico_029.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
                                 </td>
                             </tr>
                         </table>
                     </td>
                     <td class="litlm1" valign="middle" width="87%">
                         <span class="linkonf2">
-                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtnews/bendy-bycicle">21-летний британский дизайнер изобрел велосипед, который можно со...</a> 
+                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}</a> 
                         </span>
                     </td>
-                </tr>
+                </tr> 
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">Автор      DragonFly(20.07.2010). Теги:</font><br>
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
+                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                        {% for class in object_item.xtclass %}
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
+                        {% endfor %} 
                     </td>
                 </tr>
             </table>
-		</td>
-	</tr>
+        </td>
+    </tr>
+                        
+           
+     {% endfor %}
+    
 </table>
 
           </div>
@@ -438,37 +444,42 @@ none rgb(0, 0, 0); overflow: auto;">
 
           
 <table style="padding: 0pt 10px;" height1="25" border="0" cellpadding="0" cellspacing="0" width="100%">
+     {% for object_item in popular_report %}
+       
     <tr>
-        <td valign="top">
+        <td>
             <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%">
                 <tr> 
                     <td rowspan="2" align="center" height="43" width="13%"> 
                         <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
                             <tr> 
                                 <td>
-                                    <a href="{{ SITE_URL }}xtreport/YEkskursiya_na_zavod_HVZ">
-                                    <img src="{{ MEDIA_URL }}img/ico_036.jpg" alt="Экскурсия на завод ХВЗ" border="0" height="59" width="79"></a>
+                                    <a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                    <img src="{{ MEDIA_URL }}img/ico_029.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
                                 </td>
                             </tr>
                         </table>
                     </td>
                     <td class="litlm1" valign="middle" width="87%">
                         <span class="linkonf2">
-                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtreport/YEkskursiya_na_zavod_HVZ">Экскурсия на харьковский велозавод. Очень интересно.</a> 
+                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}</a> 
                         </span>
                     </td>
-                </tr>
+                </tr> 
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">Автор       Миша(12.02.2009). Теги:</font><br>
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская область">Харьков</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/ukraine" title="Украина">Украина</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
+                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                        {% for class in object_item.xtclass %}
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
+                        {% endfor %} 
                     </td>
                 </tr>
             </table>
-		</td>
-	</tr>	
+        </td>
+    </tr>
+                        
+           
+     {% endfor %}
 </table> 
 
 
@@ -513,37 +524,40 @@ none rgb(0, 0, 0); overflow: auto;">
          
          
 <table style="padding: 0pt 10px;" height1="25" border="0" cellpadding="0" cellspacing="0" width="100%">
-	<tr>
-		<td valign="top">
-			<table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%">
+	{% for object_item in recent_report %}
+       
+    <tr>
+        <td>
+            <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%">
                 <tr> 
                     <td rowspan="2" align="center" height="43" width="13%"> 
                         <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
                             <tr> 
                                 <td>
-                                    <a href="{{ SITE_URL }}xtreport/ispytaj-sebya">
-                                    <img src="{{ MEDIA_URL }}img/ico_032.jpg" alt="Испытай себя" border="0" height="59" width="79"></a>
+                                    <a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                    <img src="{{ MEDIA_URL }}img/ico_029.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
                                 </td>
                             </tr>
                         </table>
                     </td>
                     <td class="litlm1" valign="middle" width="87%">
                         <span class="linkonf2">
-                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtreport/ispytaj-sebya">Поход выходного дня (ПВД)</a> 
+                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}</a> 
                         </span>
                     </td>
-                </tr>
+                </tr> 
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">Автор    Alfa-beta(07.07.2010). Теги:</font><br>
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/kharkov" title="Харьковская область">Харьков</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/active" title="Активное время препровождение">Активный отдых</a>
+                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                        {% for class in object_item.xtclass %}
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
+                        {% endfor %} 
                     </td>
                 </tr>
             </table>
         </td>
-	</tr>
+    </tr>
+      {% endfor %}
 </table>
 
 
@@ -621,42 +635,40 @@ none rgb(0, 0, 0); overflow: auto;">
           
           
 <table style="padding: 0pt 10px;" heigh1t="25" border="0" cellpadding="0" cellspacing="0" width="100%">  
-    <tr> 
-        <td valign="top"> 
+    {% for object_item in best_article %}
+       
+    <tr>
+        <td>
             <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%">
                 <tr> 
                     <td rowspan="2" align="center" height="43" width="13%"> 
                         <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
                             <tr> 
                                 <td>
-                                    <a href="{{ SITE_URL }}xtarticle/Zagranpasport_Oformlenie">
-                                    <img src="{{ MEDIA_URL }}img/ico_002.jpg" alt="Загранпаспорт.Практическое оформление.(Московский район)" border="0" height="59" width="79"></a>
+                                    <a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                    <img src="{{ MEDIA_URL }}img/ico_029.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
                                 </td>
                             </tr>
                         </table>
                     </td>
                     <td class="litlm1" valign="middle" width="87%">
                         <span class="linkonf2">
-                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtarticle/Zagranpasport_Oformlenie">Процедура оформления загранпаспорта для жителей московского район...</a> 
+                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}</a> 
                         </span>
                     </td>
-                </tr>
+                </tr> 
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">Автор  Белый_Сокол(12.02.2009). Теги:</font><br>
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/africa" title="Африка">Африка</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/america" title="Континент Америка и все что близко">Америка</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/asia" title="Азия как часть света и все что близко">Азия</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/europe" title="Европа">Европа</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/tours" title="Туры, путевки">Туры</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/travels" title="Путешествия и путешественники">Путешествия</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/foot" title="Пешие походы">Пеший туризм</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
+                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                        {% for class in object_item.xtclass %}
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
+                        {% endfor %} 
                     </td>
                 </tr>
             </table>
         </td>
     </tr>
+      {% endfor %}
 </table>
 
 
@@ -702,36 +714,40 @@ none rgb(0, 0, 0); overflow: auto;">
          
          
 <table style="padding: 0pt 10px;" heigh1t="25" border="0" cellpadding="0" cellspacing="0" width="100%">
-    <tr> 
-        <td valign="top"> 
+    {% for object_item in new_article %}
+       
+    <tr>
+        <td>
             <table background1="{{ MEDIA_URL }}img/logf.gif" border="0" cellpadding="3" cellspacing="0" height="70" width="100%">
                 <tr> 
                     <td rowspan="2" align="center" height="43" width="13%"> 
                         <table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="81">
                             <tr> 
                                 <td>
-                                    <a href="{{ SITE_URL }}xtarticle/httpuabikecomindexphpidocatcategorysuport_2">
-                                    <img src="{{ MEDIA_URL }}img/ico_008.jpg" alt="Легендарный WD-40. Мифы и реальность" border="0" height="59" width="79"></a>
+                                    <a href="{{ SITE_URL }}{{ object_item.objurl }}">
+                                    <img src="{{ MEDIA_URL }}img/ico_029.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
                                 </td>
                             </tr>
                         </table>
                     </td>
                     <td class="litlm1" valign="middle" width="87%">
                         <span class="linkonf2">
-                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}xtarticle/httpuabikecomindexphpidocatcategorysuport_2">Благодаря воздействию рекламных текстов, огромное количество люде...</a> 
+                        <a style="color: rgb(126, 65, 0);" href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}</a> 
                         </span>
                     </td>
-                </tr>
+                </tr> 
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">Автор  Mypka(27.07.2010). Теги:</font><br>
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/automoto" title="Все у чего есть ДВС">Авто-мото</a> | 
-                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/velo" title="Велосипеды байки велопоходы велоспорт">ВЕЛОСИПЕДЫ</a>
+                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                        {% for class in object_item.xtclass %}
+                        <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
+                        {% endfor %} 
                     </td>
                 </tr>
             </table>
         </td>
     </tr>
+      {% endfor %}
 </table>
 
 
