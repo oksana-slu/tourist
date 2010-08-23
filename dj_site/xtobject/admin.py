@@ -10,6 +10,7 @@ class XtC2OInlineXtObject(admin.TabularInline):
 
 class XtObjectAdmin(admin.ModelAdmin):
     list_display = ('status', 'freeedit', 'object_id', 'objurl') #, 'xtobjecttype') I have some strange error here
+    search_fields = ['objurl']
     list_filter = ('status', 'freeedit', 'xtobjecttype')
     fieldsets = (
         (None, {
