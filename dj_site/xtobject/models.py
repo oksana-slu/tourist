@@ -15,6 +15,22 @@ class XtObjecttype(models.Model):
 
     class Meta:
         db_table = u'xt_objtype'
+        
+        
+class NewsManager(models.Manager):
+    def get_query_set(self):
+        return super(NewsManager, self).get_query_set().filter(xtobjecttype__otname='news', status=1)
+
+        
+class ReportManager(models.Manager):
+    def get_query_set(self):
+        return super(ReportManager, self).get_query_set().filter(xtobjecttype__otname='report', status=1)
+
+        
+class ArticleManager(models.Manager):
+    def get_query_set(self):
+        return super(ArticleManager, self).get_query_set().filter(xtobjecttype__otname='article', status=1)
+
 
 
 class XtObject(models.Model):
@@ -33,6 +49,11 @@ class XtObject(models.Model):
     objfavour = models.BigIntegerField(default=0)
     view = models.IntegerField(null=True, blank=True)
     comment = models.IntegerField(null=True, blank=True)
+    objects = models.Manager()
+    news = NewsManager()
+    report = ReportManager()
+    article = ArticleManager()
+    
 
     def __unicode__(self):
         return u'%d - %d' % (self.id, self.object_id)
@@ -42,7 +63,7 @@ class XtObject(models.Model):
 
     class Meta:
         db_table = u'xt_object'
-
+        
 
 class XtC2O(models.Model):
     xtclass = models.ForeignKey(XtClass, db_column='nclass')
