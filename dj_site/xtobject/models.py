@@ -49,6 +49,7 @@ class XtObject(models.Model):
     objfavour = models.BigIntegerField(default=0)
     view = models.IntegerField(null=True, blank=True)
     comment = models.IntegerField(null=True, blank=True)
+    
     objects = models.Manager()
     news = NewsManager()
     report = ReportManager()

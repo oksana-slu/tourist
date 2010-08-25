@@ -584,7 +584,7 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
             </tr>
             <tr>
                 <td class="litlm1" align="right" height="15" valign="middle">
-                     <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                     <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.dateformat|date:'d.m.Y' }}). Теги:</font><br>
                      {% for class in object_item.xtclass %}
                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
                     {% endfor %} 
@@ -663,7 +663,7 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
             </tr>
             <tr>
                 <td class="litlm1" align="right" height="15" valign="middle">
-                    <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                    <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.dateformat|date:'d.m.Y' }}). Теги:</font><br>
                     
                    
                     {% for class in object_item.xtclass %}
@@ -771,7 +771,7 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
             </tr>
             <tr>
                 <td class="litlm1" align="right" height="15" valign="middle">
-                    <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                    <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.dateformat|date:'d.m.Y' }}). Теги:</font><br>
                     {% for class in object_item.xtclass %}
                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
                     {% endfor %} 
@@ -851,7 +851,7 @@ height: 450px; z-index: 5; top: 55px; left: 5%; border: 1px none rgb(0,
             </tr>
             <tr>
                 <td class="litlm1" align="right" height="15" valign="middle">
-                    <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                    <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.dateformat|date:'d.m.Y' }}). Теги:</font><br>
                     {% for class in object_item.xtclass %}
                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
                     {% endfor %} 
@@ -957,7 +957,7 @@ src="{{ MEDIA_URL }}img/n_zakr.gif" height="41" width="12"></td>
                 </tr>  
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                        <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.dateformat|date:'d.m.Y' }}). Теги:</font><br>
                         {% for class in object_item.xtclass %}
                         <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
                         {% endfor %} 
@@ -1031,7 +1031,7 @@ src="{{ MEDIA_URL }}img/n_zag_lchs2.gif" height="16" vspace="13" width="120"></t
                 </tr>
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                        <font color="#a91e0a">{{ object_item.content_object.author_id }}({{ object_item.content_object.dateformat|date:'d.m.Y' }}). Теги:</font><br>
                         {% for class in object_item.xtclass %}
                         <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
                         {% endfor %} 
