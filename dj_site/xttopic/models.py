@@ -1,5 +1,7 @@
 from django.db import models
 from datetime import date
+from dj_site.settings import MEDIA_ROOT
+import os
 
 
 class XtTopicAbstract(models.Model):
@@ -19,7 +21,12 @@ class XtTopicAbstract(models.Model):
 
     def dateformat(self):
         return date.fromtimestamp(long(self.date))
-
+        
+    def text(self):
+        t = os.path.join(MEDIA_ROOT, self.path, 'topic.xml')
+        fp = open(t, 'r')
+        return fp.read()
+        
 
 class XtNews(XtTopicAbstract):
 

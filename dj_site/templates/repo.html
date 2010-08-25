@@ -64,14 +64,14 @@ background: transparent url({{ MEDIA_URL }}img/popup_bg_01.png) repeat 0 0;
                                                                     <h2 class="head1" align="center">{{ topic_item.title }}</h2>
                                                                     <p align="right">
                                                                     <span class="linkonf">
-                                                                    <em>{{ topic_item.author_id }} {{ topic_item.date }}</em>
+                                                                    <em>{{ topic_item.author_id }} {{ topic_item.dateformat|date:'d.m.Y' }}</em>
                                                                     </span><br>
                                                                     </p>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                {{ topic_item.description }}
+                                                                {{ topic_item.text }}
                                                                 
                                                                 
                                                                     <p class="topic" align="justify">
@@ -255,7 +255,7 @@ none;"><font face="arial,helvetica,sans-serif" size="2">Вольный пере�
  		 {% endcomment %}		 		
 		 </p>
          
-		<p class="linkonf" align="right"><em>{{ topic_item.author_id }} {{ topic_item.date }}</em></p>
+		<p class="linkonf" align="right"><em>{{ topic_item.author_id }} {{ topic_item.dateformat|date:'d.m.Y' }}</em></p>
 		<br>
 		
       {% for class in object_item.xtclass %}
