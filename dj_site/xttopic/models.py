@@ -13,19 +13,16 @@ class XtTopicAbstract(models.Model):
 
     def __unicode__(self):
         return self.title
-        
-    def dateformat(self):
-        print self.date
-        d = date.fromtimestamp(self.date)
-        print d 
-        return d    
-        
+
     class Meta:
         abstract = True
 
+    def dateformat(self):
+        return date.fromtimestamp(long(self.date))
 
-class XtNews(XtTopicAbstract):    
-    
+
+class XtNews(XtTopicAbstract):
+
     class Meta:
         db_table = u'xt_news'
 
