@@ -38,6 +38,10 @@ class XtTopicAbstract(models.Model):
         if not text:
             text = "Text is empty"
         return text
+        
+    def get_ico_url(self):
+        url_name = '/' + self.path + 'ico.jpg'
+        return url_name
 
 
 class XtNews(XtTopicAbstract):

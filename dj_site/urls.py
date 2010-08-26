@@ -1,3 +1,5 @@
+import os
+
 from django.conf.urls.defaults import *
 from django.conf import settings
 
@@ -16,4 +18,10 @@ if settings.DEBUG:
     urlpatterns += patterns('',
         (r'^%s(?P<path>.*)$' % settings.MEDIA_URL[1:], 'django.views.static.serve',
             {'document_root': settings.MEDIA_ROOT}),
+        (r'^news/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': os.path.join(settings.MEDIA_ROOT, 'news')}),
+        (r'^article/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': os.path.join(settings.MEDIA_ROOT, 'article')}),
+        (r'^report/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': os.path.join(settings.MEDIA_ROOT, 'report')}),
     )
