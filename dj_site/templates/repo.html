@@ -71,7 +71,7 @@ background: transparent url({{ MEDIA_URL }}img/popup_bg_01.png) repeat 0 0;
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                {{ topic_item.text }}
+                                                                {{ topic_item.get_text|safe }}
                                                                 
                                                                 
                                                                     <p class="topic" align="justify">
@@ -385,7 +385,7 @@ title="Сообщение" border="0">
                                                                         </a>
                                                                     </td>
                                                                     <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 10px 0pt 0pt;">
-                                                                        {{ object_item.content_object.date }}<br>
+                                                                        {{ object_item.content_object.dateformat|date:'d.m.Y' }}<br>
                                                                         <span class="linkonf2">
                                                                         <a href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                                                                         </a>
@@ -418,7 +418,7 @@ title="Сообщение" border="0">
                                                                     </a>
                                                                 </td>
                                                                 <td class="litlm1" style="color: rgb(207, 88, 0);">
-                                                                    {{ object_item.content_object.date }}<br>
+                                                                    {{ object_item.content_object.dateformat|date:'d.m.Y' }}<br>
                                                                     <span class="linkonf2">
                                                                     <a href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                                                                     </a>
@@ -450,7 +450,7 @@ title="Сообщение" border="0">
                                                                         </a>
                                                                     </td>
                                                                     <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 10px 0pt 0pt;">
-                                                                        {{ object_item.content_object.date }}<br>
+                                                                        {{ object_item.content_object.dateformat|date:'d.m.Y' }}<br>
                                                                         <span class="linkonf2">
                                                                         <a href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                                                                         </a>
@@ -483,7 +483,7 @@ title="Сообщение" border="0">
                                                                     </a>
                                                                 </td>
                                                                 <td class="litlm1" style="color: rgb(207, 88, 0);">
-                                                                    {{ object_item.content_object.date }}<br>
+                                                                    {{ object_item.content_object.dateformat|date:'d.m.Y' }}<br>
                                                                     <span class="linkonf2">
                                                                     <a href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                                                                     </a>
@@ -514,7 +514,7 @@ title="Сообщение" border="0">
                                                                         </a>
                                                                     </td>
                                                                     <td class="litlm1" style="color: rgb(207, 88, 0); padding: 0pt 10px 0pt 0pt;">
-                                                                        {{ object_item.content_object.date }}<br>
+                                                                        {{ object_item.content_object.dateformat|date:'d.m.Y' }}<br>
                                                                         <span class="linkonf2">
                                                                         <a href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                                                                         </a>
@@ -547,7 +547,7 @@ title="Сообщение" border="0">
                                                                     </a>
                                                                 </td>
                                                                 <td class="litlm1" style="color: rgb(207, 88, 0);">
-                                                                    {{ object_item.content_object.date }}<br>
+                                                                    {{ object_item.content_object.dateformat|date:'d.m.Y' }}<br>
                                                                     <span class="linkonf2">
                                                                     <a href="{{ SITE_URL }}{{ object_item.objurl }}">{{ object_item.content_object.description }}
                                                                     </a>

@@ -1,7 +1,10 @@
-from django.db import models
-from datetime import date
-from dj_site.settings import MEDIA_ROOT
 import os
+from datetime import date
+from lxml import etree
+
+from django.db import models
+
+from django.conf import settings
 
 
 class XtTopicAbstract(models.Model):
@@ -22,11 +25,20 @@ class XtTopicAbstract(models.Model):
     def dateformat(self):
         return date.fromtimestamp(long(self.date))
         
-    def text(self):
-        t = os.path.join(MEDIA_ROOT, self.path, 'topic.xml')
-        fp = open(t, 'r')
-        return fp.read()
-        
+    def get_text(self):
+        file_name = os.path.join(settings.MEDIA_ROOT, self.path, 'topic.xml')
+        text = ''
+        if os.path.isfile(file_name):
+            fp = open(file_name, 'r')
+            file_text = fp.read()
+            if file_text:
+                root_tree = etree.XML(file_text)
+                text = root_tree.find('sheet/text').text
+
+        if not text:
+            text = "Text is empty"
+        return text
+
 
 class XtNews(XtTopicAbstract):
 
