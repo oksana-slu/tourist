@@ -256,7 +256,7 @@ value="{{ SITE_URL }}xtclass/africa/velo" title="Африка">Африка</opt
                             <tr> 
                                 <td>
                                     <a href="{{ SITE_URL }}{{ object_item.objurl }}">
-                                    <img src="{{ MEDIA_URL }}img/ico_025.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
+                                    <img src="{{ object_item.content_object.get_ico_url }}" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
                                 </td>
                             </tr>
                         </table>
@@ -269,7 +269,7 @@ value="{{ SITE_URL }}xtclass/africa/velo" title="Африка">Африка</opt
                 </tr> 
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.dateformat|date:'d.m.Y' }}). Теги:</font><br>
                         {% for class in object_item.xtclass %}
                         <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
                         {% endfor %} 
@@ -339,7 +339,7 @@ none rgb(0, 0, 0); overflow: auto;">
                             <tr> 
                                 <td>
                                     <a href="{{ SITE_URL }}{{ object_item.objurl }}">
-                                    <img src="{{ MEDIA_URL }}img/ico_029.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
+                                    <img src="{{ object_item.content_object.get_ico_url }}" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
                                 </td>
                             </tr>
                         </table>
@@ -352,7 +352,7 @@ none rgb(0, 0, 0); overflow: auto;">
                 </tr> 
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.dateformat|date:'d.m.Y' }}). Теги:</font><br>
                         {% for class in object_item.xtclass %}
                         <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
                         {% endfor %} 
@@ -455,7 +455,7 @@ none rgb(0, 0, 0); overflow: auto;">
                             <tr> 
                                 <td>
                                     <a href="{{ SITE_URL }}{{ object_item.objurl }}">
-                                    <img src="{{ MEDIA_URL }}img/ico_029.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
+                                    <img src="{{ object_item.content_object.get_ico_url }}" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
                                 </td>
                             </tr>
                         </table>
@@ -468,7 +468,7 @@ none rgb(0, 0, 0); overflow: auto;">
                 </tr> 
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.dateformat|date:'d.m.Y' }}). Теги:</font><br>
                         {% for class in object_item.xtclass %}
                         <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
                         {% endfor %} 
@@ -535,7 +535,7 @@ none rgb(0, 0, 0); overflow: auto;">
                             <tr> 
                                 <td>
                                     <a href="{{ SITE_URL }}{{ object_item.objurl }}">
-                                    <img src="{{ MEDIA_URL }}img/ico_029.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
+                                    <img src="{{ object_item.content_object.get_ico_url }}" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
                                 </td>
                             </tr>
                         </table>
@@ -548,7 +548,7 @@ none rgb(0, 0, 0); overflow: auto;">
                 </tr> 
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.dateformat|date:'d.m.Y' }}). Теги:</font><br>
                         {% for class in object_item.xtclass %}
                         <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
                         {% endfor %} 
@@ -646,7 +646,7 @@ none rgb(0, 0, 0); overflow: auto;">
                             <tr> 
                                 <td>
                                     <a href="{{ SITE_URL }}{{ object_item.objurl }}">
-                                    <img src="{{ MEDIA_URL }}img/ico_029.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
+                                    <img src="{{ object_item.content_object.get_ico_url }}" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
                                 </td>
                             </tr>
                         </table>
@@ -659,7 +659,7 @@ none rgb(0, 0, 0); overflow: auto;">
                 </tr> 
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.dateformat|date:'d.m.Y' }}). Теги:</font><br>
                         {% for class in object_item.xtclass %}
                         <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
                         {% endfor %} 
@@ -725,7 +725,7 @@ none rgb(0, 0, 0); overflow: auto;">
                             <tr> 
                                 <td>
                                     <a href="{{ SITE_URL }}{{ object_item.objurl }}">
-                                    <img src="{{ MEDIA_URL }}img/ico_029.jpg" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
+                                    <img src="{{ object_item.content_object.get_ico_url }}" alt="{{ object_item.content_object.title }}" border="0" height="59" width="79"></a>
                                 </td>
                             </tr>
                         </table>
@@ -738,7 +738,7 @@ none rgb(0, 0, 0); overflow: auto;">
                 </tr> 
                 <tr>
                     <td class="litlm1" align="right" height="15" valign="middle">
-                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.date }}). Теги:</font><br>
+                        <font color="#a91e0a">Автор  {{ object_item.content_object.author_id }}({{ object_item.content_object.dateformat|date:'d.m.Y' }}). Теги:</font><br>
                         {% for class in object_item.xtclass %}
                         <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a> {% if not forloop.last %} | {% endif %}  
                         {% endfor %} 
