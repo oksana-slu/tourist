@@ -87,7 +87,7 @@ def xtclass(request, slug):
     new_article = XtObject.article.filter(xtc2o__xtclass__vcode=slug).order_by('-pk')[0:6]
     best_article = XtObject.article.filter(xtc2o__xtclass__vcode=slug).order_by('-comment')[0:6]
     
-    link = XtObject.objects.filter(xtobjecttype__otname='link', xtc2o__xtclass__vcode=slug)
+    link = XtObject.link.filter(xtc2o__xtclass__vcode=slug)
 
     return render_to_response('class.html', {"xtcdescription_xtclass": xtcdescription_xtclass,
                                              "top_news": top_news,
@@ -98,3 +98,5 @@ def xtclass(request, slug):
                                              "best_article": best_article,
                                              "link": link},
                               context_instance=RequestContext(request))
+
+                              

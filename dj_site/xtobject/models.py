@@ -33,6 +33,12 @@ class ArticleManager(models.Manager):
 
     def get_query_set(self):
         return super(ArticleManager, self).get_query_set().filter(xtobjecttype__otname='article', status=1)
+        
+
+class LinkManager(models.Manager):
+
+    def get_query_set(self):
+        return super(LinkManager, self).get_query_set().filter(xtobjecttype__otname='link', status=1)
 
 
 class XtObject(models.Model):
@@ -56,6 +62,7 @@ class XtObject(models.Model):
     news = NewsManager()
     report = ReportManager()
     article = ArticleManager()
+    link = LinkManager()
 
     def __unicode__(self):
         return u'%d - %d' % (self.id, self.object_id)

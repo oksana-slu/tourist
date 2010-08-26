@@ -816,16 +816,17 @@ none rgb(0, 0, 0); overflow: auto;">
                                                 <h4>Линки по теме</h4>
                                                 <ul>
                                                 {% for link_item in link %}
+                                                {% if  link_item.content_object.link_text %}
                                                 
                                                     <li><a href="{{ link_item.content_object.link }}" title="{{ link_item.content_object.link }}" class="xtlink">{{ link_item.content_object.link_text }}</a> 
                                                         <div class="xtlinkdesc">{{ link_item.content_object.link_desc }}</div>
                                                     </li>
-                                                
+                                                {% endif %}
                                                 {% endfor %}
                                                 </ul>
                                                 {% endif %}
                                                 
-                                                <a href="{{ SITE_URL }}edit_link.php">Добавить линк</a> 
+                                                <a href="{{ SITE_URL }}edit_link">Добавить линк</a> 
                             				</td>
                                         </tr>
                                     </table>                            
