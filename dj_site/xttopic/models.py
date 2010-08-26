@@ -56,10 +56,7 @@ class XtTopicAbstract(models.Model):
             root_tree = etree.XML(file_text)
             sheets_tree_list = root_tree.findall('sheet')
             self._sheets_count = len(sheets_tree_list)
-            print self._sheets_count, sheet_number
-            print type(self._sheets_count), type(sheet_number)
-            if self._sheets_count < sheet_number:
-                print 'err'
+            if self._sheets_count < sheet_number:                
                 raise Http404
             text = sheets_tree_list[sheet_number-1].find('text').text
 

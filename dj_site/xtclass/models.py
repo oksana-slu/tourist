@@ -32,6 +32,8 @@ class XtClass(models.Model):
     def get_childs(self):
         return self.parents.select_related('child').all().order_by("-child__class_order")
 
+    def get_parents(self):
+        return self.childs.select_related('parent').all().order_by("-parent__class_order")
 
 class XtC2C(models.Model):
     parent = models.ForeignKey(XtClass, db_column='c2c_parent', related_name='parents')

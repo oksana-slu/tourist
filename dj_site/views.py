@@ -63,6 +63,7 @@ def xttopic_item(request, part, slug, sheet_number=1):
                                             "topic_text": topic_text,
                                             "sheets_range": sheets_range,
                                             "sheet_number": sheet_number,
+                                            "sheets_count": sheets_count,
                                             "latest_news": latest_news,
                                             "top_news": top_news,
                                             "part": part,
@@ -85,6 +86,8 @@ def xtclass(request, slug):
 
     new_article = XtObject.article.filter(xtc2o__xtclass__vcode=slug).order_by('-pk')[0:6]
     best_article = XtObject.article.filter(xtc2o__xtclass__vcode=slug).order_by('-comment')[0:6]
+    
+    link = XtObject.objects.filter(xtobjecttype__otname='link', xtc2o__xtclass__vcode=slug)
 
     return render_to_response('class.html', {"xtcdescription_xtclass": xtcdescription_xtclass,
                                              "top_news": top_news,
@@ -92,5 +95,6 @@ def xtclass(request, slug):
                                              "recent_report": recent_report,
                                              "popular_report": popular_report,
                                              "new_article": new_article,
-                                             "best_article": best_article},
+                                             "best_article": best_article,
+                                             "link": link},
                               context_instance=RequestContext(request))

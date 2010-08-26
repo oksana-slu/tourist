@@ -60,7 +60,9 @@ background: transparent url({{ MEDIA_URL }}img/popup_bg_01.png) repeat 0 0;
                                                                     {% for class in object_item.xtclass %}
                                                                     <a style="color: rgb(169, 77, 10);" href="{{ SITE_URL }}xtclass/{{ class.xtclass.vcode }}" title="{{ class.xtclass.xtcdescription }}">{{ class.xtclass.vname }}</a>{% if not forloop.last %} | {% endif %} 
                                                                     {% endfor %}
-                                                                    <br>Страницы:
+                                                                    <br>
+                                                                    {% if sheets_count != 1 %}
+                                                                    Страницы:
                                                                     {% for sheet_number_item in sheets_range %}
                                                                     {% if sheet_number_item == sheet_number %}
                                                                     <span style="color: red;">{{ sheet_number_item }}</span>
@@ -68,6 +70,7 @@ background: transparent url({{ MEDIA_URL }}img/popup_bg_01.png) repeat 0 0;
                                                                     <a href="/{{ object_item.objurl }}/{{ sheet_number_item }}">{{ sheet_number_item }}</a>
                                                                     {% endif %}
                                                                     {% endfor %}
+                                                                    {% endif %}
                                                                     <br>
                                                                     <h2 class="head1" align="center">{{ topic_item.title }}</h2>
                                                                     <p align="right">
@@ -88,7 +91,9 @@ background: transparent url({{ MEDIA_URL }}img/popup_bg_01.png) repeat 0 0;
                                                                     <p class="topic" align="justify"></p>         
                                                                     <p class="linkonf" align="right">
                                                                     <em>{{ topic_item.author_id }} {{ topic_item.dateformat|date:'d.m.Y' }}</em></p>
-                                                                    <br>Страницы:
+                                                                    <br>
+                                                                    {% if sheets_count != 1 %}
+                                                                    Страницы:
                                                                     {% for sheet_number_item in sheets_range %}
                                                                     {% if sheet_number_item == sheet_number %}
                                                                     <span style="color: red;">{{ sheet_number_item }}</span>
@@ -96,6 +101,7 @@ background: transparent url({{ MEDIA_URL }}img/popup_bg_01.png) repeat 0 0;
                                                                     <a href="/{{ object_item.objurl }}/{{ sheet_number_item }}">{{ sheet_number_item }}</a>
                                                                     {% endif %}
                                                                     {% endfor %}
+                                                                    {% endif %}
                                                                     
                                                                     <br>                                                                            
                                                                 </td>

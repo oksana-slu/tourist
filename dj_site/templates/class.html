@@ -798,77 +798,34 @@ none rgb(0, 0, 0); overflow: auto;">
                                     <table class="menu" bgcolor="#301001" border="0" cellpadding="5" cellspacing="5" width="100%">
                                         <tr>
                                             <td>
-                            					<p class="head1">Велотуризм и Велоспорт </p>
-                                                Надклассы: <a href="{{ SITE_URL }}xtclass/ground" title="Мать сыра земля">Земля</a>
+                            					{% if xtcdescription_xtclass.get_parents %}
+                                                Надклассы:<br> 
+                                                {% for class_item in xtcdescription_xtclass.get_parents %}                          
+                                                <a href="{{ SITE_URL }}xtclass/{{ class_item.parent.vcode }}" title="{{ class_item.parent.xtcdescription }}">{{ class_item.parent.vname }}</a>{% if not forloop.last %} <br> {% endif %}
+                                                {% endfor %}
+                                                {% endif %}<br><br>
+                                                
+                                                {% if xtcdescription_xtclass.get_childs %}
+                                                Подклассы:<br>
+                                                {% for class_item in xtcdescription_xtclass.get_childs %}                          
+                                                <a href="{{ SITE_URL }}xtclass/{{ class_item.child.vcode }}" title="{{ class_item.child.xtcdescription }}">{{ class_item.child.vname }}</a>{% if not forloop.last %} <br> {% endif %}
+                                                {% endfor %}                                                
+                                                {% endif %}<br>
+                                                
+                                                {% if link %}
                                                 <h4>Линки по теме</h4>
                                                 <ul>
-                                                    <li><a href="http://velo.overtime.kharkov.ua/" title="http://velo.overtime.kharkov.ua/" class="xtlink">Федерация  велосипедистов  Харьковской области</a> 
-                                                        <div class="xtlinkdesc">Федерация   велосипедистов  Харьковской области</div>
+                                                {% for link_item in link %}
+                                                
+                                                    <li><a href="{{ link_item.content_object.link }}" title="{{ link_item.content_object.link }}" class="xtlink">{{ link_item.content_object.link_text }}</a> 
+                                                        <div class="xtlinkdesc">{{ link_item.content_object.link_desc }}</div>
                                                     </li>
-                                                    <li><a href="http://technoart.com.ua/" title="http://technoart.com.ua/" class="xtlink">Техноарт </a> 
-                                                        <div class="xtlinkdesc">Очень интересный сайт харьковского конструктора, увлекающегося веломобилями.</div>
-                                                    </li>
-                                                    <li><a href="http://velo.kharkov.ua/" title="http://velo.kharkov.ua/" class="xtlink">Харьковский МТБ клуб.</a> 
-                                                        <div class="xtlinkdesc">Старейший клуб - проводит кубок Харькова и области по маунтинбайку</div>
-                                                    </li>
-                                                    <li><a href="http://www.karpaty.com.ua/" title="http://www.karpaty.com.ua/" class="xtlink">Українські Карпати</a> 
-                                                        <div class="xtlinkdesc">Сайт с большим количеством информации о Карпатах.</div>
-                                                    </li>
-                                                    <li><a href="http://openeye.org.ua/" title="http://openeye.org.ua/" class="xtlink">OpenEye team - Харьков</a> 
-                                                        <div class="xtlinkdesc">Неофициальный сайт спелеоклуба "Вариант"</div>
-                                                    </li>
-                                                    <li><a href="http://x-riders.asugas.kharkov.ua/" title="http://x-riders.asugas.kharkov.ua/" class="xtlink">Велоклуб "X-Riders"</a> 
-                                                        <div class="xtlinkdesc">Сайт харьковского клуба "X-Riders", создателей вело-фотоквеста Flash-Cross</div>
-                                                    </li>
-                                                    <li><a href="http://nightrangers.net/" title="http://nightrangers.net/" class="xtlink">"Ночные странники"</a> 
-                                                        <div class="xtlinkdesc">Сайт харьковских байкеров</div></li><li><a href="http://active.kharkov.ua/" title="http://active.kharkov.ua/" class="xtlink">Форум "Активный Харьков"</a> <div class="xtlinkdesc">Велосипеды и ролики.</div>
-                                                    </li>
-                                                    <li><a href="http://www.univer-clas.com/index.php" title="http://www.univer-clas.com/index.php" class="xtlink">Альпклуб Универ-КЛАС</a> 
-                                                        <div class="xtlinkdesc">Сайт харьковского Клуба Любителей Альпинизма и Скалолазания Универ-КЛАС. Альпинистские и скалолазные выезды, проведение приключенческих и мультиспортивных гонок в Харьковской области.Статьи. Отчеты о выездах и экспедициях. Фотографии из походов, с соревнований в Харькове и за его пределами. </div>
-                                                    </li>
-                                                    <li><a href="http://www.equip.com.ua/" title="http://www.equip.com.ua/" class="xtlink">Equip.com.ua - туристическое снаряжение</a> 
-                                                        <div class="xtlinkdesc">Сервис по продаже и прокату снаряжения.</div>
-                                                    </li>
-                                                    <li><a href="{{ SITE_URL }}stelima.htm" title="{{ SITE_URL }}stelima.htm" class="xtlink">Туристическая Компания Стелима</a> 
-                                                        <div class="xtlinkdesc">Сайт "Харьковский Турист" сотрудничает с туристической фирмой "Стелима", которая занимается организацией походов по Крыму, Кавказу, Карпатам и Харьковской области.</div>
-                                                    </li>
-                                                    <li><a href="http://www.gorbenko.com/" title="http://www.gorbenko.com/" class="xtlink">Журнал Романа Горбенко</a> 
-                                                        <div class="xtlinkdesc">О Харькове и не только о нем. Легенды Харькова. Заметки. Фотоотчеты путешествий.</div>
-                                                    </li>
-                                                    <li><a href="http://www.fstk.kiev.ua/" title="http://www.fstk.kiev.ua/" class="xtlink">Федерация Спортивного Туризма города Киева</a> 
-                                                        <div class="xtlinkdesc">Водный, пешеходный и велосипедный туризм. Школа туризма. Походы, отчёты, маршруты, соревнования. Календарь и правила соревнований. </div>
-                                                    </li>
-                                                    <li><a href="http://forum.simbike.ru/" title="http://forum.simbike.ru/" class="xtlink">SimBike.ru</a> 
-                                                        <div class="xtlinkdesc">Ульяновский велосипедный форум. Выбор, настройка и ремонт велосипеда. Совместные покатушки.</div>
-                                                    </li>
-                                                    <li><noindex><a href="http://www.bukovelbikepark.com/" title="http://www.bukovelbikepark.com" class="xtlink">Байкпарк Буковель</a></noindex>
-                                                        <div class="xtlinkdesc">Один из первых и лучших байкпарков в Украине.</div>
-                                                    </li>
-                                                    <li><a href="http://uaextreme.com/" title="http://uaextreme.com/" class="xtlink">UA eXtreme - сайт об экстремальных видах спорта.</a> 
-                                                        <div class="xtlinkdesc">На сайте много информации о сноуборде, скейтбординге, роликах, велосипеде, лыжах, райдерах. Всегда много новой информации о журналах, тестах, чемпионатах, контестах.</div>
-                                                    </li>
-                                                    <li><a href="http://technoart.com.ua/" title="http://technoart.com.ua/" class="xtlink">Техноарт </a> 
-                                                        <div class="xtlinkdesc">Очень интересный сайт харьковского конструктора, увлекающегося веломобилями.</div>
-                                                    </li>
-                                                    <li><a href="http://www.extremalov.net/" title="http://www.extremalov.net/" class="xtlink">Велоклуб ПАРТИЗАН</a> 
-                                                        <div class="xtlinkdesc">велотуризм, покатушки для новичков, велопрокат, велосипедный интернет-магазин - всё для велосипедиста и велотуриста!</div>
-                                                    </li>
-                                                    <li><a href="{{ SITE_URL }}xtclass/%D0%A1%D0%B0%D0%BB%D1%82%D0%BE%D0%B2%D0%BA%D0%B0%28522%20%D0%BC-%D0%B9%D0%BE%D0%BD%29" title="Салтовка(522 м-йон)" class="xtlink">Dbjhbjh</a> 
-                                                        <div class="xtlinkdesc">fdsfs</div>
-                                                    </li>
-                                                    <li><a href="http://peloton.com.ua/" title="http://peloton.com.ua/" class="xtlink">Украинский клуб велосипедистов-шоссейников</a> 
-                                                        <div class="xtlinkdesc">Украинский клуб велосипедистов-шоссейников</div>
-                                                    </li>
-                                                    <li><a href="http://extreme-channel.blogspot.com/" title="http://extreme-channel.blogspot.com/" class="xtlink">Сайд повещен экстремальным видам спорта</a> 
-                                                        <div class="xtlinkdesc">Медиа контент по экстремальным видам спорта</div>
-                                                    </li>
-                                                    <li><a href="http://veloon.com.ua/" title="http://veloon.com.ua/" class="xtlink">Велоклуб ON</a> 
-                                                        <div class="xtlinkdesc">Харьковский велоклуб</div>
-                                                    </li>
-                                                    <li><a href="http://www.velotour.com.ua/" title="http://www.velotour.com.ua/" class="xtlink">Велотур</a> 
-                                                        <div class="xtlinkdesc"> - велосипедныетуры по Украине и миру.</div>
-                                                    </li>
-                                                </ul><a href="{{ SITE_URL }}edit_link.php">Добавить линк</a> 
+                                                
+                                                {% endfor %}
+                                                </ul>
+                                                {% endif %}
+                                                
+                                                <a href="{{ SITE_URL }}edit_link.php">Добавить линк</a> 
                             				</td>
                                         </tr>
                                     </table>                            
