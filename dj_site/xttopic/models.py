@@ -3,7 +3,7 @@ from datetime import date
 from lxml import etree
 
 from django.db import models
-
+from django.http import Http404
 from django.conf import settings
 
 
@@ -22,18 +22,46 @@ class XtTopicAbstract(models.Model):
     class Meta:
         abstract = True
 
+    def __init__(self, *karg, **kwarg):
+        super(XtTopicAbstract, self).__init__(*karg, **kwarg)
+        self._sheets_count = None
+        
     def dateformat(self):
         return date.fromtimestamp(long(self.date))
-        
-    def get_text(self):
+
+    def get_file_text(self):
         file_name = os.path.join(settings.MEDIA_ROOT, self.path, 'topic.xml')
-        text = ''
         if os.path.isfile(file_name):
             fp = open(file_name, 'r')
-            file_text = fp.read()
-            if file_text:
+            return fp.read()
+        else:
+            return None
+
+    def get_sheets_count(self):
+        if self._sheets_count is not None:
+            return self._sheets_count
+        else:
+            file_text = self.get_file_text()
+            if file_text is not None:
                 root_tree = etree.XML(file_text)
-                text = root_tree.find('sheet/text').text
+                self._sheets_count = len(root_tree.findall('sheet'))
+                return self._sheets_count
+            else:
+                return 0
+
+    def get_text(self, sheet_number=1):
+        text = ''
+        file_text = self.get_file_text()
+        if file_text:
+            root_tree = etree.XML(file_text)
+            sheets_tree_list = root_tree.findall('sheet')
+            self._sheets_count = len(sheets_tree_list)
+            print self._sheets_count, sheet_number
+            print type(self._sheets_count), type(sheet_number)
+            if self._sheets_count < sheet_number:
+                print 'err'
+                raise Http404
+            text = sheets_tree_list[sheet_number-1].find('text').text
 
         if not text:
             text = "Text is empty"
