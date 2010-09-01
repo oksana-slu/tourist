@@ -1,0 +1,265 @@
+{% extends "base.html" %}
+{% block title %}ХАРЬКОВ Создать новый линк{% endblock %}
+{% block content %}
+
+<div id="sn1" style="position: absolute; overflow: hidden; height: 5px; 
+z-index: 21; width: 99%; left: 1%; top: 100px; background-image: 
+url(&quot;/img/snow2.gif&quot;); background-repeat: repeat-x; border: 
+0px solid rgb(0, 0, 0);"></div>
+<div id="sn2" style="position: absolute; overflow: hidden; height: 5px; 
+z-index: 21; width: 99%; left: 1%; top: 105px; background-image: 
+url(&quot;/img/snow1.gif&quot;); background-repeat: repeat-x; border: 
+0px solid rgb(255, 0, 0);"></div>
+
+<!--div style="position:absolute; overflow: hidden; height:125px; z-index: 1; width: 170px; top: 143px; left: 85%"><table width="170px"><tr><td style="padding: 0 40 0 0" align="center">{loginstat_tow}</td></tr></table></div-->
+
+<table bgcolor1="#FFCC33" width="100%" 
+background="edit_link.php_files/f.htm" border="0" cellpadding="0" 
+cellspacing="0">
+  <tbody><tr valign="top">
+    <td bgcolor1="#000000">
+	  <table width="100%" background="edit_link.php_files/f.htm" border="0"
+ cellpadding="0" cellspacing="0" height="36">
+        <tbody><tr>
+          <td valign="top" width="15%" align="center">&nbsp;</td>
+          <td style="min-width: 600px;" valign="top" width="59%" 
+align="center" height="36"> <table width="100%" bgcolor="#ffffff" 
+border="0" cellpadding="0" cellspacing="0">
+              <tbody><tr>
+                <td valign="top"> <table width="100%" cellpadding="0" 
+cellspacing="0">
+                    <tbody><tr>
+                      <td><h2>Создать новый линк</h2>
+<span style="color: red;"></span>
+
+<form action="/edit_link" method="post">
+<table>
+
+{% csrf_token %}
+{{ form.as_table }}
+
+
+</table>
+<input type="submit" value="Submit" />
+</form>
+
+<form method="POST" 
+action="http://tourist.kharkov.ua/edit_link.php?step=save">
+<table width="100%" border="0">
+	<tbody><tr valign="top">
+		<td width="300">Адрес:</td>
+		<td><textarea id="link_link" name="link_link" rows="1" cols="75"></textarea><br>
+		(В полном формате включая протокол: http://yandex.ru )</td>
+	</tr>
+	<tr valign="top">
+		<td>Текст:</td>
+		<td><textarea id="link_text" name="link_text" rows="3" cols="75"></textarea></td>
+	</tr>
+	<tr valign="top">
+		<td>Описание:</td>
+		<td><textarea id="link_desc" name="link_desc" rows="3" cols="75"></textarea></td>
+	</tr>
+		<tr valign="top">
+		<td>Прямость:</td>
+		<td>
+			<input name="link_is_direct" value="1" checked="checked" type="radio">
+ Прямой
+			<input name="link_is_direct" value="0" type="radio"> Непрямой
+		</td>
+	</tr>
+	<tr valign="top">
+		<td>Сортировка:</td>
+		<td>
+			<input name="link_sort" size="5" value="0" type="text">
+		</td>
+	</tr>
+</tbody></table>
+<table width="100%" border="0">
+	<tbody><tr valign="top">
+		<td><div class="treeview"><ul><li class="cl"><div><p><a href="#" 
+class="sc" onclick="return UnHide(this)">►</a><input 
+name="xtclasschk[2]" value="2" title="Активное время препровождение" 
+type="checkbox">Активный отдых<br></p></div><ul><li><div><p><input 
+name="xtclasschk[69]" value="69" title="квесты" type="checkbox">Квесты<br></p></div></li><li><div><p><input
+ name="xtclasschk[91]" value="91" title="Пейнтбол в Харькове" 
+type="checkbox">Пейнтбол<br></p></div></li></ul></li><li class="cl"><div><p><a
+ href="#" class="sc" onclick="return UnHide(this)">►</a><input 
+name="xtclasschk[38]" value="38" title="Байдарки, паруса, акваланги, и 
+пр." type="checkbox">Вода<br></p></div><ul><li><div><p><input 
+name="xtclasschk[67]" value="67" title="Байдарки и каяки" 
+type="checkbox">Байдарки<br></p></div></li><li><div><p><input 
+name="xtclasschk[68]" value="68" title="Дайвинг" type="checkbox">Дайвинг<br></p></div></li><li><div><p><input
+ name="xtclasschk[87]" value="87" title="Виндсерфинг" type="checkbox">Виндсерфинг<br></p></div></li></ul></li><li
+ class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input
+ name="xtclasschk[50]" value="50" title="Лыжные походы, горные лыжи, 
+сноуборд..." type="checkbox">Зима<br></p></div><ul><li><div><p><input 
+name="xtclasschk[65]" value="65" title="Лыжный туризм и беговые лыжи" 
+type="checkbox">Лыжи<br></p></div></li><li><div><p><input 
+name="xtclasschk[66]" value="66" title="Горные лыжи и сноуборды" 
+type="checkbox">Горные лыжи<br></p></div></li><li><div><p><input 
+name="xtclasschk[86]" value="86" title="Сноуборд" type="checkbox">Сноуборд<br></p></div></li></ul></li><li
+ class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input
+ name="xtclasschk[51]" value="51" title="Горы" type="checkbox">Горы<br></p></div><ul><li><div><p><input
+ name="xtclasschk[52]" value="52" title="восхождения на труднодоступные 
+вершины" type="checkbox">Альпинизм<br></p></div></li><li><div><p><input 
+name="xtclasschk[57]" value="57" title="Пешком до 3000" type="checkbox">Горный
+ туризм<br></p></div></li><li><div><p><input name="xtclasschk[88]" 
+value="88" title="Скалолазание" type="checkbox">Скалолазание<br></p></div></li></ul></li><li
+ class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input
+ name="xtclasschk[53]" value="53" title="Мать сыра земля" 
+type="checkbox">Земля<br></p></div><ul><li><div><p><input 
+name="xtclasschk[1]" value="1" title="Велосипеды байки велопоходы 
+велоспорт" type="checkbox">ВЕЛОСИПЕДЫ<br></p></div></li><li><div><p><input
+ name="xtclasschk[47]" value="47" title="Пешие походы" type="checkbox">Пеший
+ туризм<br></p></div></li><li><div><p><input name="xtclasschk[48]" 
+value="48" title="Приключенческие гонки (экстрим-марафоны)" 
+type="checkbox">Мультиспорт<br></p></div></li><li><div><p><input 
+name="xtclasschk[75]" value="75" title="Верховая езда" type="checkbox">Лошади<br></p></div></li></ul></li><li
+ class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input
+ name="xtclasschk[54]" value="54" title="Достопримечательности Харькова"
+ type="checkbox">Краеведение<br></p></div><ul><li><div><p><input 
+name="xtclasschk[4]" value="4" title="Архитектурные памятники и 
+сооружения" type="checkbox">Архитектура<br></p></div></li><li><div><p><input
+ name="xtclasschk[5]" value="5" title="Городища и другие места, 
+связанные с историей" type="checkbox">История<br></p></div></li><li><div><p><input
+ name="xtclasschk[7]" value="7" title="Живописные места и замечательные 
+маршруты" type="checkbox">Живописные места<br></p></div></li><li><div><p><input
+ name="xtclasschk[76]" value="76" title="Растения в походе" 
+type="checkbox">Флора<br></p></div></li></ul></li><li class="cl"><div><p><a
+ href="#" class="sc" onclick="return UnHide(this)">►</a><input 
+name="xtclasschk[55]" value="55" title="Под землей" type="checkbox">Под 
+землей<br></p></div><ul><li><div><p><input name="xtclasschk[37]" 
+value="37" title="Пещеры" type="checkbox">Спелео<br></p></div></li><li><div><p><input
+ name="xtclasschk[42]" value="42" title="Диггерство и сталкер" 
+type="checkbox">Диггерство<br></p></div></li><li><div><p><input 
+name="xtclasschk[56]" value="56" title="Металлодетекторы" 
+type="checkbox">МД<br></p></div></li></ul></li><li class="cl"><div><p><a
+ href="#" class="sc" onclick="return UnHide(this)">►</a><input 
+name="xtclasschk[59]" value="59" title="Экстремальные виды" 
+type="checkbox">Экстрим<br></p></div><ul><li><div><p><input 
+name="xtclasschk[60]" value="60" title="Ролики, скейтбоард" 
+type="checkbox">Ролики, Скейты<br></p></div></li><li><div><p><input 
+name="xtclasschk[61]" value="61" title="Паркур" type="checkbox">Паркур<br></p></div></li><li><div><p><input
+ name="xtclasschk[62]" value="62" title="Дертджампинг и велотриал" 
+type="checkbox">Дёрт и Триал<br></p></div></li></ul></li><li class="cl"><div><p><a
+ href="#" class="sc" onclick="return UnHide(this)">►</a><input 
+name="xtclasschk[63]" value="63" title="Мужской отдых" type="checkbox">Мужской
+ отдых<br></p></div><ul><li><div><p><input name="xtclasschk[3]" 
+value="3" title="Все у чего есть ДВС" type="checkbox">Авто-мото<br></p></div></li><li><div><p><input
+ name="xtclasschk[64]" value="64" title="Рыбалка" type="checkbox">Рыбалка<br></p></div></li></ul></li><li
+ class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input
+ name="xtclasschk[70]" value="70" title="Небо" type="checkbox">Небо<br></p></div><ul><li><div><p><input
+ name="xtclasschk[71]" value="71" title="Парапланы" type="checkbox">Парапланы<br></p></div></li><li><div><p><input
+ name="xtclasschk[72]" value="72" title="Парашюты" type="checkbox">Парашюты<br></p></div></li></ul></li><li
+ class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input
+ name="xtclasschk[84]" value="84" title="Разное" type="checkbox">Другое<br></p></div><ul><li><div><p><input
+ name="xtclasschk[81]" value="81" title="Путешествия и путешественники" 
+type="checkbox">Путешествия<br></p></div></li><li><div><p><input 
+name="xtclasschk[85]" value="85" title="Туры, путевки" type="checkbox">Туры<br></p></div></li></ul></li></ul></div></td>
+		<td><div class="treeview"><ul><li class="cl"><div><p><a href="#" 
+class="sc" onclick="return UnHide(this)">►</a><input 
+name="xtclasschk[14]" value="14" title="Европа" type="checkbox">Европа<br></p></div><ul><li><div><p><input
+ name="xtclasschk[27]" value="27" title="Угорщина" type="checkbox">Венгрия<br></p></div></li><li><div><p><input
+ name="xtclasschk[32]" value="32" title="Польша" type="checkbox">Польша<br></p></div></li><li><div><p><input
+ name="xtclasschk[35]" value="35" title="германия" type="checkbox">Германия<br></p></div></li><li><div><p><input
+ name="xtclasschk[36]" value="36" title="австрия" type="checkbox">Австрия<br></p></div></li></ul></li><li
+ class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input
+ name="xtclasschk[16]" value="16" title="Азия как часть света и все что 
+близко" type="checkbox">Азия<br></p></div><ul><li><div><p><input 
+name="xtclasschk[30]" value="30" title="турция" type="checkbox">Турция<br></p></div></li><li><div><p><input
+ name="xtclasschk[34]" value="34" title="Камбоджа" type="checkbox">Камбоджа<br></p></div></li><li><div><p><input
+ name="xtclasschk[83]" value="83" title="Израиль" type="checkbox">Израиль<br></p></div></li></ul></li><li
+ class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input
+ name="xtclasschk[17]" value="17" title="Континент Америка и все что 
+близко" type="checkbox">Америка<br></p></div><ul><li><div><p><input 
+name="xtclasschk[45]" value="45" title="Вива Куба!" type="checkbox">Куба<br></p></div></li></ul></li><li
+ class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input
+ name="xtclasschk[18]" value="18" title="Страны СНГ кроме Украины" 
+type="checkbox">СНГ<br></p></div><ul><li><div><p><input 
+name="xtclasschk[26]" value="26" title="Россия" type="checkbox">Россия<br></p></div></li><li><div><p><input
+ name="xtclasschk[31]" value="31" title="Карелия" type="checkbox">Карелия<br></p></div></li><li><div><p><input
+ name="xtclasschk[39]" value="39" title="алтай" type="checkbox">Алтай<br></p></div></li><li><div><p><input
+ name="xtclasschk[41]" value="41" title="Урал" type="checkbox">Урал<br></p></div></li><li><div><p><input
+ name="xtclasschk[82]" value="82" title="Дальний восток" type="checkbox">Дальний
+ Восток<br></p></div></li><li><div><p><input name="xtclasschk[40]" 
+value="40" title="грузия" type="checkbox">Грузия<br></p></div></li><li><div><p><input
+ name="xtclasschk[43]" value="43" title="Прибалтика" type="checkbox">Прибалтика<br></p></div></li><li><div><p><input
+ name="xtclasschk[49]" value="49" title="Российская часть Кавказа" 
+type="checkbox">Кавказ<br></p></div></li></ul></li><li class="cl"><div><p><a
+ href="#" class="sc" onclick="return UnHide(this)">►</a><input 
+name="xtclasschk[19]" value="19" title="Украина" type="checkbox">Украина<br></p></div><ul><li><div><p><input
+ name="xtclasschk[20]" value="20" title="Харьковская область" 
+type="checkbox">Харьков<br></p></div></li><li><div><p><input 
+name="xtclasschk[73]" value="73" title="Чугуев" type="checkbox">Чугуев<br></p></div></li><li><div><p><input
+ name="xtclasschk[21]" value="21" title="Киевская область" 
+type="checkbox">Киев<br></p></div></li><li><div><p><input 
+name="xtclasschk[24]" value="24" title="Благодатный Крым" 
+type="checkbox">Крым<br></p></div></li><li><div><p><input 
+name="xtclasschk[25]" value="25" title="Карпаты в широком смысле" 
+type="checkbox">Карпаты<br></p></div></li><li><div><p><input 
+name="xtclasschk[58]" value="58" title="Азовское море и побережье" 
+type="checkbox">Азов<br></p></div></li><li><div><p><input 
+name="xtclasschk[77]" value="77" title="Полтава" type="checkbox">Полтава<br></p></div></li><li><div><p><input
+ name="xtclasschk[74]" value="74" title="Сорочинцы" type="checkbox">Сорочинцы<br></p></div></li><li><div><p><input
+ name="xtclasschk[78]" value="78" title="Запорожье" type="checkbox">Запорожье<br></p></div></li><li><div><p><input
+ name="xtclasschk[79]" value="79" title="Ивано-франковск" 
+type="checkbox">Ивано-франковск<br></p></div></li><li><div><p><input 
+name="xtclasschk[80]" value="80" title="Ужгород" type="checkbox">Ужгород<br></p></div></li><li><div><p><input
+ name="xtclasschk[90]" value="90" title="Одесса" type="checkbox">Одесса<br></p></div></li></ul></li><li
+ class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input
+ name="xtclasschk[29]" value="29" title="Африка" type="checkbox">Африка<br></p></div><ul><li><div><p><input
+ name="xtclasschk[89]" value="89" title="Египет" type="checkbox">Египет<br></p></div></li></ul></li></ul></div></td>
+		<td><div class="treeview"><ul><li class="cl"><div><p><a href="#" 
+class="sc" onclick="return UnHide(this)">►</a><input 
+name="xtclasschk[22]" value="22" title="Категорийные выше третьей" 
+type="checkbox">Спортивные отчеты<br></p></div><ul></ul></li><li 
+class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input
+ name="xtclasschk[23]" value="23" title="Совсем матрасные бухаловки" 
+type="checkbox">Матрасные отчеты<br></p></div><ul></ul></li><li 
+class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input
+ name="xtclasschk[44]" value="44" title="Обычные походы 0-2 сложностей" 
+type="checkbox">Обычные походы<br></p></div><ul></ul></li></ul></div></td>
+	</tr>
+</tbody></table>
+<br>
+<input name="topicstat" value="1" checked="checked" type="radio">Проверено!<br>
+<input name="topicstat" value="2" type="radio">Отправить на модерацию 
+(Будет опубликовано после проверки)<br>
+<input name="topicstat" value="3" type="radio">Сохранить как отложенный 
+до следующего редактирования (никому не показывать)<br>
+
+<br>
+
+<br>
+
+<input value="" name="link_obj_id" type="hidden">
+<input value="Сохранить" name="link_seve" type="submit">
+<input value="Удалить" name="deletelink" type="submit">
+</form></td>
+                    </tr>
+                  </tbody></table></td>
+              </tr>
+            </tbody></table></td>
+          <td class="contentBlock" style="" valign="top" width="25%" 
+align="left" height="100%">
+	          <table width="288px" border="0" cellpadding="0" 
+cellspacing="0" height="100%">
+	          	<tbody><tr><td valign="top" align="center"></td></tr>
+
+
+	          	<tr><td style="padding: 20px 0pt 0pt 0px;" valign="top" 
+align="center">{loginstat_tow}</td></tr>
+
+
+
+	          	<tr><td valign="top" align="center" height="100%">&nbsp;</td></tr>
+	          </tbody></table>
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+{% endblock %}

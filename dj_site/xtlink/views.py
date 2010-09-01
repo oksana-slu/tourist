@@ -10,10 +10,10 @@ from dj_site.xtobject.models import XtObject
 from django import forms
 
 
-class LinkForm(forms.Form):
-    url_name = forms.URLField(label=u'ест')
-    showing_text = forms.CharField(max_length=100)
-    description = forms.CharField(widget=forms.Textarea,  max_length=200)
+class LinkForm(forms.Form):    
+    url_name = forms.URLField(widget=forms.TextInput(attrs={'size':'106'}), label=u'Адреc', help_text='В полном формате включая протокол: http://yandex.ru')
+    showing_text = forms.CharField(widget=forms.Textarea(attrs={'cols':'80', 'rows':'2'}), max_length=100, label=u'Текст')
+    description = forms.CharField(widget=forms.Textarea(attrs={'cols':'80', 'rows':'3'}),  max_length=200, label=u'Описание') 
 
 
 def edit_link(request):
@@ -23,7 +23,7 @@ def edit_link(request):
             # ...
             return HttpResponseRedirect('/edit_link')
     else:
-        form = LinkForm() # An unbound form
+        form = LinkForm() 
 
     return render_to_response('edit_link.html', {},
                               context_instance=RequestContext(request, {'form': form}))
