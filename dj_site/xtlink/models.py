@@ -7,8 +7,8 @@ class XtLink(models.Model):
     link_text = models.CharField(max_length=300, blank=True)
     link_desc = models.TextField(blank=True)
     link_author_id = models.IntegerField()
-    link_isdirect = models.IntegerField()
-    link_sort = models.IntegerField()
+    link_isdirect = models.IntegerField(default=0)
+    link_sort = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.link
