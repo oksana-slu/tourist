@@ -43,10 +43,10 @@ url(&quot;/img/snow1.gif&quot;); background-repeat: repeat-x; border:
             <div class="treeview">
             <ul>
                 <li class="cl">
-                    <div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a>
+                    <div><p><a href="#{{ class_item.vname }}" class="sc" onclick="chhidElem ({{ class_item.vcode }})">►</a>
                     <input name="xtclasschk[{{ class_item.pk }}]" value="{{ class_item.pk }}" title="{{ class_item.xtcdescription }}" type="checkbox">{{class_item.vname }}<br></p>
                     </div>
-                        <ul>
+                        <ul id="{{ class_item.vcode }}" class="colelem">
                             {% for child_class_item in class_item.get_childs %}
                             <li>
                                 <div><p><input name="xtclasschk[{{ child_class_item.child.pk }}]" value="{{ child_class_item.child.pk }}" title="{{ child_class_item.child.xtcdescription }}" type="checkbox">{{ child_class_item.child.vname }}<br></p>
@@ -64,10 +64,10 @@ url(&quot;/img/snow1.gif&quot;); background-repeat: repeat-x; border:
             <div class="treeview">
             <ul>
                 <li class="cl">
-                    <div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a>
+                    <div><p><a href="#{{ class_item.vname }}" class="sc" onclick="chhidElem ({{ class_item.vcode }})">►</a>
                     <input name="xtclasschk[{{ class_item.pk }}]" value="{{ class_item.pk }}" title="{{ class_item.xtcdescription }}" type="checkbox">{{class_item.vname }}<br></p>
                     </div>
-                        <ul>
+                        <ul id="{{ class_item.vcode }}" class="colelem">
                             {% for child_class_item in class_item.get_childs %}
                             <li>
                                 <div><p><input name="xtclasschk[{{ child_class_item.child.pk }}]" value="{{ child_class_item.child.pk }}" title="{{ child_class_item.child.xtcdescription }}" type="checkbox">{{ child_class_item.child.vname }}<br></p>
@@ -85,7 +85,7 @@ url(&quot;/img/snow1.gif&quot;); background-repeat: repeat-x; border:
             <div class="treeview">
             <ul>
                 <li class="cl">
-                    <div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a>
+                    <div><p><a href="#{{ class_item.vname }}" class="sc" >►</a>
                     <input name="xtclasschk[{{ class_item.pk }}]" value="{{ class_item.pk }}" title="{{ class_item.xtcdescription }}" type="checkbox">{{class_item.vname }}<br></p>
                     </div>                       
                 </li>

@@ -4,6 +4,7 @@
 <title>{% block title %}{% endblock %}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="7625d6310a2c2648447378a57b20f225" content="">
+
 <script language="JavaScript" type="text/JavaScript">
 	function MenuHa(s,h) 
 	{
@@ -12,6 +13,13 @@
 			elem.style.display='none';
 			elem2 = document.getElementById(s);
 			elem2.style.display='block';
+        }
+        
+    function chhidElem (obj) //функция, открывающая и закрывающая пункты меню
+        {if (obj.className == "colelem")
+        obj.className = "expelem"
+        else
+        obj.className = "colelem"
         }
 
 </script>

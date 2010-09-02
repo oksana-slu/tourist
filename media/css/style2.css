@@ -120,3 +120,11 @@ padding:0px;
 .forum  A:visited {	COLOR: #eebb22;  TEXT-DECORATION: none; border: 0px}
 .forum  A:active {	COLOR: #FFCC33;  TEXT-DECORATION: none;  border: 0px}
 .forum  A:hover {	COLOR: #FFFFFF;  TEXT-DECORATION: underline; border: px}
+
+.colelem {                           /*закрытый уровень*/
+	position: relative;
+	display: none;
+	left: 375px;
+	top: 136px;
+}
+.expelem {position: relative; display: block;}    /*открытый уровень*/
