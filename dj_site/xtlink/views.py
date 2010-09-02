@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from dj_site.xtclass.models import XtClass
 from dj_site.xtobject.models import XtObject
+from dj_site.xtlink.models import XtLink
 from django import forms
 
 
@@ -20,7 +21,7 @@ class LinkForm(forms.Form):
                                   max_length=200, label=u'Описание')
 
 
-def edit_link(request):
+def edit_link(request, link_id=1):
     geogr_xt_classes = XtClass.objects.filter(xtclasstype__pk=2,
                                              childs__parent=0).\
                                              order_by('-class_order')
@@ -33,6 +34,13 @@ def edit_link(request):
     if request.method == 'POST':
         form = LinkForm(request.POST)
         if form.is_valid():
+            print form.cleaned_data
+            cleaned_data = form.cleaned_data
+            new_xt_link = XtLink(link=cleaned_data['url_name'],
+                                 link_text=cleaned_data['showing_text'],
+                                 link_desc=cleaned_data['description'],
+                                 link_author_id=request.user.id)
+            new_xt_link.save()
             # ...
             return HttpResponseRedirect('/edit_link')
     else:

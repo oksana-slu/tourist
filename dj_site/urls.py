@@ -9,6 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'^$', "dj_site.views.index"),
     (r'^edit_link$', "dj_site.xtlink.views.edit_link"),
+    (r'^edit_link/(?P<link_id>\d+)$', "dj_site.xtlink.views.edit_link"),
     (r'^(?P<part>xtreport|xtarticle|xtnews)/(?P<slug>[-\w]+)$', "dj_site.xttopic.views.xttopic_item"),
     (r'^(?P<part>xtreport|xtarticle|xtnews)/(?P<slug>[-\w]+)/(?P<sheet_number>\d+)$', "dj_site.xttopic.views.xttopic_item"),
     (r'^(?P<part>xtreport|xtarticle|xtnews)/$', "dj_site.views.xtreport_list"),
