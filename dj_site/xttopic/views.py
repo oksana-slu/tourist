@@ -58,6 +58,13 @@ def add_news(request):
     if request.method == 'POST': 
         form = NewsForm(request.POST) 
         if form.is_valid():
+            cleaned_data = form.cleaned_data
+            News_object = XtNews(title=cleaned_data['name'],
+                                 description=cleaned_data['description'],
+                                 author_id=request.user.id,
+                                 path='news//')
+            News_object.save()
+            
             return HttpResponseRedirect('/add_news/') 
     else:
         form = NewsForm() 

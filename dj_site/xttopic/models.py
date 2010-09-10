@@ -13,8 +13,8 @@ class XtTopicAbstract(models.Model):
     title = models.TextField()
     description = models.TextField()
     author_id = models.IntegerField()
-    date = models.IntegerField()
-    forum = models.IntegerField()
+    date = models.IntegerField(default=0)
+    forum = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.title
