@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+{% block title %}ХАРЬКОВ Создание новости{% endblock %}
+
+{% block head %}
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- IhnstanceBeginEditable name="head" -->
+<meta name="description" content="{meta_content}">
+<!-- IhnstanceEndEditable -->
+<link rel="alternate" type="application/rss+xml" 
+href="{{ SITE_URL }}rss.php?objects=xtnews" title="Все 
+публикации на Харьков туристе. Новости. ">
+<link href="{{ MEDIA_URL }}css/style99.css" rel="stylesheet" 
+type="text/css">
+<script type="text/javascript">
+function toggleLayer(owner_layer_id) {
+    var owner_layer = document.getElementById(owner_layer_id);
+    if (owner_layer){owner_layer.style.display = 'none';}
+}
+function LoadCkedior() {
+	document.getElementById('newstext').style="display:block;";
+}
+</script>
+{% endblock %}
+{% block content %}
+<div id="sn1" style="position: absolute; overflow: hidden; height: 5px; 
+z-index: 21; width: 99%; left: 1%; top: 100px; background-image: 
+url(&quot;/img/snow2.gif&quot;); background-repeat: repeat-x; border: 
+0px solid rgb(0, 0, 0);"></div>
+<div id="sn2" style="position: absolute; overflow: hidden; height: 5px; 
+z-index: 21; width: 99%; left: 1%; top: 105px; background-image: 
+url(&quot;/img/snow1.gif&quot;); background-repeat: repeat-x; border: 
+0px solid rgb(255, 0, 0);"></div>
+
+<!--div style="position:absolute; overflow: hidden; height:125px; z-index: 1; width: 170px; top: 143px; left: 85%"><table width="170px"><tr><td style="padding: 0 40 0 0" align="center">{loginstat_tow}</td></tr></table></div-->
+
+<table bgcolor1="#FFCC33" width="100%" background="{{ MEDIA_URL }}f.htm" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+        <td bgcolor1="#000000">
+            <table width="100%" background="{{ MEDIA_URL }}f.htm" border="0" cellpadding="0" cellspacing="0" height="36">
+                <tr>
+                    <td valign="top" width="15%" align="center">&nbsp;</td>
+                    <td style="min-width: 600px;" valign="top" width="59%" align="center" height="36"> 
+                        <table width="100%" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td valign="top"> 
+                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td><h1>Создание новости</h1>
+
+
+<form action="/add_news/" method="post">
+{% csrf_token %}
+<table>
+    {% for field in form %}
+    <tr><div >
+        <td></td>
+        <td>
+            
+            {% if field.errors %}
+            <ul><span style="color: red;">
+             {% for error in field.errors %}
+                <li><strong>{{ error|escape }}</strong></li>
+            {% endfor %}
+            </span>
+            </ul>
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ field.label_tag }}:
+        </td>
+        <td>
+            {{ field }}
+            
+        </td>
+    <tr><td></td>
+        <td>
+        {{ field.help_text }}
+        </td>
+    </tr></div>
+    </tr>
+    {% endfor %}
+
+</table>
+<input value="Создать!" onmousedown="{if(newstitle.value=='' || urlcode.value=='' || newsdescription=='') alert('Не все поля выбраны');}" type="submit" align="absmiddle">
+
+
+</form>
+
+                                             </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="contentBlock" style="" valign="top" width="25%" align="left" height="100%">
+                        <table width="288px" border="0" cellpadding="0" cellspacing="0" height="100%">
+                            <tr>
+                                <td valign="top" align="center"></td>
+                            </tr>
+                            <tr>    
+                                <td style="padding: 20px 0pt 0pt 0px;" valign="top" align="center">{loginstat_tow}</td>
+                            </tr>
+                            <tr>            
+                                <td valign="top" align="center" height="100%">&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+<table bgcolor1="#FFCC33" width="100%" background="{{ MEDIA_URL }}f.html" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td bgcolor1="#000000">
+	  <table height="36" width="100%" background="{{ MEDIA_URL }}f.html" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td valign="top" width="15%" align="center">&nbsp;</td>
+          <td style="min-width: 600px;" height="36" valign="top" width="59%" align="center"> <table width="100%" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td valign="top"> <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td><form method="post" action="/add_news/" target="_self" enctype="multipart/form-data">
+<h1>Создание новости</h1>
+<div style="color: red;"></div>
+<table width="100%" border="0">
+	<tr valign="top">
+		<td width="300">Название:</td>
+		<td><input id="newstitle" name="newstitle" maxlength="50" size="50" title="Краткое название отображается в заголовке страницы" type="text"></td>
+	</tr>
+	<tr valign="top">
+		<td><span style="display: none;">Служебное название:</span></td>
+		<td><input id="urlcode" name="urlcode" value="" maxlength="50" size="50" type="hidden"><br><span style="display: none;">Необходимо для формирования адресса</span> </td>
+	</tr>
+	<tr valign="top">
+		<td>Краткое описание:</td>
+		<td><textarea id="newsdescription" name="newsdescription" rows="3" cols="75"></textarea>
+		<br> Отображается в списке рядом с иконкой
+		</td>
+	</tr>
+</table>
+	<input value="1" name="new_news" type="hidden">
+	<input value="Создать!" onmousedown="{if(newstitle.value=='' || urlcode.value=='' || newsdescription=='') alert('Не все поля выбраны');}" type="submit" align="absmiddle">
+</form>
+
+<script type="text/javascript">
+
+    document.getElementById("urlcode").onchange = function() { this._changed = true; };
+    
+    document.getElementById("newstitle").onkeyup = function() {
+        var e = document.getElementById("urlcode");
+        if (!e._changed) { e.value = URLify(document.getElementById("newstitle").value, 50); }
+    }
+    
+
+</script>
+</td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table></td>
+          <td class="contentBlock" style="" height="100%" valign="top" width="25%" align="left">
+	          <table height="100%" width="288px" border="0" cellpadding="0" cellspacing="0">
+	          	<tr><td valign="top" align="center"></td></tr>
+
+
+	          	<tr><td style="padding: 20px 0pt 0pt 0px;" valign="top" align="center"><font style="color: rgb(169, 90, 49);">Вы: <a style="color: rgb(169, 90, 49);" href="http://tourist.kharkov.ua/mypage">qaz</a><br> <a style="color: rgb(169, 90, 49);" href="http://tourist.kharkov.ua/login.php?logout=true&amp;sid=3c53e7723a0668b558b3797e09a6476a"> Выход </a></font></td></tr>
+
+
+
+	          	<tr><td height="100%" valign="top" align="center">&nbsp;</td></tr>
+	          </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{% endcomment %}
+
+{% endblock %}

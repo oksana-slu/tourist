@@ -1,3 +1,6 @@
+#!/usr/bin/env python 
+# -*- coding: utf-8 -*-
+
 from django.shortcuts import get_object_or_404, render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
@@ -5,6 +8,7 @@ from django.template import RequestContext
 from dj_site.xtclass.models import XtClass
 from dj_site.xttopic.models import XtNews, XtTopic
 from dj_site.xtobject.models import XtObject
+from django import forms
 
 
 def xttopic_item(request, part, slug, sheet_number=1):
@@ -39,3 +43,24 @@ def xttopic_item(request, part, slug, sheet_number=1):
                                             "new_article": new_article,
                                             "best_article": best_article},
                               context_instance=RequestContext(request))
+                              
+                              
+class NewsForm(forms.Form):
+    name = forms.CharField(widget=forms.TextInput(attrs={'size': '70'}),
+                              label=u'Название',
+                              help_text='Краткое название отображается в заголовке страницы')    
+    description = forms.CharField(widget=forms.Textarea(attrs={'cols': '80', 'rows': '3'}),
+                                  max_length=200, label=u'Краткое описание',
+                                  help_text=' Отображается в списке рядом с иконкой')
+
+
+def add_news(request):
+    if request.method == 'POST': 
+        form = NewsForm(request.POST) 
+        if form.is_valid():
+            return HttpResponseRedirect('/add_news/') 
+    else:
+        form = NewsForm() 
+
+    return render_to_response('add_news.html', {},
+                              context_instance=RequestContext(request, {'form': form}))
