@@ -6,7 +6,7 @@ LIB_PATH = os.path.join(PROJECT_ROOT, 'libs')
 
 
 TIME_ZONE = 'America/Chicago'
-LANGUAGE_CODE = 'ru-ru'
+#LANGUAGE_CODE = 'ru-ru'
 SITE_ID = 1
 USE_I18N = True
 USE_L10N = True

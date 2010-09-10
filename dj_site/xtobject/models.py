@@ -6,7 +6,7 @@ from dj_site.xtclass.models import XtClass
 
 
 class XtObjecttype(models.Model):
-    id = models.IntegerField(primary_key=True, db_column='otid')
+    id = models.AutoField(primary_key=True, db_column='otid')
     otname = models.CharField(max_length=66, blank=True)
     ot_table_name = models.CharField(max_length=60)
 
@@ -42,7 +42,7 @@ class LinkManager(models.Manager):
 
 
 class XtObject(models.Model):
-    id = models.IntegerField(primary_key=True, db_column='susid')
+    id = models.AutoField(primary_key=True, db_column='susid')
     status = models.IntegerField(default=3)
     freeedit = models.IntegerField(default=0)
 
@@ -76,7 +76,7 @@ class XtObject(models.Model):
 
 class XtC2O(models.Model):
     xtclass = models.ForeignKey(XtClass, db_column='nclass')
-    nclassmain = models.IntegerField()
+    nclassmain = models.IntegerField(default=0)
     xtobject = models.ForeignKey(XtObject, db_column='nobj')
 
     class Meta:

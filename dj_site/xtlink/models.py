@@ -2,7 +2,7 @@ from django.db import models
 
 
 class XtLink(models.Model):
-    link_id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True, db_column='link_id')
     link = models.CharField(max_length=300)
     link_text = models.CharField(max_length=300, blank=True)
     link_desc = models.TextField(blank=True)
