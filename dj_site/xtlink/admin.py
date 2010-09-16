@@ -1,3 +1,6 @@
+#!/usr/bin/env python 
+# -*- coding: utf-8 -*- 
+
 from dj_site.xtlink.models import XtLink
 from django.contrib import admin
 

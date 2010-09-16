@@ -1,3 +1,5 @@
+#!/usr/bin/env python 
+# -*- coding: utf-8 -*-
 import os
 from datetime import date
 from lxml import etree
@@ -8,7 +10,7 @@ from django.conf import settings
 
 
 class XtTopicAbstract(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     path = models.CharField(blank=True, max_length=264)
     title = models.TextField()
     description = models.TextField()
@@ -17,7 +19,7 @@ class XtTopicAbstract(models.Model):
     forum = models.IntegerField(default=0)
 
     def __unicode__(self):
-        return self.title
+        return unicode(self.id)
 
     class Meta:
         abstract = True

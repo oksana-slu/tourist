@@ -1,0 +1,159 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	
+		<title>Загрузка и вставка изображений:</title>
+<!-- 		<script language="javascript" type="text/javascript" src="../../tiny_mce_popup.js"></script> -->
+<!-- 		<script language="javascript" type="text/javascript" src="jscripts/functions.js"></script> -->
+			<script language="JavaScript" type="text/javascript" src="%D0%A5%D0%90%D0%A0%D0%AC%D0%9A%D0%9E%D0%92%20%D0%A0%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D0%B8_files/arilotjschecktext.js"></script>
+		<script type="text/javascript" src="template_data/swfobject.js"></script>
+	<style media="screen" type="text/css">#AlternativeContent {visibility:hidden}</style><!-- base --></head><body>
+<script type="text/javascript">
+	function odserve_swf_alert(string) {
+		alert(string);
+	}
+	function odserve_swf_pic_uploader_rewrite_param(param_name,param_val) {
+		odserve_swf_Movie("ODServePictureUploader").updateParameter(param_name,param_val);
+	}
+
+	function odserve_swf_Movie(movieName) {
+		if (navigator.appName.indexOf("Microsoft") != -1) {
+				return window[movieName]
+		}
+		else {
+			return document[movieName]
+		}
+	}
+
+	var myURL = window.location.href;
+
+	var flashvars = {
+
+
+		upload_url: "/upload_script/upload.php?path=/news/422/",
+		upload_redirect: myURL,
+
+		//general photo
+		max_size_after_resizing: "1600",
+		byte_arrays_name: "Filedata",
+		//additional photo
+		plural_resize: "1", //0 - disable (сейчас, будет отсылаться всего 5 фото)
+
+
+
+		pictures_on_line: "5",
+		max_pictures: "0", //0 - unlimit
+
+		preview_size_px: "110",
+
+		pic_horizontal_outline_px: "10",
+		pic_vertical_outline_px: "10",
+
+		horizontal_outline_px: "20",
+		vertical_outline_px: "104",
+
+		slide_panel_y_pos_before_hide: "73",
+		slide_panel_y_pos_after_hide: "102",
+
+		scroll_vertical_outline_px: "104",
+		scroll_horizontalr_outline_px: "14",
+		scroll_vertical_down_outline_px: "24",
+
+
+		pic_glowframe_enable: "1", //1 or 0
+		pic_glowframe_color: "0xFFFFFF",
+		pic_glowframe_width_px: "5",
+		pic_glowframe_height_px: "5",
+		pic_glowframe_alpha: "1",
+		pic_glowframe_anim_sec: "0.75",
+
+		/* WARNING: do not edit this jpeg parameters,if
+			* 	you dont know what thay means.
+			*/
+		jpeg_encode_param_1: "3",
+		jpeg_encode_param_2: "2",
+
+		lang_button_add: "Добавить.",
+		lang_button_del: "Удалить.",
+		lang_button_upload: "Отправить.",
+		lang_zero_upload_error: "Не выбрано фотографий",
+		lang_loadingbar_caption: "загрузка...",
+		lang_picture_limit_error: "Превышен лимит фотографий",
+		lang_picture_server_answer_upload_error: "Не удалось загрузить несколько изображений.",
+
+		//по завершению загрузки будет подтверждение
+		lang_uploadcomplete_title: "загрузка завершена.",//заголовок для подтверждения для повторной загрузки
+		lang_uploadcomplete_message: "Вы хотите загрузить еще фото??!",
+
+		lang_uploadcomplete_title_error: "загрузка завершена с ошибками.",//заголовок для подтверждения для повторной загрузки с ошибкой
+		lang_uploadcomplete_message_error: "Вы хотите загрузить еще фото?",
+
+		lang_confirm_yes: "Да",
+		lang_confirm_no: "Нет",
+
+		/* WARNING:do not use variable's name like:
+					"_http_GET_ID"
+					"_http_GET_size"
+		*/
+		//данные уникальные для каждого пользователя
+		'_http_GET_USER_ID': "123",
+		'_http_GET_USER_UNIQUECODE': "asd123",
+		'_http_POST_USER_INFO': "asdcbvb"
+
+	};
+	var params = {
+		allowScriptAccess: 'always',
+		bgcolor: '#F8F8F8'
+	};
+
+	var attributes = {
+		id: "ODServePictureUploader",
+		name: "ODServePictureUploader"
+	};
+
+	attributes.id = "ODServe_FU";
+	swfobject.embedSWF("/upload_script/_photoloader.odserve.swf", "AlternativeContent", "480", "480", "10.0.32", "/upload_script/expressInstall.swf", flashvars, params, attributes);
+</script>
+		
+		<style>
+			img {height:144};
+		</style>
+		<div align="center">
+			<div class="title">Загрузка и вставка изображений:<br><br></div>
+			<form method="POST" enctype="multipart/form-data" action="/tinymce/jscripts/tiny_mce/plugins/xtimages/template.php?obj_id=1651">
+				<table>
+					<tbody><tr>
+						<td>
+							<br>
+							<div style="display: none;">
+							<input name="user_file" size="25" type="file">
+							<input name="submit" value="Отправить" type="submit">
+							<input name="reset" value="Сброс" type="reset">
+							</div>
+							<input name="deletefile" id="deletefile" value="" type="hidden">
+
+		      <input onclick="return insertAllImages()" value="Добавить все фотографии в текст одним кликом" type="button">
+			<table id="piclist1">
+				
+			</table>
+			<div style="width: 50px; background: none repeat scroll 0% 0% rgb(255, 255, 255); visibility: visible;" id="AlternativeContent">
+			<a href="http://www.adobe.com/go/getflashplayer">
+				<img src="template_data/get_flash_player.gif" alt="Get Adobe Flash player">
+			</a>
+			</div><br>
+<!--    			<input type="button" onclick="odserve_swf_pic_uploader_rewrite_param('max_pictures',10)" value="Call ExternalInterface" />// -->
+						</td>
+					</tr>
+				</tbody></table>
+				<!--<table>
+					
+				</table>-->
+			</form>
+		  <script type="text/javascript">
+	window.onload = function()
+	{
+		CKEDITOR.replace('newstext');
+	};
+	</script>
+
+		</div>
+	</body></html>

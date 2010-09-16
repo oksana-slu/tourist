@@ -1,3 +1,5 @@
+#!/usr/bin/env python 
+# -*- coding: utf-8 -*- 
 from dj_site.xttopic.models import XtNews, XtTopic
 from django.contrib import admin
 

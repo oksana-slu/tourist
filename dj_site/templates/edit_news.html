@@ -1,0 +1,635 @@
+{% extends "base.html" %}
+{% block title %}ХАРЬКОВ Редактирование новости{% endblock %}
+{% block head %}
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- IhnstanceBeginEditable name="head" -->
+<meta name="description" content="{meta_content}">
+<!-- IhnstanceEndEditable -->
+
+<link href="{{ MEDIA_URL }}css/style99.css" rel="stylesheet" type="text/css">
+<style>
+.linksofmenu, .linksofmenu-active {
+border:1px solid black; padding:5px;
+}
+.linksofmenu-active {
+border:1px solid black; padding:5px;
+}
+.open {
+width:200px;
+height:40px;
+text-align: center; /* Выравнивание текста по центру вкладки */
+font-weight: bold; /* Жирное начертание */
+background: url('/img/m1.jpg');
+}
+.close {
+width:200px;
+height:40px;
+border-bottom: solid 1px black; /* Параметры рамки */
+border-right: none; /* Линии справа нет */
+text-align: center; /* Выравнивание текста по центру вкладки */ /* Цвет фона вкладки */
+}
+.bgbg {
+width:200px;
+height:40px;
+background:url('/img/img3.jpg');
+}
+</style>
+<style type="text/css">
+.treeview { padding: 0; clear: both; font-family: Arial, sans-serif; width: 100%; }
+.treeview * { font-size: 100.1%; }
+.treeview ul
+{
+overflow: hidden; width: 250px; margin: 0; padding: 0 0 1.5em 0;
+list-style-type: none;
+}
+.treeview ul ul { overflow: visible; width: auto; margin: 0 0 0 0; padding: 0 0 0 0.75em; }
+/* класс для ul после которых нет li в родительских ветках */
+.treeview ul.l { border-left: 1px solid; margin-left: -1px; }
+.treeview li.cl ul { display: none; }
+.treeview li { margin: 0; padding: 0; }
+.treeview li li { margin: 0 0 0 0.5em; border-left: 1px dotted; padding: 0; }
+.treeview li div { position: relative; height: 1.5em; min-height: 16px; //height: 1.3em; }
+.treeview li li div { border-bottom: 1px dotted; }
+.treeview li p
+{
+position: absolute; z-index: 1; top: 0.8em; //top: 0.65em; left: 1.75em;
+width: 200px; margin: 0; border-bottom: 1px dashed; padding: 0;
+}
+.treeview a { padding: 0.1em 0.2em; white-space: nowrap; //height: 1px; }
+.treeview img.i
+{
+border-right: 2px solid; border-bottom: 0.5em solid;
+margin-bottom: -0.5em; vertical-align: middle;
+}
+.treeview a.sc
+{
+position: absolute; top: 0.06em;
+margin-left: -1em; padding: 0; text-decoration: none;
+}
+/* colors */
+.treeview li p,
+.treeview img.i,
+.treeview .sc
+{ background: #f5f5ea; }
+.treeview ul.l,
+.treeview li p,
+.treeview img.i
+{ border-color: #f5f5ea; }
+.treeview ul li li,
+.treeview ul li li div
+{ border-color: #999999; }
+.treeview a,
+.treeview a.sc,
+.treeview a.sc:hover
+{ color: #000000; }
+.treeview a:hover
+{ color: #cc0000; }
+</style>
+<script type="text/javascript">
+function UnHide( eThis ){
+if( eThis.innerHTML.charCodeAt(0) == 9658 ){
+eThis.innerHTML = '&#9660;'
+eThis.parentNode.parentNode.parentNode.className = '';
+}else{
+eThis.innerHTML = '&#9658;'
+eThis.parentNode.parentNode.parentNode.className = 'cl';
+}
+return false;
+}
+</script>
+<script language="javascript" type="text/javascript" src="{{ MEDIA_URL }}js/ckeditor.js"></script>
+<script language="JavaScript" type="text/javascript" src="{{ MEDIA_URL }}js/arilotjschecktext.js"></script>
+<script type="text/javascript">
+function toggleLayer(owner_layer_id) {
+	var owner_layer = document.getElementById(owner_layer_id);
+	if (owner_layer){owner_layer.style.display = 'none';}
+}
+function LoadCkedior() {
+	document.getElementById('newstext').style="display:block;";
+}
+</script>
+<style>
+div.popup_func{
+border: 0px solid red;
+display: block;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 1600px;
+position: absolute;
+z-index: 3;
+
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='/popup_bg_01.png');
+}
+div.popup_func[class]{
+background: transparent url(/popup_bg_01.png) repeat 0 0;
+}
+</style>
+<script src="{{ MEDIA_URL }}js/config.js" type="text/javascript"></script>
+<link href="{{ MEDIA_URL }}css/editor.css" type="text/css" rel="stylesheet">
+<script src="{{ MEDIA_URL }}js/ru.js" type="text/javascript"></script>
+<script src="{{ MEDIA_URL }}js/default.js" type="text/javascript"></script>
+{% endblock %}
+{% block content %}
+
+
+<div id="sn1" style="position: absolute; overflow: hidden; height: 5px; z-index: 21; width: 99%; left: 1%; top: 100px; background-image: url(&quot;/img/snow2.gif&quot;); background-repeat: repeat-x; border: 0px solid rgb(0, 0, 0);"></div>
+<div id="sn2" style="position: absolute; overflow: hidden; height: 5px; z-index: 21; width: 99%; left: 1%; top: 105px; background-image: url(&quot;/img/snow1.gif&quot;); background-repeat: repeat-x; border: 0px solid rgb(255, 0, 0);"></div>
+
+<!--div style="position:absolute; overflow: hidden; height:125px; z-index: 1; width: 170px; top: 143px; left: 85%"><table width="170px"><tr><td style="padding: 0 40 0 0" align="center"><font style='color:#a95a31'>Вы: <a style='color:#a95a31' href='/mypage'>qaz</a><BR> <a style='color:#a95a31' href='http://tourist.kharkov.ua/login.php?logout=true&sid=3c53e7723a0668b558b3797e09a6476a'> Выход </a></font></td></tr></table></div-->
+
+
+<table bgcolor1="#FFCC33" width="100%" background="{{ MEDIA_URL }}f.htm" border="0" cellpadding="0" cellspacing="0">
+	<tr valign="top">
+		<td bgcolor1="#000000">
+			<table width="100%" background="{{ MEDIA_URL }}f.htm" border="0" cellpadding="0" cellspacing="0" height="36">
+				<tr>
+					<td valign="top" width="15%" align="center">&nbsp;</td>
+					<td style="min-width: 600px;" valign="top" width="59%" align="center" height="36"> 
+						<table width="100%" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td valign="top"> 
+									<table width="100%" cellpadding="0" cellspacing="0">
+										<tr>
+											<td><h2>Редактирование новости</h2>
+
+
+<form action="/edit_news/{{ news_id }}" method="post">
+{% csrf_token %}
+<table>
+	{% for field in form %}
+	<tr><div >
+		<td></td>
+		<td>
+			
+			{% if field.errors %}
+			<ul><span style="color: red;">
+			{% for error in field.errors %}
+				<li><strong>{{ error|escape }}</strong></li>
+			{% endfor %}
+			</span>
+			</ul>
+			{% endif %}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			{{ field.label_tag }}:
+		</td>
+		<td>
+			{{ field }}
+			
+		</td>
+	<tr><td></td>
+		<td>
+		{{ field.help_text }}
+		</td>
+	</tr></div>
+	</tr>
+	{% endfor %}
+
+</table>
+
+
+<table width="100%" border="0">
+	<tr><strong>Выбрать рубрику</strong></tr>
+	<tr valign="top">
+		<td>
+			{% for class_item in napr_xt_classes %}
+			<div class="treeview">
+			<ul>
+				<li class="cl">
+					<div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a>
+					<input name="xtclasschk" 
+						value="{{ class_item.pk }}" 
+						title="{{ class_item.xtcdescription }}" 
+						type="checkbox"
+						{% if class_item.pk in checked_xt_classes %} checked {% endif %}>
+					{{class_item.vname }}<br></p>
+					</div>
+						<ul id="{{ class_item.vcode }}">
+							{% for child_class_item in class_item.get_childs %}
+							<li>
+								<div><p>
+								<input name="xtclasschk" 
+									value="{{ child_class_item.child.pk }}" 
+									title="{{ child_class_item.child.xtcdescription }}" 
+									type="checkbox"
+									{% if child_class_item.child.pk in checked_xt_classes %} checked {% endif %}>
+								{{ child_class_item.child.vname }}<br></p>
+								</div>
+							</li>
+							{% endfor %}                           
+						</ul>
+				</li>
+			</ul>
+			</div>
+			{% endfor %}
+		</td>
+		<td>
+			{% for class_item in geogr_xt_classes %}
+			<div class="treeview">
+			<ul>
+				<li class="cl">
+					<div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a>
+					<input name="xtclasschk" 
+						value="{{ class_item.pk }}" 
+						title="{{ class_item.xtcdescription }}" 
+						type="checkbox"
+						{% if class_item.pk in checked_xt_classes %} checked {% endif %}>
+					{{class_item.vname }}<br></p>
+					</div>
+						<ul id="{{ class_item.vcode }}">
+							{% for child_class_item in class_item.get_childs %}
+							<li>
+								<div><p>
+								<input name="xtclasschk" 
+									value="{{ child_class_item.child.pk }}" 
+									title="{{ child_class_item.child.xtcdescription }}" 
+									type="checkbox"
+									{% if child_class_item.child.pk in checked_xt_classes %} checked {% endif %}>
+								{{ child_class_item.child.vname }}<br></p>
+								</div>
+							</li>
+							{% endfor %}                           
+						</ul>
+				</li>
+			</ul>
+			</div>
+			{% endfor %}
+		</td>
+		<td>
+			{% for class_item in hrdly_xt_classes %}
+			<div class="treeview">
+			<ul>
+				<li class="cl">
+					<div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a>
+					<input name="xtclasschk" 
+						value="{{ class_item.pk }}" 
+						title="{{ class_item.xtcdescription }}" 
+						type="checkbox"
+						{% if class_item.pk in checked_xt_classes %} checked {% endif %}>
+					{{class_item.vname }}<br></p>
+					</div>                       
+				</li>
+			</ul>
+			</div>
+			{% endfor %}
+		</td>
+	</tr>
+</table>
+
+<br>
+<input name="topicstat" value="2" type="radio" {% if 2 == topicstat %} checked {% endif %}>Отправить на модерацию(Будет опубликовано после проверки)<br>
+<input name="topicstat" value="3" type="radio" {% if 3 == topicstat %} checked {% endif %}>Сохранить как отложенный до следующего редактирования (никому не показывать)<br>
+
+<br>
+
+<br>
+
+
+<input value="Сохранить" name="link_seve" type="submit" />
+<input value="Удалить" name="deletelink" type="submit" />
+</form>
+
+
+
+
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td class="contentBlock" style="" valign="top" width="25%" align="left" height="100%">
+						<table width="288px" border="0" cellpadding="0" cellspacing="0" height="100%">
+							<tr>
+								<td valign="top" align="center"></td>
+							</tr>
+							<tr>    
+								<td style="padding: 20px 0pt 0pt 0px;" valign="top" align="center">{loginstat_tow}</td>
+							</tr>
+							<tr>            
+								<td valign="top" align="center" height="100%">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+<table bgcolor1="#FFCC33" width="100%" background="{{ MEDIA_URL }}f.html" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td bgcolor1="#000000">
+	<table height="36" width="100%" background="{{ MEDIA_URL }}f.html" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+		<td valign="top" width="15%" align="center">&nbsp;</td>
+		<td style="min-width: 600px;" height="36" valign="top" width="59%" align="center"> <table width="100%" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td valign="top"> <table width="100%" cellpadding="0" cellspacing="0">
+					<tr>
+					<td><h2>Редактирование новости</h2>
+<span style="color: red;"></span>
+<!-- <form method="POST" action="http://tourist.kharkov.ua/edit_xtnews/1651/" onsubmit="checkTheText('newstext')"> -->
+<form method="POST" action="http://tourist.kharkov.ua/edit_xtnews/1651/" onsubmit="return checkChk(this)">
+<table width="100%" border="0">
+	<tr valign="top">
+		<td id="edit" width="300">Название:</td>
+		<td><textarea id="newstitle" name="newstitle" rows="1" cols="75">проба</textarea></td>
+	</tr>
+	<tr valign="top">
+		<td>Краткое описание:</td>
+		<td><textarea id="newsdescription" name="newsdescription" rows="3" cols="75">первая новость</textarea></td>
+	</tr>
+	<tr valign="top">
+		<td>Выбор иконки:</td>
+		<td><!--Загрузка иконки--><iframe src="{{ MEDIA_URL }}ico_show.html" name="frm_ico" border="0" frameborder="0" height="150" scrolling="no" width="600" align="texttop"></iframe></td>
+	</tr>
+</table>
+<table>
+<tr>
+	<td>
+	<p style="text-align: left;">
+	<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+	<td class="close" id="td3">
+<!-- 	<a href="javascript:CKEDITOR.instances['newstext'].setData(CKEDITOR.instances['newstext'].getData() + ' {test}');" id="link3" class="linksofmenu" style="background:white;">Вставить картинки...</a> -->
+		<a href="#edit" onclick="remakeThePage(1);" id="link3" class="linksofmenu">Вставить картинки...</a>
+	</td>
+	<td class="open" id="td1">
+	<a href="#edit" onclick="remakeThePage(0)" id="link1" class="linksofmenu-active">Вставить Текст...</a>
+	</td>
+	<td class="close" id="td2">
+	<a href="#edit" onclick="remakeThePage(2)" id="link2" class="linksofmenu">Выбрать рубрику...</a>
+	</td>
+	<td class="bgbg">&nbsp;</td>
+	</tr>
+	</table>
+	</p>
+	<!-- редактор -->
+	<div id="nwstxt" style="width: 800px;">	
+	<textarea id="newstext" name="newstext" style="display: none; visibility: hidden;" rows="1" cols="1" class="mceEditor"></textarea>
+	<span id="cke_newstext" onmousedown="return false;" class="cke_skin_kama cke_editor_newstext" dir="ltr" title=" " role="application" aria-labelledby="cke_newstext_arialbl" lang="ru">
+	<span id="cke_newstext_arialbl" class="cke_voice_label">Rich Text Editor</span>
+	<span class="cke_browser_gecko cke_browser_quirks" role="presentation">
+	<span class="cke_wrapper cke_ltr" role="presentation"><table class="cke_editor" role="presentation" border="0" cellpadding="0" cellspacing="0">
+	<tr style="-moz-user-select: none;" role="presentation">
+	<td id="cke_top_newstext" class="cke_top" role="presentation">
+	<div class="cke_toolbox" role="toolbar" aria-labelledby="cke_3">
+	<span id="cke_3" class="cke_voice_label">Toolbar</span>
+	<span id="cke_4" class="cke_toolbar" role="presentation">
+	<span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation">
+	<span class="cke_button">
+	<a id="cke_5" class="cke_off cke_button_source" title="Источник" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_5_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(0, event);" onfocus="return CKEDITOR.ui.button._.focus(0, event);" onclick="CKEDITOR.tools.callFunction(3, this); return false;">
+	<span class="cke_icon">&nbsp;</span><span id="cke_5_label" class="cke_label">Источник</span>
+	</a>
+	</span>
+	</span>
+	<span class="cke_separator" role="separator"></span>
+	<span class="cke_toolbar_end"></span>
+	</span>
+	<span id="cke_6" class="cke_toolbar" role="presentation">
+	<span class="cke_toolbar_start"></span>
+	<span class="cke_toolgroup" role="presentation">
+	<span class="cke_button">
+	<a id="cke_7" class="cke_off cke_button_cut" title="Вырезать" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_7_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(1, event);" onfocus="return CKEDITOR.ui.button._.focus(1, event);" onclick="CKEDITOR.tools.callFunction(4, this); return false;">
+	<span class="cke_icon">&nbsp;</span>
+	<span id="cke_7_label" class="cke_label">Вырезать</span>
+	</a>
+	</span>
+	<span class="cke_button">
+	<a id="cke_8" class="cke_off cke_button_copy" title="Копировать" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_8_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(2, event);" onfocus="return CKEDITOR.ui.button._.focus(2, event);" onclick="CKEDITOR.tools.callFunction(5, this); return false;">
+	<span class="cke_icon">&nbsp;</span>
+	<span id="cke_8_label" class="cke_label">Копировать</span>
+	</a>
+	</span>
+	<span class="cke_button">
+	<a id="cke_9" class="cke_off cke_button_paste" title="Вставить" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_9_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(3, event);" onfocus="return CKEDITOR.ui.button._.focus(3, event);" onclick="CKEDITOR.tools.callFunction(6, this); return false;">
+	<span class="cke_icon">&nbsp;</span>
+	<span id="cke_9_label" class="cke_label">Вставить</span>
+	</a>
+	</span>
+	<span class="cke_button">
+	<a id="cke_10" class="cke_off cke_button_pastetext" title="Вставить только текст" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_10_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(4, event);" onfocus="return CKEDITOR.ui.button._.focus(4, event);" onclick="CKEDITOR.tools.callFunction(7, this); return false;">
+	<span class="cke_icon">&nbsp;</span>
+	<span id="cke_10_label" class="cke_label">Вставить только текст</span>
+	</a>
+	</span>
+	<span class="cke_button">
+	<a id="cke_11" class="cke_off cke_button_pastefromword" title="Вставить из Word" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_11_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(5, event);" onfocus="return CKEDITOR.ui.button._.focus(5, event);" onclick="CKEDITOR.tools.callFunction(8, this); return false;">
+	<span class="cke_icon">&nbsp;</span>
+	<span id="cke_11_label" class="cke_label">Вставить из Word</span>
+	</a>
+	</span>
+	</span>
+	<span class="cke_separator" role="separator"></span>
+	<span class="cke_toolgroup" role="presentation">
+	<span class="cke_button">
+	<a id="cke_12" class="cke_off cke_button_checkspell" title="Проверить орфографию" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_12_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(6, event);" onfocus="return CKEDITOR.ui.button._.focus(6, event);" onclick="CKEDITOR.tools.callFunction(9, this); return false;">
+	<span class="cke_icon">&nbsp;</span>
+	<span id="cke_12_label" class="cke_label">Проверить орфографию</span>
+	</a>
+	</span>
+	<span class="cke_button">
+	<a id="cke_13" class="cke_off cke_button_scayt" title="Проверка Орфографии по Мере Ввода" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_13_label" aria-haspopup="true" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(7, event);" onfocus="return CKEDITOR.ui.button._.focus(7, event);" onclick="CKEDITOR.tools.callFunction(10, this); return false;">
+	<span class="cke_icon">&nbsp;</span>
+	<span id="cke_13_label" class="cke_label">Проверка Орфографии по Мере Ввода</span>
+	<span class="cke_buttonarrow">&nbsp;</span>
+	</a>
+	</span>
+	</span>
+	<span class="cke_toolbar_end"></span>
+	</span>
+	<span id="cke_14" class="cke_toolbar" role="presentation">
+	<span class="cke_toolbar_start"></span>
+	<span class="cke_toolgroup" role="presentation">
+	<span class="cke_button">
+	<a aria-disabled="true" id="cke_15" class="cke_button_undo cke_disabled" title="Отменить" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_15_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(8, event);" onfocus="return CKEDITOR.ui.button._.focus(8, event);" onclick="CKEDITOR.tools.callFunction(11, this); return false;">
+	<span class="cke_icon">&nbsp;</span>
+	<span id="cke_15_label" class="cke_label">Отменить</span>
+	</a>
+	</span>
+	<span class="cke_button">
+	<a aria-disabled="true" id="cke_16" class="cke_button_redo cke_disabled" title="Повторить" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_16_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(9, event);" onfocus="return CKEDITOR.ui.button._.focus(9, event);" onclick="CKEDITOR.tools.callFunction(12, this); return false;">
+	<span class="cke_icon">&nbsp;</span>
+	<span id="cke_16_label" class="cke_label">Повторить</span>
+	</a>
+	</span>
+	</span>
+	<span class="cke_separator" role="separator"></span>
+	<span class="cke_toolgroup" role="presentation">
+	<span class="cke_button">
+	<a id="cke_17" class="cke_off cke_button_find" title="Найти" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_17_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(10, event);" onfocus="return CKEDITOR.ui.button._.focus(10, event);" onclick="CKEDITOR.tools.callFunction(13, this); return false;">
+	<span class="cke_icon">&nbsp;</span>
+	<span id="cke_17_label" class="cke_label">Найти</span>
+	</a>
+	</span>
+	<span class="cke_button">
+	<a id="cke_18" class="cke_off cke_button_replace" title="Заменить" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_18_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(11, event);" onfocus="return CKEDITOR.ui.button._.focus(11, event);" onclick="CKEDITOR.tools.callFunction(14, this); return false;">
+	<span class="cke_icon">&nbsp;</span>
+	<span id="cke_18_label" class="cke_label">Заменить</span>
+	</a>
+	</span>
+	</span>
+	<span class="cke_separator" role="separator"></span>
+	<span class="cke_toolgroup" role="presentation">
+	<span class="cke_button">
+	<a id="cke_19" class="cke_off cke_button_selectAll" title="Выделить все" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_19_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(12, event);" onfocus="return CKEDITOR.ui.button._.focus(12, event);" onclick="CKEDITOR.tools.callFunction(15, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_19_label" class="cke_label">Выделить все</span></a></span><span class="cke_button"><a id="cke_20" class="cke_off cke_button_removeFormat" title="Убрать форматирование" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_20_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(13, event);" onfocus="return CKEDITOR.ui.button._.focus(13, event);" onclick="CKEDITOR.tools.callFunction(16, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_20_label" class="cke_label">Убрать форматирование</span></a></span></span><span class="cke_toolbar_end"></span></span><span id="cke_21" class="cke_toolbar" role="presentation"><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><span class="cke_button"><a id="cke_22" class="cke_off cke_button_link" title="Вставить/Редактировать ссылку" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_22_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(14, event);" onfocus="return CKEDITOR.ui.button._.focus(14, event);" onclick="CKEDITOR.tools.callFunction(17, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_22_label" class="cke_label">Вставить/Редактировать ссылку</span></a></span><span class="cke_button"><a aria-disabled="true" id="cke_23" class="cke_button_unlink cke_disabled" title="Убрать ссылку" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_23_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(15, event);" onfocus="return CKEDITOR.ui.button._.focus(15, event);" onclick="CKEDITOR.tools.callFunction(18, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_23_label" class="cke_label">Убрать ссылку</span></a></span><span class="cke_button"><a id="cke_24" class="cke_off cke_button_anchor" title="Вставить/Редактировать якорь" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_24_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(16, event);" onfocus="return CKEDITOR.ui.button._.focus(16, event);" onclick="CKEDITOR.tools.callFunction(19, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_24_label" class="cke_label">Вставить/Редактировать якорь</span></a></span></span><span class="cke_toolbar_end"></span></span><span id="cke_25" class="cke_toolbar" role="presentation"><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><span class="cke_button"><a id="cke_26" class="cke_off cke_button_table" title="Таблица" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_26_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(17, event);" onfocus="return CKEDITOR.ui.button._.focus(17, event);" onclick="CKEDITOR.tools.callFunction(20, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_26_label" class="cke_label">Таблица</span></a></span><span class="cke_button"><a id="cke_27" class="cke_off cke_button_horizontalrule" title="Вставить горизонтальную линию" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_27_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(18, event);" onfocus="return CKEDITOR.ui.button._.focus(18, event);" onclick="CKEDITOR.tools.callFunction(21, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_27_label" class="cke_label">Вставить горизонтальную линию</span></a></span><span class="cke_button"><a id="cke_28" class="cke_off cke_button_smiley" title="Смайлик" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_28_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(19, event);" onfocus="return CKEDITOR.ui.button._.focus(19, event);" onclick="CKEDITOR.tools.callFunction(22, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_28_label" class="cke_label">Смайлик</span></a></span></span><span class="cke_toolbar_end"></span></span><span id="cke_29" class="cke_toolbar" role="presentation"><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><span class="cke_button"><a id="cke_30" class="cke_off cke_button_textcolor" title="Цвет текста" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_30_label" aria-haspopup="true" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(20, event);" onfocus="return CKEDITOR.ui.button._.focus(20, event);" onclick="CKEDITOR.tools.callFunction(23, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_30_label" class="cke_label">Цвет текста</span><span class="cke_buttonarrow">&nbsp;</span></a></span><span class="cke_button"><a id="cke_31" class="cke_off cke_button_bgcolor" title="Цвет фона" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_31_label" aria-haspopup="true" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(21, event);" onfocus="return CKEDITOR.ui.button._.focus(21, event);" onclick="CKEDITOR.tools.callFunction(24, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_31_label" class="cke_label">Цвет фона</span><span class="cke_buttonarrow">&nbsp;</span></a></span></span><span class="cke_toolbar_end"></span></span><span id="cke_32" class="cke_toolbar" role="presentation"><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><span class="cke_button"><a id="cke_33" class="cke_off cke_button_maximize" title="Максимизировать" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_33_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(22, event);" onfocus="return CKEDITOR.ui.button._.focus(22, event);" onclick="CKEDITOR.tools.callFunction(25, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_33_label" class="cke_label">Максимизировать</span></a></span><span class="cke_button"><a id="cke_34" class="cke_off cke_button_showblocks" title="Показать блоки" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_34_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(23, event);" onfocus="return CKEDITOR.ui.button._.focus(23, event);" onclick="CKEDITOR.tools.callFunction(26, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_34_label" class="cke_label">Показать блоки</span></a></span></span><span class="cke_toolbar_end"></span></span><div class="cke_break"></div><span id="cke_36" class="cke_toolbar" role="presentation"><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><span class="cke_button"><a id="cke_37" class="cke_off cke_button_bold" title="Жирный" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_37_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(24, event);" onfocus="return CKEDITOR.ui.button._.focus(24, event);" onclick="CKEDITOR.tools.callFunction(27, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_37_label" class="cke_label">Жирный</span></a></span><span class="cke_button"><a id="cke_38" class="cke_off cke_button_italic" title="Курсив" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_38_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(25, event);" onfocus="return CKEDITOR.ui.button._.focus(25, event);" onclick="CKEDITOR.tools.callFunction(28, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_38_label" class="cke_label">Курсив</span></a></span><span class="cke_button"><a id="cke_39" class="cke_off cke_button_underline" title="Подчеркнутый" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_39_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(26, event);" onfocus="return CKEDITOR.ui.button._.focus(26, event);" onclick="CKEDITOR.tools.callFunction(29, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_39_label" class="cke_label">Подчеркнутый</span></a></span><span class="cke_button"><a id="cke_40" class="cke_off cke_button_strike" title="Зачеркнутый" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_40_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(27, event);" onfocus="return CKEDITOR.ui.button._.focus(27, event);" onclick="CKEDITOR.tools.callFunction(30, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_40_label" class="cke_label">Зачеркнутый</span></a></span></span><span class="cke_separator" role="separator"></span><span class="cke_toolgroup" role="presentation"><span class="cke_button"><a id="cke_41" class="cke_off cke_button_subscript" title="Подстрочный индекс" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_41_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(28, event);" onfocus="return CKEDITOR.ui.button._.focus(28, event);" onclick="CKEDITOR.tools.callFunction(31, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_41_label" class="cke_label">Подстрочный индекс</span></a></span><span class="cke_button"><a id="cke_42" class="cke_off cke_button_superscript" title="Надстрочный индекс" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_42_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(29, event);" onfocus="return CKEDITOR.ui.button._.focus(29, event);" onclick="CKEDITOR.tools.callFunction(32, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_42_label" class="cke_label">Надстрочный индекс</span></a></span></span><span class="cke_toolbar_end"></span></span><span id="cke_43" class="cke_toolbar" role="presentation"><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><span class="cke_button"><a id="cke_44" class="cke_off cke_button_numberedlist" title="Нумерованный список" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_44_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(30, event);" onfocus="return CKEDITOR.ui.button._.focus(30, event);" onclick="CKEDITOR.tools.callFunction(33, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_44_label" class="cke_label">Нумерованный список</span></a></span><span class="cke_button"><a id="cke_45" class="cke_off cke_button_bulletedlist" title="Маркированный список" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_45_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(31, event);" onfocus="return CKEDITOR.ui.button._.focus(31, event);" onclick="CKEDITOR.tools.callFunction(34, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_45_label" class="cke_label">Маркированный список</span></a></span></span><span class="cke_toolbar_end"></span></span><span id="cke_46" class="cke_toolbar" role="presentation"><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><span class="cke_button"><a aria-disabled="true" id="cke_47" class="cke_button_outdent cke_disabled" title="Уменьшить отступ" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_47_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(32, event);" onfocus="return CKEDITOR.ui.button._.focus(32, event);" onclick="CKEDITOR.tools.callFunction(35, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_47_label" class="cke_label">Уменьшить отступ</span></a></span><span class="cke_button"><a id="cke_48" class="cke_off cke_button_indent" title="Увеличить отступ" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_48_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(33, event);" onfocus="return CKEDITOR.ui.button._.focus(33, event);" onclick="CKEDITOR.tools.callFunction(36, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_48_label" class="cke_label">Увеличить отступ</span></a></span><span class="cke_button"><a id="cke_49" class="cke_off cke_button_blockquote" title="Цитата" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_49_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(34, event);" onfocus="return CKEDITOR.ui.button._.focus(34, event);" onclick="CKEDITOR.tools.callFunction(37, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_49_label" class="cke_label">Цитата</span></a></span></span><span class="cke_toolbar_end"></span></span><span id="cke_50" class="cke_toolbar" role="presentation"><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><span class="cke_button"><a id="cke_51" class="cke_off cke_button_justifyleft" title="По левому краю" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_51_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(35, event);" onfocus="return CKEDITOR.ui.button._.focus(35, event);" onclick="CKEDITOR.tools.callFunction(38, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_51_label" class="cke_label">По левому краю</span></a></span><span class="cke_button"><a id="cke_52" class="cke_off cke_button_justifycenter" title="По центру" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_52_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(36, event);" onfocus="return CKEDITOR.ui.button._.focus(36, event);" onclick="CKEDITOR.tools.callFunction(39, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_52_label" class="cke_label">По центру</span></a></span><span class="cke_button"><a id="cke_53" class="cke_off cke_button_justifyright" title="По правому краю" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_53_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(37, event);" onfocus="return CKEDITOR.ui.button._.focus(37, event);" onclick="CKEDITOR.tools.callFunction(40, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_53_label" class="cke_label">По правому краю</span></a></span><span class="cke_button"><a id="cke_54" class="cke_off cke_button_justifyblock" title="По ширине" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_54_label" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.ui.button._.keydown(38, event);" onfocus="return CKEDITOR.ui.button._.focus(38, event);" onclick="CKEDITOR.tools.callFunction(41, this); return false;"><span class="cke_icon">&nbsp;</span><span id="cke_54_label" class="cke_label">По ширине</span></a></span></span><span class="cke_toolbar_end"></span></span><span id="cke_55" class="cke_toolbar" role="presentation"><span class="cke_toolbar_start"></span><span class="cke_rcombo"><span id="cke_56" class="cke_styles cke_off"><span id="cke_56_label" class="cke_label">Стиль</span><a hidefocus="true" title="Formatting Styles" tabindex="-1" role="button" aria-labelledby="cke_56_label" aria-describedby="cke_56_text" aria-haspopup="true" onblur="this.style.cssText = this.style.cssText;" onkeydown="CKEDITOR.tools.callFunction( 43, event, this );" onclick="CKEDITOR.tools.callFunction(42, this); return false;"><span><span id="cke_56_text" class="cke_text cke_inline_label">Стиль</span></span><span class="cke_openbutton"></span></a></span></span><span class="cke_rcombo"><span id="cke_57" class="cke_format cke_off"><span id="cke_57_label" class="cke_label">Форматирование</span><a hidefocus="true" title="Форматирование" tabindex="-1" role="button" aria-labelledby="cke_57_label" aria-describedby="cke_57_text" aria-haspopup="true" onblur="this.style.cssText = this.style.cssText;" onkeydown="CKEDITOR.tools.callFunction( 45, event, this );" onclick="CKEDITOR.tools.callFunction(44, this); return false;"><span><span id="cke_57_text" class="cke_text cke_inline_label">Форматирование</span></span><span class="cke_openbutton"></span></a></span></span><span class="cke_rcombo"><span id="cke_58" class="cke_font cke_off"><span id="cke_58_label" class="cke_label">Шрифт</span><a hidefocus="true" title="Шрифт" tabindex="-1" role="button" aria-labelledby="cke_58_label" aria-describedby="cke_58_text" aria-haspopup="true" onblur="this.style.cssText = this.style.cssText;" onkeydown="CKEDITOR.tools.callFunction( 47, event, this );" onclick="CKEDITOR.tools.callFunction(46, this); return false;"><span><span id="cke_58_text" class="cke_text cke_inline_label">Шрифт</span></span><span class="cke_openbutton"></span></a></span></span><span class="cke_rcombo"><span id="cke_59" class="cke_fontSize cke_off"><span id="cke_59_label" class="cke_label">Размер</span><a hidefocus="true" title="Размер" tabindex="-1" role="button" aria-labelledby="cke_59_label" aria-describedby="cke_59_text" aria-haspopup="true" onblur="this.style.cssText = this.style.cssText;" onkeydown="CKEDITOR.tools.callFunction( 49, event, this );" onclick="CKEDITOR.tools.callFunction(48, this); return false;"><span><span id="cke_59_text" class="cke_text cke_inline_label">Размер</span></span><span class="cke_openbutton"></span></a></span></span><span class="cke_toolbar_end"></span></span></div><a title="Свернуть панель инструментов" id="cke_60" tabindex="-1" class="cke_toolbox_collapser" onclick="CKEDITOR.tools.callFunction(50)"><span>▲</span></a></td></tr><tr role="presentation"><td id="cke_contents_newstext" class="cke_contents" style="height: 400px;" role="presentation"><iframe style="width: 100%; height: 100%;" title="Rich text editor, newstext, press ALT 0 for help." src="" tabindex="0" allowtransparency="true" frameborder="0"></iframe></td></tr><tr style="-moz-user-select: none;" role="presentation"><td id="cke_bottom_newstext" class="cke_bottom" role="presentation"><span id="cke_path_newstext_label" class="cke_voice_label">Elements path</span><div id="cke_path_newstext" class="cke_path" role="group" aria-labelledby="cke_path_newstext_label"><span class="cke_empty">&nbsp;</span></div><div class="cke_resizer" title="Перетащите для изменения размера" onmousedown="CKEDITOR.tools.callFunction(2, event)"></div></td></tr></table><style>.cke_skin_kama{visibility:hidden;}</style></span></span><span tabindex="-1" style="position: absolute; left: -10000px;" role="presentation"></span></span></div>
+	<script type="text/javascript">
+	window.onload = function()
+	{
+		var newstext = CKEDITOR.replace('newstext', {height: 400});
+		newstext.config.toolbar_Full =
+		[
+// 			['Source','-','Save','NewPage','Preview','-','Templates'],
+			['Source','-'],
+// 			['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print', 'SpellChecker', 'Scayt'],
+			['Cut','Copy','Paste','PasteText','PasteFromWord','-','SpellChecker', 'Scayt'],
+			['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+			['Link','Unlink','Anchor'],
+// 			['Table','HorizontalRule','Smiley','SpecialChar'],
+			['Table','HorizontalRule','Smiley'],
+			['TextColor','BGColor'],
+			['Maximize', 'ShowBlocks'],
+// 			['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],
+			'/',
+			['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+// 			['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
+// 			['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+			['NumberedList','BulletedList'],
+			['Outdent','Indent','Blockquote'],
+			['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+// 			['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+// 			'/',
+			['Styles','Format','Font','FontSize'],
+// 			['Maximize', 'ShowBlocks','-','About']
+		];
+
+	};
+	</script>
+	<div style="display: none;" id="newsimg">
+		<iframe src="{{ MEDIA_URL }}template.html" style="width: 798px; height: 800px;" border="0"></iframe>
+	</div>
+	<div style="display: none;" id="rubrics">
+		<div style="width: 800px;">
+				</div>
+				
+				
+<table width="800" border="0">
+	<tr valign="top">
+		<td>
+			<div class="treeview">
+			<ul>
+				<li class="cl">
+					<div><p>
+					<a href="#" class="sc" onclick="return UnHide(this)">►</a>
+					<input name="xtclasschk[2]" value="2" title="Активное время препровождение" type="checkbox">Активный отдых<br></p>
+					</div>
+					<ul>
+						<li>
+							<div><p>
+							<input name="xtclasschk[69]" value="69" title="квесты" type="checkbox">Квесты<br></p>
+							</div>
+						</li>
+						<li>
+							<div><p>
+							<input name="xtclasschk[91]" value="91" title="Пейнтбол в Харькове" type="checkbox">Пейнтбол<br></p>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[38]" value="38" title="Байдарки, паруса, акваланги, и пр." type="checkbox">Вода<br></p></div><ul><li><div><p><input name="xtclasschk[67]" value="67" title="Байдарки и каяки" type="checkbox">Байдарки<br></p></div></li><li><div><p><input name="xtclasschk[68]" value="68" title="Дайвинг" type="checkbox">Дайвинг<br></p></div></li><li><div><p><input name="xtclasschk[87]" value="87" title="Виндсерфинг" type="checkbox">Виндсерфинг<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[50]" value="50" title="Лыжные походы, горные лыжи, сноуборд..." type="checkbox">Зима<br></p></div><ul><li><div><p><input name="xtclasschk[65]" value="65" title="Лыжный туризм и беговые лыжи" type="checkbox">Лыжи<br></p></div></li><li><div><p><input name="xtclasschk[66]" value="66" title="Горные лыжи и сноуборды" type="checkbox">Горные лыжи<br></p></div></li><li><div><p><input name="xtclasschk[86]" value="86" title="Сноуборд" type="checkbox">Сноуборд<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[51]" value="51" title="Горы" type="checkbox">Горы<br></p></div><ul><li><div><p><input name="xtclasschk[52]" value="52" title="восхождения на труднодоступные вершины" type="checkbox">Альпинизм<br></p></div></li><li><div><p><input name="xtclasschk[57]" value="57" title="Пешком до 3000" type="checkbox">Горный туризм<br></p></div></li><li><div><p><input name="xtclasschk[88]" value="88" title="Скалолазание" type="checkbox">Скалолазание<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[53]" value="53" title="Мать сыра земля" type="checkbox">Земля<br></p></div><ul><li><div><p><input name="xtclasschk[1]" value="1" title="Велосипеды байки велопоходы велоспорт" type="checkbox">ВЕЛОСИПЕДЫ<br></p></div></li><li><div><p><input name="xtclasschk[47]" value="47" title="Пешие походы" type="checkbox">Пеший туризм<br></p></div></li><li><div><p><input name="xtclasschk[48]" value="48" title="Приключенческие гонки (экстрим-марафоны)" type="checkbox">Мультиспорт<br></p></div></li><li><div><p><input name="xtclasschk[75]" value="75" title="Верховая езда" type="checkbox">Лошади<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[54]" value="54" title="Достопримечательности Харькова" type="checkbox">Краеведение<br></p></div><ul><li><div><p><input name="xtclasschk[4]" value="4" title="Архитектурные памятники и сооружения" type="checkbox">Архитектура<br></p></div></li><li><div><p><input name="xtclasschk[5]" value="5" title="Городища и другие места, связанные с историей" type="checkbox">История<br></p></div></li><li><div><p><input name="xtclasschk[7]" value="7" title="Живописные места и замечательные маршруты" type="checkbox">Живописные места<br></p></div></li><li><div><p><input name="xtclasschk[76]" value="76" title="Растения в походе" type="checkbox">Флора<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[55]" value="55" title="Под землей" type="checkbox">Под землей<br></p></div><ul><li><div><p><input name="xtclasschk[37]" value="37" title="Пещеры" type="checkbox">Спелео<br></p></div></li><li><div><p><input name="xtclasschk[42]" value="42" title="Диггерство и сталкер" type="checkbox">Диггерство<br></p></div></li><li><div><p><input name="xtclasschk[56]" value="56" title="Металлодетекторы" type="checkbox">МД<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[59]" value="59" title="Экстремальные виды" type="checkbox">Экстрим<br></p></div><ul><li><div><p><input name="xtclasschk[60]" value="60" title="Ролики, скейтбоард" type="checkbox">Ролики, Скейты<br></p></div></li><li><div><p><input name="xtclasschk[61]" value="61" title="Паркур" type="checkbox">Паркур<br></p></div></li><li><div><p><input name="xtclasschk[62]" value="62" title="Дертджампинг и велотриал" type="checkbox">Дёрт и Триал<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[63]" value="63" title="Мужской отдых" type="checkbox">Мужской отдых<br></p></div><ul><li><div><p><input name="xtclasschk[3]" value="3" title="Все у чего есть ДВС" type="checkbox">Авто-мото<br></p></div></li><li><div><p><input name="xtclasschk[64]" value="64" title="Рыбалка" type="checkbox">Рыбалка<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[70]" value="70" title="Небо" type="checkbox">Небо<br></p></div><ul><li><div><p><input name="xtclasschk[71]" value="71" title="Парапланы" type="checkbox">Парапланы<br></p></div></li><li><div><p><input name="xtclasschk[72]" value="72" title="Парашюты" type="checkbox">Парашюты<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[84]" value="84" title="Разное" type="checkbox">Другое<br></p></div><ul><li><div><p><input name="xtclasschk[81]" value="81" title="Путешествия и путешественники" type="checkbox">Путешествия<br></p></div></li><li><div><p><input name="xtclasschk[85]" value="85" title="Туры, путевки" type="checkbox">Туры<br></p></div></li></ul></li></ul></div></td>
+				<td><div class="treeview"><ul><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[14]" value="14" title="Европа" type="checkbox">Европа<br></p></div><ul><li><div><p><input name="xtclasschk[27]" value="27" title="Угорщина" type="checkbox">Венгрия<br></p></div></li><li><div><p><input name="xtclasschk[32]" value="32" title="Польша" type="checkbox">Польша<br></p></div></li><li><div><p><input name="xtclasschk[35]" value="35" title="германия" type="checkbox">Германия<br></p></div></li><li><div><p><input name="xtclasschk[36]" value="36" title="австрия" type="checkbox">Австрия<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[16]" value="16" title="Азия как часть света и все что близко" type="checkbox">Азия<br></p></div><ul><li><div><p><input name="xtclasschk[30]" value="30" title="турция" type="checkbox">Турция<br></p></div></li><li><div><p><input name="xtclasschk[34]" value="34" title="Камбоджа" type="checkbox">Камбоджа<br></p></div></li><li><div><p><input name="xtclasschk[83]" value="83" title="Израиль" type="checkbox">Израиль<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[17]" value="17" title="Континент Америка и все что близко" type="checkbox">Америка<br></p></div><ul><li><div><p><input name="xtclasschk[45]" value="45" title="Вива Куба!" type="checkbox">Куба<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[18]" value="18" title="Страны СНГ кроме Украины" type="checkbox">СНГ<br></p></div><ul><li><div><p><input name="xtclasschk[26]" value="26" title="Россия" type="checkbox">Россия<br></p></div></li><li><div><p><input name="xtclasschk[31]" value="31" title="Карелия" type="checkbox">Карелия<br></p></div></li><li><div><p><input name="xtclasschk[39]" value="39" title="алтай" type="checkbox">Алтай<br></p></div></li><li><div><p><input name="xtclasschk[41]" value="41" title="Урал" type="checkbox">Урал<br></p></div></li><li><div><p><input name="xtclasschk[82]" value="82" title="Дальний восток" type="checkbox">Дальний Восток<br></p></div></li><li><div><p><input name="xtclasschk[40]" value="40" title="грузия" type="checkbox">Грузия<br></p></div></li><li><div><p><input name="xtclasschk[43]" value="43" title="Прибалтика" type="checkbox">Прибалтика<br></p></div></li><li><div><p><input name="xtclasschk[49]" value="49" title="Российская часть Кавказа" type="checkbox">Кавказ<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[19]" value="19" title="Украина" type="checkbox">Украина<br></p></div><ul><li><div><p><input name="xtclasschk[20]" value="20" title="Харьковская область" type="checkbox">Харьков<br></p></div></li><li><div><p><input name="xtclasschk[73]" value="73" title="Чугуев" type="checkbox">Чугуев<br></p></div></li><li><div><p><input name="xtclasschk[21]" value="21" title="Киевская область" type="checkbox">Киев<br></p></div></li><li><div><p><input name="xtclasschk[24]" value="24" title="Благодатный Крым" type="checkbox">Крым<br></p></div></li><li><div><p><input name="xtclasschk[25]" value="25" title="Карпаты в широком смысле" type="checkbox">Карпаты<br></p></div></li><li><div><p><input name="xtclasschk[58]" value="58" title="Азовское море и побережье" type="checkbox">Азов<br></p></div></li><li><div><p><input name="xtclasschk[77]" value="77" title="Полтава" type="checkbox">Полтава<br></p></div></li><li><div><p><input name="xtclasschk[74]" value="74" title="Сорочинцы" type="checkbox">Сорочинцы<br></p></div></li><li><div><p><input name="xtclasschk[78]" value="78" title="Запорожье" type="checkbox">Запорожье<br></p></div></li><li><div><p><input name="xtclasschk[79]" value="79" title="Ивано-франковск" type="checkbox">Ивано-франковск<br></p></div></li><li><div><p><input name="xtclasschk[80]" value="80" title="Ужгород" type="checkbox">Ужгород<br></p></div></li><li><div><p><input name="xtclasschk[90]" value="90" title="Одесса" type="checkbox">Одесса<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[29]" value="29" title="Африка" type="checkbox">Африка<br></p></div><ul><li><div><p><input name="xtclasschk[89]" value="89" title="Египет" type="checkbox">Египет<br></p></div></li></ul></li></ul></div></td>
+				<td><div class="treeview"><ul><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[22]" value="22" title="Категорийные выше третьей" type="checkbox">Спортивные отчеты<br></p></div><ul></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[23]" value="23" title="Совсем матрасные бухаловки" type="checkbox">Матрасные отчеты<br></p></div><ul></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input name="xtclasschk[44]" value="44" title="Обычные походы 0-2 сложностей" type="checkbox">Обычные походы<br></p></div><ul></ul></li></ul></div></td>
+			
+			</tr>
+		</table>
+	</div>
+	</td>
+</tr>
+</table>
+&nbsp;
+<input value="1651" name="object_id" type="text">
+
+<input value="Удалить новость" name="deletenews" type="submit">
+<br>
+<!--<table border="0" width="100%">
+	<tr valign=top>
+		<td><div class="treeview"><ul><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[2]' value='2' title='Активное время препровождение'>Активный отдых<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[69]' value='69' title='квесты'>Квесты<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[91]' value='91' title='Пейнтбол в Харькове'>Пейнтбол<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[38]' value='38' title='Байдарки, паруса, акваланги, и пр.'>Вода<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[67]' value='67' title='Байдарки и каяки'>Байдарки<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[68]' value='68' title='Дайвинг'>Дайвинг<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[87]' value='87' title='Виндсерфинг'>Виндсерфинг<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[50]' value='50' title='Лыжные походы, горные лыжи, сноуборд...'>Зима<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[65]' value='65' title='Лыжный туризм и беговые лыжи'>Лыжи<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[66]' value='66' title='Горные лыжи и сноуборды'>Горные лыжи<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[86]' value='86' title='Сноуборд'>Сноуборд<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[51]' value='51' title='Горы'>Горы<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[52]' value='52' title='восхождения на труднодоступные вершины'>Альпинизм<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[57]' value='57' title='Пешком до 3000'>Горный туризм<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[88]' value='88' title='Скалолазание'>Скалолазание<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[53]' value='53' title='Мать сыра земля'>Земля<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[1]' value='1' title='Велосипеды байки велопоходы велоспорт'>ВЕЛОСИПЕДЫ<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[47]' value='47' title='Пешие походы'>Пеший туризм<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[48]' value='48' title='Приключенческие гонки (экстрим-марафоны)'>Мультиспорт<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[75]' value='75' title='Верховая езда'>Лошади<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[54]' value='54' title='Достопримечательности Харькова'>Краеведение<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[4]' value='4' title='Архитектурные памятники и сооружения'>Архитектура<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[5]' value='5' title='Городища и другие места, связанные с историей'>История<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[7]' value='7' title='Живописные места и замечательные маршруты'>Живописные места<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[76]' value='76' title='Растения в походе'>Флора<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[55]' value='55' title='Под землей'>Под землей<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[37]' value='37' title='Пещеры'>Спелео<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[42]' value='42' title='Диггерство и сталкер'>Диггерство<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[56]' value='56' title='Металлодетекторы'>МД<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[59]' value='59' title='Экстремальные виды'>Экстрим<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[60]' value='60' title='Ролики, скейтбоард'>Ролики, Скейты<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[61]' value='61' title='Паркур'>Паркур<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[62]' value='62' title='Дертджампинг и велотриал'>Дёрт и Триал<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[63]' value='63' title='Мужской отдых'>Мужской отдых<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[3]' value='3' title='Все у чего есть ДВС'>Авто-мото<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[64]' value='64' title='Рыбалка'>Рыбалка<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[70]' value='70' title='Небо'>Небо<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[71]' value='71' title='Парапланы'>Парапланы<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[72]' value='72' title='Парашюты'>Парашюты<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[84]' value='84' title='Разное'>Другое<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[81]' value='81' title='Путешествия и путешественники'>Путешествия<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[85]' value='85' title='Туры, путевки'>Туры<br></p></div></li></ul></li></ul></div></td>
+		<td><div class="treeview"><ul><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[14]' value='14' title='Европа'>Европа<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[27]' value='27' title='Угорщина'>Венгрия<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[32]' value='32' title='Польша'>Польша<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[35]' value='35' title='германия'>Германия<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[36]' value='36' title='австрия'>Австрия<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[16]' value='16' title='Азия как часть света и все что близко'>Азия<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[30]' value='30' title='турция'>Турция<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[34]' value='34' title='Камбоджа'>Камбоджа<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[83]' value='83' title='Израиль'>Израиль<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[17]' value='17' title='Континент Америка и все что близко'>Америка<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[45]' value='45' title='Вива Куба!'>Куба<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[18]' value='18' title='Страны СНГ кроме Украины'>СНГ<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[26]' value='26' title='Россия'>Россия<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[31]' value='31' title='Карелия'>Карелия<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[39]' value='39' title='алтай'>Алтай<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[41]' value='41' title='Урал'>Урал<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[82]' value='82' title='Дальний восток'>Дальний Восток<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[40]' value='40' title='грузия'>Грузия<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[43]' value='43' title='Прибалтика'>Прибалтика<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[49]' value='49' title='Российская часть Кавказа'>Кавказ<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[19]' value='19' title='Украина'>Украина<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[20]' value='20' title='Харьковская область'>Харьков<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[73]' value='73' title='Чугуев'>Чугуев<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[21]' value='21' title='Киевская область'>Киев<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[24]' value='24' title='Благодатный Крым'>Крым<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[25]' value='25' title='Карпаты в широком смысле'>Карпаты<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[58]' value='58' title='Азовское море и побережье'>Азов<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[77]' value='77' title='Полтава'>Полтава<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[74]' value='74' title='Сорочинцы'>Сорочинцы<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[78]' value='78' title='Запорожье'>Запорожье<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[79]' value='79' title='Ивано-франковск'>Ивано-франковск<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[80]' value='80' title='Ужгород'>Ужгород<br></p></div></li><li><div><p><input type='checkbox' name='xtclasschk[90]' value='90' title='Одесса'>Одесса<br></p></div></li></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[29]' value='29' title='Африка'>Африка<br></p></div><ul><li><div><p><input type='checkbox' name='xtclasschk[89]' value='89' title='Египет'>Египет<br></p></div></li></ul></li></ul></div></td>
+		<td><div class="treeview"><ul><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[22]' value='22' title='Категорийные выше третьей'>Спортивные отчеты<br></p></div><ul></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[23]' value='23' title='Совсем матрасные бухаловки'>Матрасные отчеты<br></p></div><ul></ul></li><li class="cl"><div><p><a href="#" class="sc" onclick="return UnHide(this)">►</a><input type='checkbox' name='xtclasschk[44]' value='44' title='Обычные походы 0-2 сложностей'>Обычные походы<br></p></div><ul></ul></li></ul></div></td>
+	</tr>
+</table>-->
+<br>
+<input name="topicstat" value="1" type="radio">Опубликовать<br>
+<!--input name="topicstat" value="2" type="radio" >Отправить на модерацию (Будет опубликовано после проверки)<br-->
+<input name="topicstat" value="3" checked="checked" type="radio">Сохранить как отложенный до следующего редактирования (никому не показывать)<br>
+
+<br>
+
+<br>
+<input value="Сохранить" name="sevenews" onclick="return checkTheText()" type="submit"> <input value="Отменить" name="cancel" type="reset">
+</form></td>
+					</tr>
+				</table></td>
+			</tr>
+			</table></td>
+		<td class="contentBlock" style="" height="100%" valign="top" width="25%" align="left">
+			<table height="100%" width="288px" border="0" cellpadding="0" cellspacing="0">
+				<tr><td valign="top" align="center"></td></tr>
+
+
+				<tr><td style="padding: 20px 0pt 0pt 0px;" valign="top" align="center"><font style="color: rgb(169, 90, 49);">Вы: <a style="color: rgb(169, 90, 49);" href="http://tourist.kharkov.ua/mypage">qaz</a><br> <a style="color: rgb(169, 90, 49);" href="http://tourist.kharkov.ua/login.php?logout=true&amp;sid=3c53e7723a0668b558b3797e09a6476a"> Выход </a></font></td></tr>
+
+
+
+				<tr><td height="100%" valign="top" align="center">&nbsp;</td></tr>
+			</table>
+		</td>
+		</tr>
+	</table>
+	</td>
+</tr>
+</table>
+{% endcomment %}
+
+{% endblock %}
