@@ -54,11 +54,16 @@ url(&quot;/img/snow1.gif&quot;); background-repeat: repeat-x; border:
                                 <td valign="top"> 
                                     <table width="100%" cellpadding="0" cellspacing="0">
                                         <tr>
-                                            <td><h2>{{ message }}{% if link_id %}
-                                                                                                                Редактировать линк
-                                                    {% else %}
-                                                                                                                Создать новый линк                                                        
-                                                    {% endif %}</h2>
+                                            <td><h3>{% if messages %}
+                                                    {% for message in messages %}
+                                                        {{ message }}
+                                                    {% endfor %}
+                                                    {% endif %}</h3><p>
+                                                    <h2>{% if link_id %}
+                                                                                                                    Редактировать линк
+                                                        {% else %}
+                                                                                                                    Создать новый линк                                                        
+                                                        {% endif %}</h2></p>
 
 
 <form action="/edit_link{% if link_id %}/{{ link_id }}{% endif %}" method="post">

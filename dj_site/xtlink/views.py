@@ -38,7 +38,7 @@ def edit_link(request, link_id=None):
         object_object = XtObject.objects.get(object_id=link_object.pk,
                                              content_type=ContentType.objects.get_for_model(XtLink))
     
-        
+    
     if request.method == 'POST':
         checked_xt_classes = [int(item) for item in request.POST.getlist('xtclasschk')]
         form = LinkForm(request.POST)        
@@ -46,6 +46,10 @@ def edit_link(request, link_id=None):
             topicstat = int(request.POST['topicstat'])
         else:
             topicstat = 3
+        if 'deletelink' in request.POST:
+            deletelink = 1
+        else:
+            deletelink = 0
         if form.is_valid():            
             cleaned_data = form.cleaned_data            
             if link_object is not None:
@@ -54,7 +58,13 @@ def edit_link(request, link_id=None):
                 link_object.link_desc = cleaned_data['description']
                 link_object.save()
                 object_object.status = topicstat
-                object_object.save()                
+                object_object.save()
+                if deletelink == 0:
+                    if topicstat == 3:
+                        request.user.message_set.create(message="Ваш линк удачно сохранен до следующего редактирования.")
+                    else:
+                        request.user.message_set.create(message="Ваш линк удачно сохранен и будет опубликован после проверки.")
+
             else:
                 link_object = XtLink(link=cleaned_data['url_name'],
                                      link_text=cleaned_data['showing_text'],
@@ -64,16 +74,22 @@ def edit_link(request, link_id=None):
                 object_object = XtObject(content_object=link_object,
                                          status=topicstat,
                                          xtobjecttype_id=3)
-                object_object.save()                
-
+                object_object.save()
+                if deletelink == 0:
+                    if topicstat == 3:
+                        request.user.message_set.create(message="Ваш линк удачно сохранен до следующего редактирования.")
+                    else:
+                        request.user.message_set.create(message="Ваш линк удачно сохранен и будет опубликован после проверки.")
+                        
             XtC2O.objects.filter(xtobject=object_object).delete()
             for xt_class_item in checked_xt_classes:
                 XtC2O.objects.create(xtobject=object_object,
                                      xtclass_id=xt_class_item)
-            if 'deletelink' in request.POST:                    
+            if deletelink == 1:                    
                 link_object.delete()                    
-                object_object.delete()                
-                return HttpResponseRedirect('/edit_link')
+                object_object.delete()
+                request.user.message_set.create(message="Ваш линк удален.")
+                return HttpResponseRedirect('/edit_link')                
             
             return HttpResponseRedirect('/edit_link/%s' % link_object.pk)
     else:
@@ -88,6 +104,7 @@ def edit_link(request, link_id=None):
             topicstat = object_object.status
         form = LinkForm(initial=initial)
 
+    
     return render_to_response('edit_link.html', {"napr_xt_classes": napr_xt_classes,
                                                  "geogr_xt_classes": geogr_xt_classes,
                                                  "hrdly_xt_classes": hrdly_xt_classes,
