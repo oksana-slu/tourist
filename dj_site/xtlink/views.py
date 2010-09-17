@@ -31,7 +31,8 @@ def edit_link(request, link_id=None):
     hrdly_xt_classes = XtClass.objects.filter(xtclasstype__pk=3,
                                              childs__parent=0).\
                                              order_by('-class_order')
-    link_object = None
+    link_object = None 
+    
     if link_id is not None:
         link_object = XtLink.objects.get(pk=link_id)
         object_object = XtObject.objects.get(object_id=link_object.pk,
@@ -45,7 +46,7 @@ def edit_link(request, link_id=None):
             topicstat = int(request.POST['topicstat'])
         else:
             topicstat = 3
-        if form.is_valid():
+        if form.is_valid():            
             cleaned_data = form.cleaned_data            
             if link_object is not None:
                 link_object.link = cleaned_data['url_name']
@@ -63,7 +64,7 @@ def edit_link(request, link_id=None):
                 object_object = XtObject(content_object=link_object,
                                          status=topicstat,
                                          xtobjecttype_id=3)
-                object_object.save()
+                object_object.save()                
 
             XtC2O.objects.filter(xtobject=object_object).delete()
             for xt_class_item in checked_xt_classes:
@@ -71,7 +72,7 @@ def edit_link(request, link_id=None):
                                      xtclass_id=xt_class_item)
             if 'deletelink' in request.POST:                    
                 link_object.delete()                    
-                object_object.delete()
+                object_object.delete()                
                 return HttpResponseRedirect('/edit_link')
             
             return HttpResponseRedirect('/edit_link/%s' % link_object.pk)

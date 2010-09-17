@@ -10,7 +10,7 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from dj_site.xtclass.models import XtClass
 from dj_site.xttopic.models import XtNews, XtTopic
-from dj_site.xtobject.models import XtObject
+from dj_site.xtobject.models import XtObject, XtObjecttype, XtC2O
 from django.contrib.contenttypes.models import ContentType
 from django import forms
 
@@ -94,7 +94,7 @@ class EditNewsForm(forms.Form):
                                   max_length=200, label=u'Краткое описание',
                                   help_text=' Отображается в списке рядом с иконкой')
     text = forms.CharField(widget=forms.Textarea(attrs={'cols': '80', 'rows': '10'}),
-                                  label=u'Текст')
+                                  label=u'Текст', required=False)
 
 
 def edit_news(request, news_id=None):
@@ -113,10 +113,35 @@ def edit_news(request, news_id=None):
                                              content_type=ContentType.objects.get_for_model(XtNews))
                                             
                                             
-    if request.method == 'POST': 
-        form = EditNewsForm(request.POST) 
+    if request.method == 'POST':
+        checked_xt_classes = [int(item) for item in request.POST.getlist('xtclasschk')]
+        form = EditNewsForm(request.POST)
+        if 'topicstat' in request.POST:
+            topicstat = int(request.POST['topicstat'])
+        else:
+            topicstat = 3
         if form.is_valid():
             cleaned_data = form.cleaned_data
+            news_object.title = cleaned_data['name']
+            news_object.description = cleaned_data['description']
+            news_object.save()
+            
+            now_date = datetime.now()
+            now_timestamp = time.mktime(now_date.timetuple())
+            news_object.date = int(now_timestamp)
+            news_object.save()
+            
+            object_object.status = topicstat
+            object_object.save()
+                        
+            XtC2O.objects.filter(xtobject=object_object).delete()
+            for xt_class_item in checked_xt_classes:
+                XtC2O.objects.create(xtobject=object_object,
+                                     xtclass_id=xt_class_item)
+            if 'deletelink' in request.POST:                    
+                news_object.delete()                    
+                object_object.delete()                
+                return HttpResponseRedirect('/add_news')
             
             return HttpResponseRedirect('/edit_news/%d' % news_object.id) 
     else:
