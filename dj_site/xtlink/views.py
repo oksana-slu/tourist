@@ -36,10 +36,11 @@ def edit_link(request, link_id=None):
         link_object = XtLink.objects.get(pk=link_id)
         object_object = XtObject.objects.get(object_id=link_object.pk,
                                              content_type=ContentType.objects.get_for_model(XtLink))
-
+    
+        
     if request.method == 'POST':
         checked_xt_classes = [int(item) for item in request.POST.getlist('xtclasschk')]
-        form = LinkForm(request.POST)
+        form = LinkForm(request.POST)        
         if 'topicstat' in request.POST:
             topicstat = int(request.POST['topicstat'])
         else:
@@ -52,12 +53,11 @@ def edit_link(request, link_id=None):
                 link_object.link_desc = cleaned_data['description']
                 link_object.save()
                 object_object.status = topicstat
-                object_object.save()
+                object_object.save()                
             else:
                 link_object = XtLink(link=cleaned_data['url_name'],
                                      link_text=cleaned_data['showing_text'],
-                                     link_desc=cleaned_data['description'],
-                                     link_author_id=request.user.id)
+                                     link_desc=cleaned_data['description'],                                         link_author_id=request.user.id)
                 link_object.save()
 
                 object_object = XtObject(content_object=link_object,
@@ -69,7 +69,11 @@ def edit_link(request, link_id=None):
             for xt_class_item in checked_xt_classes:
                 XtC2O.objects.create(xtobject=object_object,
                                      xtclass_id=xt_class_item)
-
+            if 'deletelink' in request.POST:                    
+                link_object.delete()                    
+                object_object.delete()
+                return HttpResponseRedirect('/edit_link')
+            
             return HttpResponseRedirect('/edit_link/%s' % link_object.pk)
     else:
         checked_xt_classes = []
