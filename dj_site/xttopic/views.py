@@ -3,7 +3,10 @@
 
 from datetime import datetime
 import time
-
+from django.conf import settings
+import os
+from lxml import etree
+import lxml.etree
 from django.shortcuts import get_object_or_404, render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
@@ -74,6 +77,10 @@ def add_news(request):
 
             news_object.path = 'news/%d/' % news_object.id
             news_object.save()
+            
+            path_name = os.path.join(settings.MEDIA_ROOT, news_object.path)
+            os.mkdir(path_name, 0777)            
+            
             object_object = XtObject(content_object=news_object,                                         
                                      xtobjecttype_id=5)
             object_object.save()
@@ -126,11 +133,22 @@ def edit_news(request, news_id=None):
             news_object.description = cleaned_data['description']
             news_object.save()
             
+                        
             now_date = datetime.now()
             now_timestamp = time.mktime(now_date.timetuple())
             news_object.date = int(now_timestamp)
             news_object.save()
             
+            file_name = os.path.join(settings.MEDIA_ROOT, news_object.path, 'topic.xml')
+            fp = open(file_name, "w")
+            root_tree = etree.Element("topic")
+            sheet = etree.SubElement(root_tree, "sheet")
+            text = etree.SubElement(sheet, "text")
+            text.text = cleaned_data['text']
+            tree = etree.ElementTree(root_tree)
+            tree.write(fp)
+            fp.close            
+                        
             object_object.status = topicstat
             object_object.save()
                         
@@ -138,6 +156,7 @@ def edit_news(request, news_id=None):
             for xt_class_item in checked_xt_classes:
                 XtC2O.objects.create(xtobject=object_object,
                                      xtclass_id=xt_class_item)
+            
             if 'deletelink' in request.POST:                    
                 news_object.delete()                    
                 object_object.delete()                
@@ -146,7 +165,8 @@ def edit_news(request, news_id=None):
             return HttpResponseRedirect('/edit_news/%d' % news_object.id) 
     else:
         initial = dict(name=news_object.title,
-                       description=news_object.description)
+                       description=news_object.description,
+                       text=news_object.get_text())
         checked_xt_classes = object_object.xtclass().values_list('xtclass__pk', flat=True)
         topicstat = object_object.status
         

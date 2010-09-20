@@ -38,7 +38,8 @@ class XtTopicAbstract(models.Model):
             return fp.read()
         else:
             return None
-
+        
+    
     def get_sheets_count(self):
         if self._sheets_count is not None:
             return self._sheets_count
