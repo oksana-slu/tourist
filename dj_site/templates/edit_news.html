@@ -159,6 +159,8 @@ background: transparent url(/popup_bg_01.png) repeat 0 0;
 <form action="/edit_news/{{ news_id }}" method="post">
 {% csrf_token %}
 <table>
+
+	
 	{% for field in form %}
 	<tr><div >
 		<td></td>
@@ -187,8 +189,16 @@ background: transparent url(/popup_bg_01.png) repeat 0 0;
 		{{ field.help_text }}
 		</td>
 	</tr></div>
-	</tr>
+	
 	{% endfor %}
+	
+	<tr>
+		
+		<iframe src="/upload_ico" width="600" height="150" scrolling="no" name="frm_ico" border="0" frameborder="0" align="texttop">
+		</iframe>
+		
+	
+	</tr>
 
 </table>
 

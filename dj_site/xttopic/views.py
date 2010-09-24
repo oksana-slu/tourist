@@ -146,7 +146,7 @@ def edit_news(request, news_id=None):
             text = etree.SubElement(sheet, "text")
             text.text = cleaned_data['text']
             tree = etree.ElementTree(root_tree)
-            tree.write(fp)
+            tree.write(fp, encoding="utf-8", pretty_print=True)
             fp.close            
                         
             object_object.status = topicstat
@@ -178,5 +178,19 @@ def edit_news(request, news_id=None):
                                                  "news_id": news_id,
                                                  "topicstat": topicstat},
                               context_instance=RequestContext(request, {'form': form}))
+                            
+
+
+class IcoForm(forms.Form):
+    ico = forms.ImageField(label=u'Выбор иконки')
+
+
+def upload_ico(request):
+    form = IcoForm()
+    return render_to_response('upload_ico.html', {},
+                              context_instance=RequestContext(request, {'form': form}))
+                            
+                            
+
 
 

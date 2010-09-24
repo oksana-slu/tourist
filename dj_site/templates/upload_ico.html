@@ -1,0 +1,27 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<form action="{{ SITE_URL }}upload_ico" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+
+	{% if form.errors %}
+		<ul><span style="color: red;">
+		{% for error in form.errors %}
+			<li><strong>{{ error|escape }}</strong></li>
+		{% endfor %}
+		</span>
+		</ul>
+	{% endif %}
+	{{ form.label_tag }}
+	{{ form }}
+	<input name="submit" value="Отправить" type="submit">
+	<input name="reset" value="Сброс" type="reset">
+			
+
+</form>
+
+</body>
+</html>
