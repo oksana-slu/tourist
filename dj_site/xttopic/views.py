@@ -16,6 +16,8 @@ from dj_site.xttopic.models import XtNews, XtTopic
 from dj_site.xtobject.models import XtObject, XtObjecttype, XtC2O
 from django.contrib.contenttypes.models import ContentType
 from django import forms
+from PIL import Image
+
 
 
 def xttopic_item(request, part, slug, sheet_number=1):
@@ -182,15 +184,36 @@ def edit_news(request, news_id=None):
 
 
 class IcoForm(forms.Form):
-    ico = forms.ImageField(label=u'Выбор иконки')
+    ico = forms.ImageField(label=u'Выбор иконки', 
+                           help_text='Загружайте только файлы jpg размером не больше 2МБ!')
+    
+    
+def handle_uploaded_file(f, news_id):
+    file_name = os.path.join(settings.MEDIA_ROOT, 'news', news_id, 'ico.jpg')
+    destination = open(file_name, 'wb+')
+    destination.write(f)
+    destination.close()
+    
+    
+def get_file_ico(news_id):    
+    file_name = os.path.join(settings.MEDIA_ROOT, 'news', news_id, 'ico.jpg')
+    fp = open(file_name, 'r')    
+    return fp.read()
+        
 
 
-def upload_ico(request):
-    form = IcoForm()
-    return render_to_response('upload_ico.html', {},
+def upload_ico(request, news_id):
+    if request.method == 'POST':
+        form = IcoForm(request.POST, request.FILES)
+        if form.is_valid():
+            handle_uploaded_file(request.FILES['ico'], news_id)
+            return HttpResponseRedirect('/upload_ico/%d' % news_id )
+    else:
+        ico = get_file_ico(news_id)        
+        initial = dict(ico=ico)        
+        form = IcoForm(initial=initial)
+        print ico
+    return render_to_response('upload_ico.html', {"news_id": news_id},
                               context_instance=RequestContext(request, {'form': form}))
                             
                             
-
-
-

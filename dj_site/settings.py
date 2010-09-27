@@ -15,6 +15,11 @@ MEDIA_ROOT = PROJECT_ROOT + 'media/'
 MEDIA_URL = '/s/'
 ADMIN_MEDIA_PREFIX = '/media/'
 
+FILE_UPLOAD_HANDLERS = (
+    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler",
+)
+
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',

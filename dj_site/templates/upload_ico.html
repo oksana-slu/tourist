@@ -4,22 +4,31 @@
 </head>
 <body>
 
-<form action="{{ SITE_URL }}upload_ico" method="post" enctype="multipart/form-data">
+<form action="{{ SITE_URL }}upload_ico/{{ news_id }}" method="post" enctype="multipart/form-data">
 {% csrf_token %}
+<table><tr><div><td></td>
+		<td>
 
-	{% if form.errors %}
+	{% if form.ico.errors %}
 		<ul><span style="color: red;">
-		{% for error in form.errors %}
+		{% for error in form.ico.errors %}
 			<li><strong>{{ error|escape }}</strong></li>
 		{% endfor %}
 		</span>
 		</ul>
 	{% endif %}
-	{{ form.label_tag }}
-	{{ form }}
+	</td>
+	<tr><td>
+	{{ form.ico.label_tag }}:
+	</td><td>
+	{{ form.ico }}
 	<input name="submit" value="Отправить" type="submit">
-	<input name="reset" value="Сброс" type="reset">
-			
+	<input name="reset" value="Сброс" type="reset">	
+	</td></div></tr>
+	<tr><td></td>
+		<td>{{ form.ico.help_text }}</td>
+	</tr>
+</table>
 
 </form>
 

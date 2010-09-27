@@ -162,7 +162,7 @@ background: transparent url(/popup_bg_01.png) repeat 0 0;
 
 	
 	{% for field in form %}
-	<tr><div >
+	<tr><div>
 		<td></td>
 		<td>
 			
@@ -188,17 +188,17 @@ background: transparent url(/popup_bg_01.png) repeat 0 0;
 		<td>
 		{{ field.help_text }}
 		</td>
-	</tr></div>
+	</tr>
 	
 	{% endfor %}
 	
-	<tr>
+	<tr><td colspan="2">
 		
-		<iframe src="/upload_ico" width="600" height="150" scrolling="no" name="frm_ico" border="0" frameborder="0" align="texttop">
+		<iframe src="/upload_ico/{{ news_id }}" width="700" height="150" scrolling="no" name="frm_ico" border="0" frameborder="0" align="texttop">
 		</iframe>
-		
+		</td>
 	
-	</tr>
+	</tr></div>
 
 </table>
 

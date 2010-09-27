@@ -2,6 +2,7 @@ libs/*
 dj_site/local_settings.py
 *.pyc
 *~
+*.bak
 media/news/*
 media/report/*
 media/article/*
