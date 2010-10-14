@@ -16,7 +16,7 @@ MEDIA_URL = '/s/'
 ADMIN_MEDIA_PREFIX = '/media/'
 
 FILE_UPLOAD_HANDLERS = (
-    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    #"django.core.files.uploadhandler.MemoryFileUploadHandler",
     "django.core.files.uploadhandler.TemporaryFileUploadHandler",
 )
 

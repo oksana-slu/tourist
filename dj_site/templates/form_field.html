@@ -1,0 +1,26 @@
+    <tr><td></td>
+        <td>
+            
+            {% if field.errors %}
+            <ul><span style="color: red;">
+            {% for error in field.errors %}
+                <li><strong>{{ error|escape }}</strong></li>
+            {% endfor %}
+            </span>
+            </ul>
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ field.label_tag }}:
+        </td>
+        <td>
+            {{ field }}
+            
+        </td>
+    <tr><td></td>
+        <td>
+        {{ field.help_text }}
+        </td>
+    </tr>

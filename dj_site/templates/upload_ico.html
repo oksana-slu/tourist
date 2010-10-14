@@ -3,7 +3,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 </head>
 <body>
-
+	
 <form action="{{ SITE_URL }}upload_ico/{{ news_id }}" method="post" enctype="multipart/form-data">
 {% csrf_token %}
 <table><tr><div><td></td>
@@ -21,6 +21,9 @@
 	<tr><td>
 	{{ form.ico.label_tag }}:
 	</td><td>
+			{% if ico %}
+			<img src='{{ ico }}' height=59 width=79>
+			{% endif %}
 	{{ form.ico }}
 	<input name="submit" value="Отправить" type="submit">
 	<input name="reset" value="Сброс" type="reset">	

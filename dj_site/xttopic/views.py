@@ -102,7 +102,7 @@ class EditNewsForm(forms.Form):
     description = forms.CharField(widget=forms.Textarea(attrs={'cols': '80', 'rows': '3'}),
                                   max_length=200, label=u'Краткое описание',
                                   help_text=' Отображается в списке рядом с иконкой')
-    text = forms.CharField(widget=forms.Textarea(attrs={'cols': '80', 'rows': '10'}),
+    newstext = forms.CharField(widget=forms.Textarea(attrs={'cols': '80', 'rows': '10'}),
                                   label=u'Текст', required=False)
 
 
@@ -146,7 +146,7 @@ def edit_news(request, news_id=None):
             root_tree = etree.Element("topic")
             sheet = etree.SubElement(root_tree, "sheet")
             text = etree.SubElement(sheet, "text")
-            text.text = cleaned_data['text']
+            text.text = cleaned_data['newstext']
             tree = etree.ElementTree(root_tree)
             tree.write(fp, encoding="utf-8", pretty_print=True)
             fp.close            
@@ -168,7 +168,7 @@ def edit_news(request, news_id=None):
     else:
         initial = dict(name=news_object.title,
                        description=news_object.description,
-                       text=news_object.get_text())
+                       newstext=news_object.get_text())
         checked_xt_classes = object_object.xtclass().values_list('xtclass__pk', flat=True)
         topicstat = object_object.status
         
@@ -189,31 +189,27 @@ class IcoForm(forms.Form):
     
     
 def handle_uploaded_file(f, news_id):
-    file_name = os.path.join(settings.MEDIA_ROOT, 'news', news_id, 'ico.jpg')
+    file_name = os.path.join(settings.MEDIA_ROOT, 'news', str(news_id), 'ico.jpg')
     destination = open(file_name, 'wb+')
-    destination.write(f)
+    destination.write(f.read())
     destination.close()
     
     
 def get_file_ico(news_id):    
-    file_name = os.path.join(settings.MEDIA_ROOT, 'news', news_id, 'ico.jpg')
-    fp = open(file_name, 'r')    
-    return fp.read()
-        
+    file_name = os.path.join(settings.MEDIA_URL, 'news', news_id, 'ico.jpg')
+    return file_name
 
 
 def upload_ico(request, news_id):
+    ico = get_file_ico(news_id)    
     if request.method == 'POST':
         form = IcoForm(request.POST, request.FILES)
         if form.is_valid():
             handle_uploaded_file(request.FILES['ico'], news_id)
-            return HttpResponseRedirect('/upload_ico/%d' % news_id )
+            return HttpResponseRedirect('/upload_ico/%s' % str(news_id))
     else:
-        ico = get_file_ico(news_id)        
-        initial = dict(ico=ico)        
-        form = IcoForm(initial=initial)
-        print ico
-    return render_to_response('upload_ico.html', {"news_id": news_id},
-                              context_instance=RequestContext(request, {'form': form}))
+        form = IcoForm()
+    return render_to_response('upload_ico.html', 
+                              RequestContext(request, {'form': form, "news_id": news_id, 'ico': ico}))
                             
                             
