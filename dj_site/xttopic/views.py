@@ -7,8 +7,9 @@ from django.conf import settings
 import os
 from lxml import etree
 import lxml.etree
+
 from django.shortcuts import get_object_or_404, render_to_response
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from dj_site.xtclass.models import XtClass
@@ -92,6 +93,49 @@ def add_news(request):
         form = NewsForm() 
 
     return render_to_response('add_news.html', {},
+                              context_instance=RequestContext(request, {'form': form}))
+
+
+def add_topic(request, part):
+    if request.method == 'POST': 
+        form = NewsForm(request.POST) 
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            topic_object = XtTopic(title=cleaned_data['name'],
+                                 description=cleaned_data['description'],
+                                 author_id=request.user.id)
+            topic_object.save()
+
+            now_date = datetime.now()
+            now_timestamp = time.mktime(now_date.timetuple())
+            topic_object.date = int(now_timestamp)
+
+            if part == 'add_report':
+               topic_object.path = 'report/%d/' % topic_object.id
+               topic_object.save()
+               edit_topic = 'edit_report'
+               object_object = XtObject(content_object=topic_object,
+                                     xtobjecttype_id=2)
+               object_object.save()
+            else:
+               topic_object.path = 'article/%d/' % topic_object.id
+               topic_object.save()
+               edit_topic = 'edit_article'
+               object_object = XtObject(content_object=topic_object,
+                                     xtobjecttype_id=1)
+               object_object.save()
+               
+            
+            path_name = os.path.join(settings.MEDIA_ROOT, topic_object.path)
+            os.mkdir(path_name, 0777)            
+            
+
+
+            return HttpResponseRedirect('/%s/%d' % (str(edit_topic), topic_object.id))
+    else:
+        form = NewsForm() 
+
+    return render_to_response('add_news.html', {'part': part},
                               context_instance=RequestContext(request, {'form': form}))
                               
                               
@@ -180,6 +224,87 @@ def edit_news(request, news_id=None):
                                                  "news_id": news_id,
                                                  "topicstat": topicstat},
                               context_instance=RequestContext(request, {'form': form}))
+
+                            
+def edit_topic(request, part, topic_id=None):
+    geogr_xt_classes = XtClass.objects.filter(xtclasstype__pk=2,
+                                             childs__parent=0).\
+                                             order_by('-class_order')
+    napr_xt_classes = XtClass.objects.filter(xtclasstype__pk=1,
+                                             childs__parent=0).\
+                                             order_by('-class_order')
+    hrdly_xt_classes = XtClass.objects.filter(xtclasstype__pk=3,
+                                             childs__parent=0).\
+                                             order_by('-class_order')
+    if topic_id is not None:
+        topic_object = XtTopic.objects.get(pk=topic_id)
+        object_object = XtObject.objects.get(object_id=topic_object.pk,
+                                             content_type=ContentType.objects.get_for_model(XtTopic))
+                                            
+                                            
+    if request.method == 'POST':
+        checked_xt_classes = [int(item) for item in request.POST.getlist('xtclasschk')]
+        form = EditNewsForm(request.POST)
+        if 'topicstat' in request.POST:
+            topicstat = int(request.POST['topicstat'])
+        else:
+            topicstat = 3
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            topic_object.title = cleaned_data['name']
+            topic_object.description = cleaned_data['description']
+            topic_object.save()
+            
+                        
+            now_date = datetime.now()
+            now_timestamp = time.mktime(now_date.timetuple())
+            topic_object.date = int(now_timestamp)
+            topic_object.save()
+            
+            file_name = os.path.join(settings.MEDIA_ROOT, topic_object.path, 'topic.xml')
+            fp = open(file_name, "w")
+            root_tree = etree.Element("topic")
+            sheet = etree.SubElement(root_tree, "sheet")
+            text = etree.SubElement(sheet, "text")
+            text.text = cleaned_data['newstext']
+            tree = etree.ElementTree(root_tree)
+            tree.write(fp, encoding="utf-8", pretty_print=True)
+            fp.close            
+                        
+            object_object.status = topicstat
+            object_object.save()
+                        
+            XtC2O.objects.filter(xtobject=object_object).delete()
+            for xt_class_item in checked_xt_classes:
+                XtC2O.objects.create(xtobject=object_object,
+                                     xtclass_id=xt_class_item)
+            
+            if 'deletelink' in request.POST:                    
+                topic_object.delete()
+                object_object.delete()
+                if part == 'edit_report':
+                   add_topic = 'add_report'
+                else:
+                   add_topic = 'add_article'
+                return HttpResponseRedirect('/%s' % add_topic)
+            
+            return HttpResponseRedirect('/%s/%d' % (str(part), news_object.id))
+    else:
+        initial = dict(name=topic_object.title,
+                       description=topic_object.description,
+                       newstext=topic_object.get_text())
+        checked_xt_classes = object_object.xtclass().values_list('xtclass__pk', flat=True)
+        topicstat = object_object.status
+        
+        form = EditNewsForm(initial=initial) 
+    return render_to_response('edit_news.html', {"napr_xt_classes": napr_xt_classes,
+                                                 "geogr_xt_classes": geogr_xt_classes,
+                                                 "hrdly_xt_classes": hrdly_xt_classes,
+                                                 "checked_xt_classes": checked_xt_classes,
+                                                 "news_id": topic_id,
+                                                 "part": part,
+                                                 "topicstat": topicstat},
+                              context_instance=RequestContext(request, {'form': form}))
                             
 
 
@@ -196,12 +321,25 @@ def handle_uploaded_file(f, news_id):
     
     
 def get_file_ico(news_id):    
-    file_name = os.path.join(settings.MEDIA_URL, 'news', news_id, 'ico.jpg')
-    return file_name
+    ico_url = os.path.join(settings.MEDIA_URL, 'news', news_id, 'ico.jpg')
+    ico_path = os.path.join(settings.MEDIA_ROOT, 'news', news_id, 'ico.jpg')
+    return ico_url, ico_path
 
 
 def upload_ico(request, news_id):
-    ico = get_file_ico(news_id)    
+    if news_id is not None:
+        news_object = XtNews.objects.get(pk=news_id)
+        object_object = XtObject.objects.get(object_id=news_object.pk,
+                                             content_type=ContentType.objects.get_for_model(XtNews))
+    else:
+        raise Http404
+
+    ico_url, ico_path = get_file_ico(news_id)
+    if os.path.isfile(ico_path):
+        ico = ico_url
+    else:
+        ico = None
+
     if request.method == 'POST':
         form = IcoForm(request.POST, request.FILES)
         if form.is_valid():
