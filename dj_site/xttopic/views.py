@@ -288,7 +288,7 @@ def edit_topic(request, part, topic_id=None):
                    add_topic = 'add_article'
                 return HttpResponseRedirect('/%s' % add_topic)
             
-            return HttpResponseRedirect('/%s/%d' % (str(part), news_object.id))
+            return HttpResponseRedirect('/%s/%d' % (str(part), topic_object.id))
     else:
         initial = dict(name=topic_object.title,
                        description=topic_object.description,
@@ -313,28 +313,45 @@ class IcoForm(forms.Form):
                            help_text='Загружайте только файлы jpg размером не больше 2МБ!')
     
     
-def handle_uploaded_file(f, news_id):
-    file_name = os.path.join(settings.MEDIA_ROOT, 'news', str(news_id), 'ico.jpg')
+def handle_uploaded_file(f, part, news_id):
+    if part == 'edit_news':
+       part = 'news'
+    if part == 'edit_report':
+       part = 'report'
+    if part == 'edit_article':
+       part = 'article'
+    file_name = os.path.join(settings.MEDIA_ROOT, part, str(news_id), 'ico.jpg')
     destination = open(file_name, 'wb+')
     destination.write(f.read())
     destination.close()
     
     
-def get_file_ico(news_id):    
-    ico_url = os.path.join(settings.MEDIA_URL, 'news', news_id, 'ico.jpg')
-    ico_path = os.path.join(settings.MEDIA_ROOT, 'news', news_id, 'ico.jpg')
+def get_file_ico(part, news_id):
+    if part == 'edit_news':
+       part = 'news'
+    if part == 'edit_report':
+       part = 'report'
+    if part == 'edit_article':
+       part = 'article'
+    ico_url = os.path.join(settings.MEDIA_URL, part, news_id, 'ico.jpg')
+    ico_path = os.path.join(settings.MEDIA_ROOT, part, news_id, 'ico.jpg')
     return ico_url, ico_path
 
 
-def upload_ico(request, news_id):
+def upload_ico(request, part, news_id):
     if news_id is not None:
-        news_object = XtNews.objects.get(pk=news_id)
-        object_object = XtObject.objects.get(object_id=news_object.pk,
+       if part != 'edit_news':
+          topic_object = XtTopic.objects.get(pk=news_id)
+          object_object = XtObject.objects.get(object_id=topic_object.pk,
+                                             content_type=ContentType.objects.get_for_model(XtTopic))
+       else:
+          news_object = XtNews.objects.get(pk=news_id)
+          object_object = XtObject.objects.get(object_id=news_object.pk,
                                              content_type=ContentType.objects.get_for_model(XtNews))
     else:
         raise Http404
 
-    ico_url, ico_path = get_file_ico(news_id)
+    ico_url, ico_path = get_file_ico(part, news_id)
     if os.path.isfile(ico_path):
         ico = ico_url
     else:
@@ -343,11 +360,11 @@ def upload_ico(request, news_id):
     if request.method == 'POST':
         form = IcoForm(request.POST, request.FILES)
         if form.is_valid():
-            handle_uploaded_file(request.FILES['ico'], news_id)
-            return HttpResponseRedirect('/upload_ico/%s' % str(news_id))
+            handle_uploaded_file(request.FILES['ico'], part, news_id)
+            return HttpResponseRedirect('/upload_ico/%s/%s' % (str(part), str(news_id)))
     else:
         form = IcoForm()
     return render_to_response('upload_ico.html', 
-                              RequestContext(request, {'form': form, "news_id": news_id, 'ico': ico}))
+                              RequestContext(request, {'form': form, "news_id": news_id, 'ico': ico, "part": part}))
                             
                             
