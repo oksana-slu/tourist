@@ -5,8 +5,11 @@ from datetime import datetime
 import time
 from django.conf import settings
 import os
-from lxml import etree
-import lxml.etree
+try:
+    from lxml import etree
+except ImportError:
+    from elementtree import ElementTree as etree
+
 
 from django.shortcuts import get_object_or_404, render_to_response
 from django.http import HttpResponseRedirect, HttpResponse, Http404

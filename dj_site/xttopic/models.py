@@ -2,7 +2,10 @@
 # -*- coding: utf-8 -*-
 import os
 from datetime import date
-from lxml import etree
+try:
+    from lxml import etree
+except ImportError:
+    from elementtree import ElementTree as etree
 
 from django.db import models
 from django.http import Http404
@@ -27,7 +30,7 @@ class XtTopicAbstract(models.Model):
     def __init__(self, *karg, **kwarg):
         super(XtTopicAbstract, self).__init__(*karg, **kwarg)
         self._sheets_count = None
-        
+
     def dateformat(self):
         return date.fromtimestamp(long(self.date))
 
