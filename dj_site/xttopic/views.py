@@ -195,7 +195,7 @@ def edit_news(request, news_id=None):
             text = etree.SubElement(sheet, "text")
             text.text = cleaned_data['newstext']
             tree = etree.ElementTree(root_tree)
-            tree.write(fp, encoding="utf-8", pretty_print=True)
+            tree.write(fp, encoding="utf-8") #, pretty_print=True)
             fp.close            
                         
             object_object.status = topicstat
@@ -271,7 +271,7 @@ def edit_topic(request, part, topic_id=None):
             text = etree.SubElement(sheet, "text")
             text.text = cleaned_data['newstext']
             tree = etree.ElementTree(root_tree)
-            tree.write(fp, encoding="utf-8", pretty_print=True)
+            tree.write(fp, encoding="utf-8") #, pretty_print=True)
             fp.close            
                         
             object_object.status = topicstat

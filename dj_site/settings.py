@@ -13,7 +13,7 @@ USE_L10N = True
 
 MEDIA_ROOT = PROJECT_ROOT + 'media/'
 MEDIA_URL = '/s/'
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/adminmedia/'
 
 FILE_UPLOAD_HANDLERS = (
     #"django.core.files.uploadhandler.MemoryFileUploadHandler",
